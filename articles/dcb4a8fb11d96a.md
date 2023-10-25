@@ -10,29 +10,59 @@ published: false
 1. はじめに
 1. AI研究の全体像
 1. AI技術関連史
-1. 論文を読むにあたって
+1. 今後のAI技術について
 1. おわりに
 
 # はじめに
-ChatGPTの勢いがすごい。テキトーに使っていては振り回される
+AIに支配されうる未来が見え始めている。
+ChatGPTをはじめとする生成AIにより、技術者に限らず、AIに頼らざるを得ない状況になった。技術進展スピードと影響力を考えると、より一層AIが影響を与える範囲は広がっていくことは間違いない。しかし発展が目まぐるしく、高度すぎる技術になっているため、一朝一夕では最新のAI技術についてキャッチアップすることはできなくなっており、よくわからないままAIに触れることになってしまったり、AIという技術が実はとっつきにくいものになってしまった。
+その結果、上辺だけのAI議論、過剰な期待・恐怖、不適切な利用を招いてしまう危険がある。そしてそんなことをしているうちにAIがより高度になり、気づかないうちにAIが人間を支配、すなわち単独で人間社会を最適化し始めるということは、もはや起こりえない夢のではなくなっている。したがって、AIという「技術」に対して向き合うことは今後大変重要になってくるはずである。本記事では、これからAIの勉強を始めたい人や再度情報の整理をしたい人に向け、AI界隈の状況についてまとめた。
 
 # AI研究の全体像
+## AIが担うタスク
+現実世界で用いられるAIは、人間の補助（人間の仕事を手伝う）・代替（人間の代わりに仕事をする）・拡張（人間よりも高度な仕事をする）という立ち位置であることが多い。次章で述べるが、AIの発端は「人間のような知的な機械」という発想である。したがって、AIが担うタスクは、基本的には人間の活動になぞらえるとよいと考えられる。具体的には、見る・聞く・読むことで得た情報を処理し、意思決定・認識（分類）・話す・書くを行うことになる。
+
+- 入力
+    - 見る
+    - 聞く
+    - 読む
+- 出力
+    - 意思決定
+    - 認識（分類）
+    - 言う
+    - 書く
+
+> **note**
+嗅覚・触覚・味覚に関するセンサーが一般的でないため、それらを入力とするAIはまだ少ないため、記載していない。今後、第六感にも期待。
+
 ## 用語・分類
-AI技術に対する期待とは
 AI
 - Symbolic AI（Symbolic reasoning）
 - Subsymbolic AI
 - Machine learning
+
+SymbolicとConnectionistはLearning systemが違う
 https://www.linkedin.com/pulse/what-artificial-intelligence-without-machine-learning-claudia-pohlink/
+
 ## プログラムとAIプログラムの違い
 固定動作：プログラム（人間の偏見の影響を受ける）
-自己調整する：AI（人間の想定を超える）
+自己調整する：AI（人間の想定を超える）、答えがあるかどうかわからない問題に取り組む、答えが想定されすぎていない
  
+## 研究の視点
+およそ、下記の3つの視点での研究活動が行われている。ただし、それぞれ影響を与え合っているため、取り組みをそれぞれに分類することは難しい。
+- Architechture
+AIモデルの構造（例：どんなニューラルネットワークを組むか）
+- Optimization
+どのように推論モデルを最適化するか（例：ニューラルネットワークのパラメータをどのように決めるか）
+- Generalization
+どんな問題でも対応できるか（例：学習したデータ以外の場合にも対応できるか、ノイズ耐性）
+
 # AI技術関連史　　
 AI技術に対する期待とは
 
-##  ~ 1957（学問分野としてAIが誕生）
+##  ~ 1957年ごろ：「AI」誕生
 17世紀に活躍したドイツの学者[Gottfried Wilhelm Leibniz](https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz)は、安全・時間浪費の観点から計算は人間ではなく機械がするべきであるという考え方を持っており、[Pascalの計算機](https://en.wikipedia.org/wiki/Pascal%27s_calculator)をもとにして、長さの異なる歯をもつシリンダーと移動式の歯車を組み合わせて計算（基本的には自然数の四則演算）を可能にしたStepped reckonerまたはLeibniz Wheel（ライプニッツの車輪）と呼ばれる手動機械式の計算機を、1694年に完成させた[^10-4] [^10-5]。これをきっかけにLeibnizは、数学的記述（mathmatical statement、詳細は以下の**note 1**を参照）の真理値を決定できる機械を作ることができるのではないかと考えるようになった。それが実現できると、機械が論理を扱うことができるようになるため、どういう場合には何をするといった**場合分け処理**や、明確な理由がある**推論**といった[^10-8]、より知的な処理が可能になる。機械が論理を扱うためには、人間が自然に行っているコミュニケーションのような、曖昧さが残る表現やその時によって用法・意味が変わるような**自然言語**（natual langage）ではなく、文法・意味が形式的に与えられて明確に論理が展開できる**形式言語**（formal language）が必要であると考え、Leibnizの研究は形式言語を用いた**形式理論**（formal theory）にも重きが置かれるようになっていった。さらに、Leibnizは活動の中で、現代のコンピュータの基礎となっている2進数演算（binary arithmetics）や[^10-9]、2進数コンピュータ（binary computer）についても功績を残している[^10-10]。
+*上記議論とSymbolとの関係*
 
 > **note 1**
 数学的記述（mathmatical statement）は、正しい（真）か間違っている（偽）かが判断できる「文」であり、言葉や記号（symbol）が含まれる。例えば、言葉を使った「1は2よりも大きい」や、記号を使った「1>2」という文は、「偽」であるmathmatical statementである。
@@ -63,7 +93,7 @@ Heuristics? Reasoning search?
 Logic AI
 https://plato.stanford.edu/entries/logic-ai/
 
-上記のように、この頃、「考える機械（thinking machine）」に関する取り組みが非常に活発だったと言えるが、Dartmouth大学の数学助教授だったJohn McCarthyがより明確にその研究領域を発展させるために[^10-45]、DSRPAI（Dartmouth Summer Research Project on Artificial Intelligence、ダートマス会議）でRockefeller財団にセミナーのための資金提供を要請し、その研究領域を**人工知能（Artificial Intelligence）**と名付けた[^10-44]。これが、AIという用語が使われた最初の文書であり[^10-46]、これがAIという研究分野の誕生とされる（1956年にDSRPAIが開催され、Logic theoristはそこで発表された[^10-43]）。
+上記のように、この頃、「考える機械（thinking machine）」に関する取り組みが非常に活発だったと言えるが、Dartmouth大学の数学助教授だったJohn McCarthyがより明確にその研究領域を発展させるために[^10-45]、DSRPAI（Dartmouth Summer Research Project on Artificial Intelligence、ダートマス会議）でRockefeller財団にセミナーのための資金提供を要請し、その研究領域を**人工知能**（**Artificial Intelligence**）と名付けた[^10-44]。これが、AIという用語が使われた最初の文書であり[^10-46]、これがAIという研究分野の誕生とされる（1956年にDSRPAIが開催され、Logic theoristはそこで発表された[^10-43]）。
 
 > **note 5**
 Research and Development (RAND) Corporationとは（割愛）
@@ -131,10 +161,11 @@ https://sitn.hms.harvard.edu/flash/2017/history-artificial-intelligence/)
 [^10-54]: [The History and Status of the P versus NP Question](https://dl.acm.org/doi/pdf/10.1145/129712.129771)
 [^10-55]: [The Rise In Computing Power: Why Ubiquitous Artificial Intelligence Is Now A Reality](https://www.forbes.com/sites/intelai/2018/07/17/the-rise-in-computing-power-why-ubiquitous-artificial-intelligence-is-now-a-reality/?sh=548777ca1d3f)
 
-## 1957 ~ 1980（第一次AIブーム：決められたパターンの中から最適な方法を探索するAI）
+## 1957~1980年ごろ: Logic-based AI
+（決められたパターンの中から最適な方法を探索するAI）AI の問題解決手法 (主に検索ベースの手法)
 本節以降では、AIのアルゴリズムや技術の変遷に注目するため発明者や関係者は割愛する場合がある。
-### boom 1957 ~ 1974
-1958年、Connectionist AIの分野では、RosenblattによりPerceptronと呼ばれる単層のニューラルネットワークが発明された。Perceptronは、MPニューロンが0または1の2つの値のみを扱うのに対して小数点以下を含んだ値を扱うようになり、加えてHebb理論で導入された重みを教師データを用いて調節する、すなわち前節のSNARC同様に機械が学習する方法（**教師あり学習**、Supervised Learning。詳細は割愛）も考案された[^20-4] [^20-5]。
+### 1st AI boom
+1958年、Connectionist AIの分野では、RosenblattによりPerceptronと呼ばれる単層のニューラルネットワークが発明された。Perceptronは、MPニューロンが0または1の2つの値のみを扱うのに対して小数点以下を含んだ値を扱うようになり、加えてHebb理論で導入された重みを教師データを用いて調節する、すなわち前節のSNARC同様に機械が学習する方法も考案された[^20-4] [^20-5]。このような学習方法は**教師あり学習**（Supervised Learning）と呼ばれ、これに対して教師データを用いないこの頃主流だった学習方法は**教師なし学習**（Unsupervised Learning）と呼ばれるようになっていく。
 このように人間がルールを作らずに機械に学習能力を与える研究分野に対して、1959年にArthur Samuelが**Machine Learning**（**機械学習**）という言葉を提唱した[^20-10]。Samuel自身も1952年に[Checkers](https://ja.wikipedia.org/wiki/%E3%83%81%E3%82%A7%E3%83%83%E3%82%AB%E3%83%BC)をプレイするプログラムを作成し[^20-8]（[Alpha-beta pruning](https://lethediana.sakura.ne.jp/tech/archives/uncategorized-ja/2134/)と呼ばれる方法で効率的に戦略を探索させた）、1955年にRot Learningと呼ばれる方式で勝者の戦略を学習可能とし[^20-11]、1959年に当時のベストプレイヤーを打ち負かしている[^20-9]。
 
 > **note 3**
@@ -142,7 +173,7 @@ https://sitn.hms.harvard.edu/flash/2017/history-artificial-intelligence/)
 
 ただし、この時期のAI研究はSymbolic AIの分野がより大きな盛り上がりを見せていた。
 
-様々な特定のタスクに対するAI（前節のLogic Theoristの場合、定理の証明というタスク）がメインだったが、1959年にAllen NewellとHerbert A. SimonによりGeneral Problem Solver（GPS）と呼ばれる、一般的なタスクに対応することを意図したAIが発明された[^20-13]。GPSは、到達したい目標へ一足飛びにたどり着けない場合に、目標との差から中間目標を作って徐々に目標に近づく[Means End Analysis](https://lethediana.sakura.ne.jp/tech/archives/summary-ja/2143/)（MEA）と呼ばれる手法を導入しており、GPS以後、MEAはAIに広く利用された[^20-14]。
+様々な特定のタスクに対するAI（前節のLogic Theoristの場合、定理の証明というタスク）がメインだったが、1959年にAllen NewellとHerbert A. Simonにより**General Problem Solver**（**GPS**）と呼ばれる、一般的なタスクに対応することを意図したAIが発明された[^20-13]。GPSは、到達したい目標へ一足飛びにたどり着けない場合に、目標との差から中間目標を作って徐々に目標に近づく[Means End Analysis](https://lethediana.sakura.ne.jp/tech/archives/summary-ja/2143/)（MEA）と呼ばれる手法を導入しており、GPS以後、MEAはAIに広く利用された[^20-14]。
 *Forward searchとBackward searchを組み合わせた手法・・・*
 
 > **note 3**
@@ -150,56 +181,23 @@ https://sitn.hms.harvard.edu/flash/2017/history-artificial-intelligence/)
 - SOAR（1982）[Laird, John & Rosenbloom, Paul. (1994). The Evolution of the Soar Cognitive Architecture. ]
 - GOMS
 
-このようなAI研究の成功に加え、1961年に世界初のICチップが販売[^20-15]（これまでのコンピュータ（IBM704）がメモリ不足だった[^20-16]というAI研究に対するボトルネックを克服するハードウェアの進化）、1962年にARPA（Advanced Research Projects Agency、高等研究計画局）にIPTO（Information Processing Techniques Office、情報処理技術局）の設立と[^20-17]、それによるマサチューセッツ工科大学（MIT）、スタンフォード大学（SAIL（Stanford Artificial Intelligence Laboratory）、Stanford HPP（Heuristics Programming Project）等）、カーネギーメロン大学をはじめとするAI研究への投資などにより、AI研究の規模が根本的に変わり、小規模なプロジェクトの集まりから大規模で注目度の高い分野へと推進された[^20-18]。
-1965年にはHPPでDENDRAL（DENDRitic ALgorithm）と呼ばれる、化学者が未知の有機分子を特定できるように分子のスペクトル分析を行い構造を示すAIの開発が開始された[^20-19]。SAILのコンピュータPDP-6で作成されたプログラムであり、
+このようなAI研究の成功に加え、1961年に世界初のICチップが販売[^20-15]（これまでのコンピュータ（IBM704）がメモリ不足だった[^20-16]というAI研究に対するボトルネックを克服するハードウェアの進化）、1965年のムーアの法則[^20-31]、1962年にARPA（Advanced Research Projects Agency、高等研究計画局）にIPTO（Information Processing Techniques Office、情報処理技術局）の設立と[^20-17]、それによるマサチューセッツ工科大学（MIT）、スタンフォード大学（SAIL（Stanford Artificial Intelligence Laboratory）、Stanford HPP（Heuristics Programming Project）等）、カーネギーメロン大学をはじめとするAI研究への投資などにより、AI研究の規模が根本的に変わり、小規模なプロジェクトの集まりから大規模で注目度の高い分野へと推進された[^20-18]。
+1965年にはHPPでDENDRAL（DENDRitic ALgorithm）と呼ばれる、化学者が未知の有機分子を特定できるように分子のスペクトル分析を行い構造を示すAIの開発が開始された[^20-19]。SAILのコンピュータPDP-6で作成されたプログラムであり、分子を構成する原子の情報や、探索の優先度など化学者の知識をあらかじめ組み込み、それらを利用して質量分析を行うことができる[^20-21] [^20-22]（プログラムの構成等については[こちら](https://lethediana.sakura.ne.jp/tech/archives/summary-ja/2154/)も参照ください）。**DENDRAL**はルールベースで（ゲーム等ではない）現実の問題のために作られたプログラムであると言われる[^20-20]。次節で述べるが、DENDRALはこの後も開発が継続される。
+また、1966年にはMITのMAC time-sharingシステム上で**ELIZA**という自然言語処理のAIプログラムが開発された[^20-25]。GUIを持ち、ユーザーの入力からキーワードやフレーズを認識して事前にプログラムされたフレーズからユーザーへの応答を行うため、世界初のChatbotと称されている[^20-23]。プログラム内では、If-thenルールを用いた、単純なパターンマッチングを行っており、膨大な数の会話パターンを事前に用意しておかなければならなかったが[^20-24]、Rogerian療法のセラピストとして応対するバージョン（DOCTOR）で有名になった[^20-26] [^20-27]。
 
-DENDRALはルールベースで（ゲーム等ではない）現実の問題のために作られたプログラムであると言われる[^20-20]。
+> **note 3**
+ELIZA効果（割愛）
 
-Dendralその後
-https://dl.acm.org/doi/pdf/10.1145/89482.89484
+The nearest neighbour algorithm was introduced in 1967,
 
-1965 Expert systems were formally introduced around 1965[20] by the Stanford Heuristic Programming Project led by Edward Feigenbaum, who is sometimes termed the "father of expert systems";: Decision tree
+その他、自らの行動を推論できる初の汎用移動ロボットであるShakey the robotや[^20-28]、世界初のPlannningシステムであるSTRIPS（STanford Research Institute Problem Solver）等も[^20-29] [^20-30]、この頃のAIの例として挙げられるが、詳細は割愛する。
 
-
-1966 Joseph Weizenbaum’s ELIZA
-Computer scientist Joseph Weizenbaum famously illustrated the limitations of AI 
-in the 1960s with the development of the Eliza program. The program 
-extracted key phrases and mimicked human dialogue in the manner of non-
-directional psychotherapy. The user might enter, ``I do not feel well 
-today,'' to which the program would respond, ``Why do you not feel well 
-today?'' Weizenbaum later argued in Computer Power and Human Reason 
-that computers would likely gain enormous computational power but 
-should not replace people because they lack such human qualities and 
-compassion and wisdom.
-https://www.govinfo.gov/content/pkg/CHRG-114shrg24175/html/CHRG-114shrg24175.htm
-
-https://www.lamsade.dauphine.fr/~cazenave/papers/games.pdf
-
-1967 – Machines gained the ability to recognize patterns 
-    The “nearest neighbor” algorithm was created,
-
-1968 Shakey the robot
-1971 Blocksworld planning and reasoning domain
-1968 ムーアの法則
-
-
-1969: Minsky and Pappert's "Perceptrons" book shows single-layer NN can't represent XOR
-ただし、Perceptronは2種類かつ比較的単純な分類タスク（厳密には、線形分離可能なタスク）にしか対応できないことがわかり[^20-3]、1969年に出版されたPerceptrons: an introduction to computational geometryという書籍で単純な論理 XOR 関数を学習できないことを示されるなど[^20-6]、Connectionist AIの分野は冬の時代に。
-
-
-(政府は、話し言葉の書き起こしと翻訳、および高スループットのデータ処理ができるマシンに特に関心を持っていました。)
-
-Most of the federal support has come from the Defense Advanced Research Projects Agency (DARPA, known during certain periods as ARPA) and other units of the Department of Defense (DOD). Other funding agencies have included the National Institutes of Health, National Science Foundation, and National Aeronautics and Space Administration (NASA), which have pursued AI applications of particular relevance to their missions—health care, scientific research, and space exploration.
-https://nap.nationalacademies.org/read/6323/chapter/11#204
-
-### winter 1974 ~ 1980
-問題点
-- コンピューターは、十分な情報を保存したり、十分な速度で処理したりすることができませんでした
-- 
-- Perceptronの線形問題　しかしながら、欠陥が見つかった
-
-
-[^20-1]: [人工知能用言語 Lispの今と将来](https://www.jstage.jst.go.jp/article/jjsai/24/5/24_681/_pdf)
+### 1st AI Winter
+前節のような盛り上がりを見せたAI研究も、1960年代後半ごろから冬の時代が訪れた。
+Rosenblattに発明されたPerceptronは2種類かつ比較的単純な分類タスク（厳密には、線形分離可能なタスク）にしか対応できないことがわかり[^20-3]、1969年に出版された*Perceptrons: an introduction to computational geometry*という書籍で単純な論理XOR関数を学習できないことを示されるなど[^20-6]、非常に厳しい目を向けられることとなった。またこの頃の多くの研究者が、1965年頃から使われだした**強化学習**（try and errorで学習していく方法）に取り組んでいるつもりが、教師あり学習になってしまうケースが多発するなどの混乱もあり、学習アルゴリズムにフォーカスした研究が多くなかった[^20-38]。John AndreaeがSTeLLA（Standard Telecommunication Laboratories[^20-37]）という環境からtrial and errorで学習を行う（後の強化学習）システムを発明しても注目度が上がらないなど[^20-36]、Connectionist AIや機械学習の分野は下火になっていた。
+そして、1969年のマンスフィールド修正案により、ARPAの後身となるDARPA（Defense Advanced Research Projects Agency）の投資対象を、基礎研究ではなく具体的な目的をもった研究を重視するように大きく変更された[^20-35]。
+それに加え、1973年にScience Research Council（イギリスの科学研究評議会）に向けてAI研究の評価を行ったLighthill reportで、航空機の自動着陸システムがAIよりも従来手法の方が優れていること、AIプログラムの作りこみが難しいこと、組み合わせ爆発問題が起こること等に注目し、AI研究に対して悲観的な見解を示した[^20-32] [^20-33] [^20-34]。
+このような流れもあって資金の確保が難しくなり、AI研究の勢いは次第に失速した。AIへの期待は、人間の脳のような柔軟性や汎用性をもってほしいという究極の知性よりも、特定の分野であってもより現実的な問題の解決へと移っていった。
 
 [^20-3]:[The Perceptron: A Perceiving and Recognizing Automaton (Project PARA)](https://blogs.umass.edu/brain-wars/files/2016/03/rosenblatt-1957.pdf)
 [^20-3]:[Perceptrons_book in *Wikipedia*](https://en.wikipedia.org/wiki/Perceptrons_(book))
@@ -220,53 +218,203 @@ https://nap.nationalacademies.org/read/6323/chapter/11#204
 [^20-18]: [Developments in Artificial Intelligence](https://nap.nationalacademies.org/read/6323/chapter/11#204)
 [^20-19]: [DENDRAL: a case study of the first expert system for scientific hypothesis formation](https://web.mit.edu/6.034/www/6.s966/dendral-history.pdf)
 [^20-20]: [An analysis on the dendral expert system](https://www.grin.com/document/213082)
+[^20-21]: [Buchanan, Bruce & Feigenbaum, E.A. & Lederberg, J.. (1968). Heuristic DENDRAL: A program for generating explanatory hypotheses in organic chemistry. Machine Intelligence. 4. ](https://www.researchgate.net/publication/23622692_Heuristic_DENDRAL_A_program_for_generating_explanatory_hypotheses_in_organic_chemistry)
+[^20-22]: [DENDRAL and Meta-DENDRAL roots of knowledge systems and expert system applications](https://stacks.stanford.edu/file/druid:rv258md4469/rv258md4469.pdf)
+[^20-23]: [Story of ELIZA, the first chatbot developed in 1966](https://analyticsindiamag.com/story-eliza-first-chatbot-developed-1966/)
+[^20-24]: [Natural Language Processing](https://www.inf.ed.ac.uk/teaching/courses/il1/slides/19-nlp2-2011-11-15.pdf)
+[^20-25]:[ELIZA A Computer Program For the Study of Natural Language Communication Between Man And Machine](https://web.stanford.edu/class/cs124/p36-weizenabaum.pdf)
+[^20-26]: [ELIZA: a very basic Rogerian psychotherapist chatbot](https://web.njit.edu/~ronkowit/eliza.html)
+[^20-27]: [The computational therapeutic: exploring Weizenbaum’s ELIZA as a history of the present](https://link.springer.com/article/10.1007/s00146-018-0825-9)
+[^20-28]: [Remembering Shakey, the First Intelligent Robot](https://thenewstack.io/remembering-shakey-first-intelligent-robot/)
+[^20-29]: [Blocks World Example](http://www-formal.stanford.edu/jsierra/my-web-page/nmr-98/heuristics-ac/node2.html)
+[^20-30]: [Artificial Intelligence Planning STRIPS](https://u.cs.biu.ac.il/~haimga/Teaching/AI/lessons/lesson7.pdf)
+[^20-31]: [What Is Moore’s Law and How Does It Impact AI ?](https://www.unite.ai/moores-law/)
+[^20-32]: [Artificial Intelligence: A General Survey](https://rodsmith.nz/wp-content/uploads/Lighthill_1973_Report.pdf)
+[^20-33]:[Review of ``Artificial Intelligence: A General Survey''](https://www-formal.stanford.edu/jmc/reviews/lighthill/lighthill.html)
+[^20-34]:[Lighthill report in *Wikipedia*](https://en.wikipedia.org/wiki/Lighthill_report)
+[^20-35]:[Ai Winter](https://academic-accelerator.com/encyclopedia/ai-winter)
+[^20-36]:[Reinforcement Learning: An Introduction](https://inst.eecs.berkeley.edu/~cs188/sp20/assets/files/SuttonBartoIPRLBook2ndEd.pdf)
+[^20-37]:[1962-6 – “STELLA” CYBERNETIC TORTOISE – JOHN H. ANDREAE AND PETER L. JOYCE (BRITISH)](https://cyberneticzoo.com/cyberneticanimals/1962-6-stella-cybernetic-tortoise-john-h-andreae-and-peter-l-joyce-british/)
+[^20-38]: [1.6 History of Reinforcement Learning](http://incompleteideas.net/book/ebook/node12.html)
 
+## 1980~1993ごろ：Knowledge-based AI
+### 2nd AI boom
+前述したDENDRALの研究は、対象とする化学構造の拡大を目指すDendral Project、化学的知識活用の向上を目指すMetaDendral Project、さらなる一般化を目指す[Mycin](https://en.wikipedia.org/wiki/Mycin) Projectに分化するなどして継続されていた[^30-6]。開発当初の検索ベースのアルゴリズム（* Boolean logic and logical reasoning, deterministic model*[^30-10]）で専門家レベルの能力をもったAIとはいかなかったが、「プログラムが問題解決を行うためには（従来重視されていた推論方法よりも）知識が重要である[^30-7]」という考え方に基づいており、これはKnowledge-is-power仮説（後のKnowledge principle）と呼ばれる[^30-5]。専門知識を持つ人間がExpertと称されたことから[^30-8]、このような知識と問題解決方法が分けられた構造を持ちそれぞれ別の開発者（専門知識を持つ人、プログラムを作成する人）が担当できるプログラムを**Expert System**（または**Knowledge based System**）[^30-9]、知識を体系化する取り組みはKnowledge Engineeringと呼ばれるようになった[^30-5]。このような構造をとることにより、プログラマーが必ずしも専門知識を習得したり、専門知識を持つ人がプログラミングを習得する必要がなくなったことが大きな功績の一つといえる[^30-10]。
+一方、この頃ICも着々と集積化を進める。1960年代前半にSSI（Small-Scale Integration）レベル、1960年代後半にMSI（Medium-Scale Integration）レベル、1970年代中盤にはLSI（Large-Scale Integration）レベルへ、そして1971年に初のマイクロプロセッサIntel 4004が発明されるなど、ムーアの法則通り集積度を上げ、コンピュータの小型化と計算能力向上が順調に進んだ[^30-1] [^30-2]（各レベル詳細は割愛）。それによりMinicomputerと呼ばれる中規模のコンピュータ（現在の「サーバー」規模のコンピュータ）が市場に出始めることとなった[^30-3]。Minicomputerは企業で大量に購入され、それによりドキュメントが増加、それらを整理・参照するツールの需要が高まった[^30-4]。
+このような状況の中、1978年にCMUの研究者が、MiniconputerのベンダーであるDECのコンピュータ構成業務をアシストするためのXCON（eXpert CONfigurator）と呼ばれるシステムを開発した[^30-11]。1982年に導入後、年に4000万ドルのコストダウンがされたとされ、AIが産業界で本格的に用いられる例となった[^30-12] [^30-13]。
+*Forward chainとBackward chain*
+*Decision Treeの起源*
+ decision trees (e.g.,Quinlan, 1986a) and logical concept definitions (Mitchell, 1982; Michalski, 1983)
+ The nonlinear revolution of the 1980s, initiated when the introduction of back-propagation networks and decision trees opened the
+possibility of efficiently learning nonlinear
+decision rules, deeply influenced the evolution
+of many fields, and paved the way for the creation of entire disciplines, such as data mining
+and a significant part of bioinformatics
+*Support Vector Machines and Kernel Methods The New Generation of Learning Machines*
+AIに取り組む研究者の関心がExpert Systemに向いているこの頃、さらに複雑なタスクに対応するため、これまでの常識であったSymbolを用いた決定論的アプローチだけでなく、不確実性・数値を用いた確率的アプローチも注目されるようになってきた[^30-14] [^30-15]。初期の例は、Certainly factorを用いたMYCIN（1975年）[^30-18]、Bayesの定理を用いたPROSPECTOR（1978https://com-cog-book.github.io/com-cog-book/features/recurrent-net.html#Learning-objectives年）[^30-19]、Fuzzy論理を用いたCADIAG-2（1980年）[^30-17]などが挙げられ、実用的かつ知的レベルの高いAIを目指した取り組みが盛んに行われた。
+このようなExpert Systemの発展に伴い、IBMを追い越そうと日本の通商産業省所管の新世代コンピュータ技術開発機構（ICOT：Institute for New Generation Computer Technology）で、国家プロジェクトとして第五世代コンピュータ（FGCS：the Fifth Generation Computer Systems）プロジェクトを推進し[^30-21]、1982年ごろから4億ドルを超える大規模な投資を行った[^30-22]。これに伴い、米国DARPAがSCI（Strategic Computing Initiative）を開始、英国ではAlveyプロジェクトが発足する等、FGCSは海外にも大きな影響を与えた[^30-20]。
+基本的にはSymbolic AIの分野でExpert Systemがこのような盛り上がりを見せる一方、Connectionist AIの分野でも大きな進歩があった。
+Perceptropを持ちいた階層型のニューラルネットワーク構造を用いたAIは、1979年にNeocognitronと呼ばれるニューラルネットワークが考案され、手書き文字の認識を成功させたことで、AIによる画像のパターン認識が可能であることを示した[^30-23]。Neocognitronは、スライディングウインドウ処理を用いて、画像の中の位置に関わらずパターンを検出することのできる構造であり[^30-24] [^30-25]、後のConvolution Neural Network（CNN、畳み込みニューラルネットワーク）に非常に大きな影響を与えることとなる。
+また、ニューロンが相互接続する構造のニューラルネットワークもこの頃発明される。1982年のHopfield networkは、強磁性体による磁場の説明に用いられるIsingモデルに基づいて考案されたニューラルネットワークで[^30-27]、0または1を出力するニューロンが相互に接続されており、パターンを記憶してその情報を利用することができるようになっている[^30-26]。実際には計算効率が悪く非現実的であったが、後のRecurrent Neural Networkに大きなインスピレーションを与えた[^30-28]。また1985年には、ニューロンの出力を確率的にした制限付きボルツマンマシンが発明されている[^30-30]。
+そして教師あり学習の方法にういて、1986年にDavid Rumelhart、Geoffrey Hinton、Ronald Williamsの論文[^30-31]で発表された**BP**（**Backpropagation、誤差逆伝搬**）**法**が有効であることが示された。BP法により、教師あり学習において教師データとニューラルネットワークの出力の誤差を、逆伝搬させてネットワークが持つパラメータを調整する（誤差が大きいほどパラメータを大きく調整する）ことができ[^30-32]、広く使われるようになった（BP法の基本コンセプトが発明されたのは厳密には1961年とされるが詳細は割愛）[^30-33]。
+同1986年、NETTalkという文字から音素（音の最小単位）への変換が可能なニューラルネットワークが発表された。後の一般的なニューラルネットワークのように入力層-隠れ層-出力層という3層の構造を持ち、学習方法にはBP法と*************（勾配降下法。勾配降下等の歴史についても要調査）が用いられ[^30-29]、英語のテキストを読み上げることが可能であることを示した。同様のタスクにExpert Systemで取り組み（読み上げ精度は高いものの）数年間かかったDECtalkと比べて、ニューラルネットワークを用いたモデルは開発期間が短いことを示した[^30-34]。
+*Christopher Watkins developed a Q-learning algorithm*
 
-[^20-20]: [AI History: the 1980s and expert systems](https://www.klondike.ai/en/ai-history-the-1980s-and-expert-systems/)
+### 2nd AI Winter
+1980年以降に期待されたExpert Systemは、実は1984年にAIの先駆者であるJohn McCarthyに批判されている。主な批判内容は、Expert Systemのプログラム変更が容易でなく変化に対応しづらいこと、人が当たり前に持っている常識的な知識をAIが持っていないため意思決定が不適切になりうること、の2つである[^30-37]。さらに、実際に専門家の知識をルール化することが非常に難しい場合が目立ってきた[^30-39]。すなわち、Expert systemは構造化されたデータとルール化可能な論理があって初めて可能であり、自然言語や画像等の（曖昧な）データを取り扱うことが困難だった[^30-49]。1987年から1989年にかけてDARPAのISTO (Information Science and Technology Office)には、Expert systemが非常に限定的な領域でしか成功していない、と結論付けられている[^30-38]。
+また、マイクロプロセッサが開発されてから個人で利用するPC（Personal Computer）が低コスト化していった[^30-46]。それに伴い、1987年までにC言語等のコンパイル言語を扱うOSを搭載したAppleやIBMのPCが流通し、多くのExpert Systemが実行されていたLISPマシンのそれを上回ったにも関わらず、コンパイル言語にExpert systemの開発にマッチしなかったとされている[^30-39]。
+*なぜExpert system開発がコンパイル言語とマッチしなかったのか*
+そして1980年代後半から、特に機械学習による教師あり学習の性能が注目されてきたが、教師データが十分にとれないことや[^30-43]、BP法による学習に時間がかかる点が問題として認識され[^30-42]、コンピュータの性能向上が期待された。
+また最適化の問題点として、複雑な処理に対応しようとニューラルネットワークを多層にすればするほど、損失関数の勾配が指数関数的に変化するため、0に近づきやすくなりBP法での学習が困難になる（ニューラルネットワークの重みが更新されない）という問題（勾配消失問題）が1991年に提唱され[^30-40] [^30-41]、逆に無限大に発散してしまい学習が困難になる問題（勾配爆発問題）が1994年に提唱された[^30-44] [^30-45]。
+経済的にも1987年にDARPAはAIに対する投資を中止[^30-13]、1992年に目標をほとんど達成することなくFGCSは正式に終了しており[^30-47]、研究者は学術界や企業からの排斥を恐れて、意図的にAIという用語の使用を避けはじめた（代わりに、機械学習、データ分析、Intelligent System、Big Data、Data scienceといった単語を利用した）[^30-48]。
 
+[^30-1]: [Moore’s Law and Exponential Growth](https://pdhacademy.com/wp-content/uploads/2022/01/Moores-Law-and-Exponential-Growth-course-for-website.pdf)
+[^30-2]: [HISTORY OF INTEGRATED CIRCUIT OR IC](https://pijaeducation.com/basic-electronics/embedded-system/history-of-integrated-circuit-ic/)
+[^30-3]: [Minicomputers: history, characteristics, uses, examples](https://warbletoncouncil.org/minicomputadoras-14120)
+[^30-4]: [History of artificial intelligence: expert systems and AI winters](https://blog.pigro.ai/en/expert-systems)
+[^30-5]: [Expert systems](https://dl.acm.org/doi/pdf/10.5555/1074100.1074389)
+[^30-6]: [Dendral and Meta-Dendral](https://stacks.stanford.edu/file/druid:xp200rt1512/xp200rt1512.pdf)
+[^30-7]: [Feigenbaum, E. A. “The Art of Artificial Intelligence: Themes and Case Studies of Knowledge Engineering,” Proceedings of the International Joint Conference on Artificial Intelligence. Cambridge, MA: MIT Press.]
+[^30-8]: [Feigenbaum, E. A., Buchanan, B. G., and Lederberg, J. “On Generality and Problem Solving: A Case Study Using the DENDRAL Program,” in Machine Intelligence]
+[^30-9]: [EXPERT SYSTEMS ](https://www.eolss.net/sample-chapters/c15/E6-44-03-04.pdf)
+[^30-10]: [Jerry Kaplan, Artificial Intelligence: What Everyone Needs to Know]()
+[^30-11]:[XCON](https://aithefuture.wordpress.com/2018/05/08/xcon/)
+[^30-12]:[History of Artificial Intelligence (AI) and How it has evolved](https://kusham1998.medium.com/history-of-artificial-intelligence-ai-and-how-it-has-evolved-3d7607e1fff8#)
+[^30-13]: [AI History: the 1980s and expert systems](https://www.klondike.ai/en/ai-history-the-1980s-and-expert-systems/)
+[^30-14]: [Probability Judgment in Artificial Intelligence and Expert Systems](https://projecteuclid.org/journals/statistical-science/volume-2/issue-1/Probability-Judgment-in-Artificial-Intelligence-and-Expert-Systems/10.1214/ss/1177013426.full)
+[^30-15]: [The place of fuzzy logic in AI](https://hal.science/hal-04013770/document)
+[^30-16]: [Bayesian Analysis in Expert Systems](https://projecteuclid.org/journals/statistical-science/volume-8/issue-3/Bayesian-Analysis-in-Expert-Systems/10.1214/ss/1177010888.full)
+[^30-17]:[CADIAG: APPROACHES TO COMPUTER-ASSISTED MEDICAL DIAGNOSIS](https://www.meduniwien.ac.at/kpa/publications/1985_CIBAM_--_CADIAG_-_Approaches_to_Computer-Assisted_Medical_Diagnosis.pdf)
+[^30-18]: [A Model of Inexact Reasoning in Medicine](https://stacks.stanford.edu/file/druid:ts764ph5106/ts764ph5106.pdf)
+[^30-19]: [PROSPECTOR: A Computer-Based Consultation System For Mineral Exploration](https://www.sri.com/publication/artificial-intelligence-pubs/prospector-a-computer-based-consultation-system-for-mineral-exploration/)
+[^30-20]: [第五世代コンピュータから考える AI プロジェクト](https://www.jstage.jst.go.jp/article/jjsai/29/2/29_115/_pdf)
+[^30-21]: [第五世代コンピュータ in *Wikipedia*](https://ja.wikipedia.org/wiki/%E7%AC%AC%E4%BA%94%E4%B8%96%E4%BB%A3%E3%82%B3%E3%83%B3%E3%83%94%E3%83%A5%E3%83%BC%E3%82%BF)
+[^30-22]: [Artificial Intelligence in Japan (R&D, Market and Industry Analysis)](https://www.eu-japan.eu/sites/default/files/artificial_intelligence_in_japan.pdf)
+[^30-23]: [多層神経回路ネオコグニトロンの学習](https://www.jstage.jst.go.jp/article/fss/30/0/30_318/_pdf)
+[^30-24]: [A Brief History of Deep Learning](https://www.dataversity.net/brief-history-deep-learning/)
+[^30-25]: [畳み込みニューラルネットワーク](https://ml4a.github.io/ml4a/jp/convnets/)
+[^30-26]: [Neural networks and physical systems with emergent collective computational abilities](https://www.pnas.org/doi/epdf/10.1073/pnas.79.8.2554)
+[^30-27]: [Hopfield Networks: Neural Memory Machines](https://towardsdatascience.com/hopfield-networks-neural-memory-machines-4c94be821073)
+[^30-28]: [Computation by neural networks](https://www.nature.com/articles/nn1100_1170)
+[^30-29]:[NETtalk: a parallel network that learns to read aloud](https://papers.cnl.salk.edu/PDFs/NETtalk_%20A%20Parallel%20Network%20That%20Learns%20to%20Read%20Aloud%201988-3562.pdf)
+[^30-30]: D. H. Ackley, G. E. Hinton, and T. J. Sejnowski. A learning algorithm for Boltzmann machines. Cognitive Science, pages 147–169, 1985.
+[^30-31]: [Learning representations by back-propagating errors](https://www.iro.umontreal.ca/~vincentp/ift3395/lectures/backprop_old.pdf)
+[^30-32]: [Solving the Mystery of Backpropagation](https://towardsdatascience.com/solving-the-mystery-of-backpropagation-73b18cae8e40)
+[^30-33]:[Back Propagation in Neural Network: Machine Learning Algorithm](https://www.guru99.com/backpropogation-neural-network.html)
+[^30-34]:[5.3 Applications 5.3.1 NETtalk](https://neuron.eng.wayne.edu/tarek/MITbook/chap5/5_3.html)
+[^30-35]:[LeNet: 最初のCNN構造](https://cvml-expertguide.net/terms/dl/cnn/cnn-backbone/lenet/)
+[^30-36]:[Backpropagation Applied to Handwritten Zip Code Recognition](http://yann.lecun.com/exdb/publis/pdf/lecun-89e.pdf)
+[^30-37]:[SOME EXPERT SYSTEM NEED COMMON SENSE](https://www-formal.stanford.edu/jmc/someneed/someneed.html)
+[^30-38]:[History of the Second AI Winter](https://towardsdatascience.com/history-of-the-second-ai-winter-406f18789d45)
+[^30-39]:[AI Watch Historical Evolution of Artificial Intelligence](https://publications.jrc.ec.europa.eu/repository/bitstream/JRC120469/jrc120469_historical_evolution_of_ai-v1.1.pdf)
+[^30-40]:[Gradient amplification: An efficient way to train deep neural networks](https://ieeexplore.ieee.org/document/9142152)
+(https://ml.jku.at/publications/older/ch7.pdf)
+[^30-41]:[The Vanishing Gradient Problem](https://towardsdatascience.com/the-vanishing-gradient-problem-69bf08b15484)
+[^30-42]:[Symbolic and Neural Learning Algorithms: An Experimental Comparison](https://link.springer.com/content/pdf/10.1023/A:1022602303196.pdf)
+[^30-43]:[THE IMPACT OF ARTIFICIAL INTELLIGENCE ON THE FUTURE OF WORKFORCES IN THE EUROPEAN UNION AND THE UNITED STATES OF AMERICA](https://www.whitehouse.gov/wp-content/uploads/2022/12/TTC-EC-CEA-AI-Report-12052022-1.pdf)
+[^30-44]:[Exploding gradient problem](https://golden.com/wiki/Exploding_gradient_problem)
+[^30-45]:[Learning long-term dependencies with gradient descent is difficult](http://www.comp.hkbu.edu.hk/~markus/teaching/comp7650/tnn-94-gradient.pdf)
+[^30-46]:[History of personal computers in *Wikipedia*](https://en.wikipedia.org/wiki/History_of_personal_computers)
+[^30-47]: [2 AI winters and 1 hot AI summer](https://www.entefy.com/blog/2-ai-winters-and-1-hot-ai-summer/)
+[^30-48]:[TWO WINTERS AND A SPRING OF ARTIFICIAL INTELLIGENCE](https://medium.com/qed-software/two-winters-and-a-spring-of-artificial-intelligence-71a9901df77d)
+[^30-49]:[The History of Artificial Intelligence from the 1950s to Today: The Emergence of NLPs and Computer Vision in the 1990s](https://www.freecodecamp.org/news/the-history-of-ai/#the-emergence-of-nlps-and-computer-vision-in-the-1990s)
 
-## 1980 ~ 1993
-### boom 1980 ~ 1987
-The first “convolutional neural networks” were used by Kunihiko Fukushima in 1979
-John Hopfield and David Rumelhart Deep Learningを普及
-Edward Feigenbaumのexpert system
-日本政府 Fifth Generation Computer Project (FGCP)
-In 1989, Yann LeCun Backpropagation
-
-1990 Deep blue
-
-1990
-Kernel classifiers were described as early as the 1960s, with the invention of the kernel perceptron.[3] They rose to great prominence with the popularity of the support-vector machine (SVM) in the 1990s, when the SVM was found to be competitive with neural networks on tasks such as handwriting recognition.
-
-In the late 1980s and early 1990s, there was a surge of excitement in the AI community as people realized that machine learning could solve some problems in interesting ways, with substantial advantages stemming from their ability to accept raw forms of input data, and to train algorithms to perform predictive tasks. At that time, however, computers were not powerful enough to process vast amounts of data.
-https://www.whitehouse.gov/wp-content/uploads/2022/12/TTC-EC-CEA-AI-Report-12052022-1.pdf
-
-### winter 1987 ~ 1993
-
-## 1993 ~ 2011
-### boom
+## 1993~2011年ごろ：Machine Learning
+### 3rd AI boom
+前述したExpert Systemが困難だった非構造化データ、非線形データを取り扱うため、機械学習がより注目され始める。ただし機械学習研究が盛り上がった初期は、信頼性のあるデータが少なくハードウェアリソースの限界もあり研究の再現性がとれないこと、出力の説明性が乏しいことなどから、比較的教師データが少なくても性能を発揮し、理論保障が可能な数学・統計的なアプローチが主流だった[^40-1] [^40-2] [^40-3]。
+例えば自然言語処理（NLP: Natural Language Processing）のタスクに対しては、1990年代に**N-gram言語モデル**と呼ばれる、文章内で次にどの単語がくるかの確率を表したようなモデルの使用が、機械翻訳システムで一般的になり、その後NLPの他の分野にも拡張されたことと合わせて[^40-4]、系列データを扱うのに長けている**隠れマルコフモデル**（**HMMs: Hidden Markov Models**）が広く利用された[^40-5]。例
+そして、パターン認識・分類・回帰のタスクに対しては、非線形データ解析の手法であるカーネル法をベースとして1992年に**サポートベクトルマシン**（**SVM: Support Vector Machine**）が提案された[^40-6]。SVMはデータをいくつかのクラス分類するとき、可能な限り各クラスが大きく分離されるような平面（MMSH: Maximum Margin Separating Hyperplane）を見つけるアルゴリズムであり[^40-7]、比較的メモリ効率が良く小さなデータセットに向いていたため、手書き文字画像の認識等に用いられた[^40-8] [^40-9]。例
 In 1995, Dana Cortes and Vladimir Vapnik developed the support vector machine (a system for mapping and recognizing similar data)
-LSTM (long short-term memory) for recurrent neural networks was developed in 1997
-1997 Deep Blue (Game AI)
+一方で大規模なデータセットや強力なコンピューティングリソースが必要であるニューラルネットワークの分野は、1994年にMNIST（Modified National Institute of Standards and Technology）という学習用に6万、テスト用に1万枚の手書き数字画像を含むデータセットが作成され[^40-13]、翌1995年にLeNetと呼ばれるニューラルネットワークを有するAIが手書き数字画像の分類精度において、SVMを含むその他のアプローチの結果を上回ることが示された[^40-15]（LeNetの研究は1989年ごろから始まっていた[^30-36]）。LeNetはCNN構造をもっており、畳み込み処理に学習可能なパラメータをもたせることでパラメータ・計算の削減に成功した点が重要であり、今後のニューラルネットワーク研究の基盤となっている[^40-14]。
+そしてこの1995年には、Windows95・Internet Explorerの発表によりPCとインターネットが多くの人の身近に届いたことで[^40-16] [^40-17]、コンピュータが情報を得やすくなり、大きなデータセットの共有も現実的なものになった。
+CNNの他にも、Hopfield networkを拡張した[^40-18]、LSTM（Long-Short Time Memory）と呼ばれるRNNが1997年に発表された。LSTMはネットワーク内にMemoryセルと呼ばれる単位で、情報の記憶と忘却を調整することで、RNNで問題となっていた勾配爆発を解決した[^40-20] [^40-21]。
+
+> **note**
+LSTMの元論文にはメモリーセルが情報をforgetするとは書かれていない[^40-19]
+
+そして、
 
 In 1998, Leo Breiman formulated AdaBoost as a gradient descent 
 Taking this further, Jerome Friedman, in 1999, came up with the generalisation of boosting algorithms, and thus, a new method: Gradient Boosting Machines. 
-In 2009, Fei-Fei Li, an AI professor at Stanford launched 
-In 2001, a research report by META Group (now called Gartner) describe Bigdata
-GPU Alexnet
-### winter?
-Around the year 2000, The Vanishing Gradient Problem
 
-## 2011 ~ 
+AI研究は邁進していた。
+その頃世間でも、1997年にIBM社のDeep Blueがチェスの世界チャンピオンに勝利したり[^40-22]、AIを搭載した製品であるSONY社のAIBO（Artificial Interigence roBOt、1999年）[^40-10] [^40-11]、iRobot社のRoomba（2002年）[^40-12]がリリースされる等、AIのニュースが出始めていた。また、2001年にIT調査会社のMETA Group社（2005年にGartner社に買収されている[^40-23]）が**Big Data**を提唱し[^40-24]、データソースの範囲が大幅に増加し、データを統合して新しい洞察を生成することが示唆され[^40-25]、2002年にはC/C++の機械学習ライブラリTorchがリリースされるなど[^40-26]、AIの活躍・進化がますます期待された。
+ただし、隠れ層の多いニューラルネットワークは**DNN**（Deep Neural Network）と呼ばれ[^40-32]、より複雑な非線形関係を計算コストを削減して表現できるようになると期待されたが[^40-31]、依然として学習が難しい（勾配消失問題、局所最適化等）とされ、隠れ層は1層または2層というのが定石だった[^40-29]。そんな中、2006年のGeoffrey HintonとRuslan Salakhutdinovの論文でAutoencoderを持ちいた次元削減の方法が示され[^40-30]、DNNを分類タスクに適用することも可能になった[^40-33]。これ以降、**Deep Learning**という用語が一般的となり、より注目を浴びていくこととなる[^40-27] [^40-28]。
+
+> **note**
+Auto encoderと制限付きボルツマンマシン
+
+さらに、アルゴリズム自体だけでなく、データによりアルゴリズムの精度が高まるという考えのもと、2009年に物体認識ソフトウェアの研究のためImageNetという大規模な画像データセットが発表され[^40-34] [^40-35]、翌2010年からILSVRC（ImageNet Large Scale Visual Recognition Challenge）という画像認識AIのコンテストを毎年開催し[^40-39]、この頃およびこれ以後のAIブームの触媒となったといえる。
+2009年のスタンフォード大学の論文で、主にグラフィック処理のために利用されていたプロセッサである**GPU**（Graphic Processor Unit）を利用し、AIの学習を並列に実行することで処理を高速化した[^40-36]。これ以来、ニューラルネットワークの学習・推論にGPUが採用されることが多くなった[^40-37]。
+そして、2012年のILSCRCでAlexNetと呼ばれるDeep CNNモデルが発表され[^40-40]、他を凌駕する性能を見せた。AlexNetは5つの畳み込み層と3つの全結合層という深い構造をしており多くのパラメータを有していたが、CNNでは初めてGPUで学習を行うことで、以前のモデルよりも4倍高速に処理できた[^40-38] [^40-41] [^40-42]。この成果により、Deep Learningが夢物語ではないこと、実用化する方法を世界に示したといえる。
+
+[^40-1]:[A Quick History of Neural Networks](https://www.analyticsvidhya.com/blog/2020/09/quick-history-neural-networks/)
+[^40-2]:[Explained: Neural networks](https://news.mit.edu/2017/explained-neural-networks-deep-learning-0414)
+[^40-3]:[*Hacker News*: Neural networks in the 1990s](https://news.ycombinator.com/item?id=36385809)
+[^40-4]:[n-grams: AI Terms Explained](https://www.playerzero.ai/advanced/ai-terms-explained/n-grams-ai-terms-explained)
+[^40-5]:[A Brief History of Large Language Models](https://www.linkedin.com/pulse/brief-history-large-language-models-bob/)
+[^40-6]:[サポートベクトルマシンとカーネル法](https://orsj.org/wp-content/corsj/or65-6/or65_6_304.pdf)
+[^40-7]: [Maximum Margin Separating Hyperplane in Scikit Learn](https://www.geeksforgeeks.org/maximum-margin-separating-hyperplane-in-scikit-learn/)
+[^40-8]: [Top 4 advantages and disadvantages of Support Vector Machine or SVM](https://dhirajkumarblog.medium.com/top-4-advantages-and-disadvantages-of-support-vector-machine-or-svm-a3c06a2b107)
+[^40-9]: [Kernel methoc in *Wikipedia*](https://en.wikipedia.org/wiki/Kernel_method)
+[^40-10]:[ロボットによるエンタテインメント市場を創造する4足歩行型エンタテインメントロボット "AIBO（アイボ）"の販売開始](https://www.sony.com/ja/SonyInfo/News/Press/199905/99-046/)
+[^40-11]:[Artificial Intelligence Robot](https://www.techopedia.com/definition/14242/artificial-intelligence-robot-aibo)
+[^40-12]:[iRobot Introduces Roomba™ Intelligent FloorVac - The First Automatic Floor Cleaner In The U.S.](https://media.irobot.com/2002-09-18-iRobot-Introduces-Roomba-Intelligent-FloorVac-The-First-Automatic-Floor-Cleaner-In-The-U-S)
+[^40-13]:[MNIST database in *Wikipedia*](https://en.wikipedia.org/wiki/MNIST_database#cite_note-8)
+[^40-14]:[The History of Neural Networks](https://dataconomy.com/2017/04/19/history-neural-networks/)
+[^40-15]:[Gradient-Based Learning Applied to Document Recognition](https://axon.cs.byu.edu/~martinez/classes/678/Papers/Convolution_nets.pdf)
+[^40-16]:[マイクロプロセッサの誕生からWindows 95の登場までを振り返る](https://pc-kaden.medy.jp/p/a6da8c2a-03c6-444a-bb3d-f5c7af00ab94)
+[^40-17]:[1995 Was The Most Important Year For The Web](https://thehistoryoftheweb.com/complete-history/1995-was-the-most-important-year-for-the-web/)
+[^40-18]:[Deep learning’s origins and pioneers](https://www.mckinsey.com/featured-insights/artificial-intelligence/deep-learnings-origins-and-pioneers)
+[^40-19]:[LONG SHORT-TERM MEMORY](https://www.bioinf.jku.at/publications/older/2604.pdf)
+[^40-20]:[What is Long Short Term Memory (LSTM) - Complete Guide](https://www.knowledgehut.com/blog/web-development/long-short-term-memory#long-short-term%C2%A0memory-networks)
+[^40-21]: [Wang, Xin & Liu, Yuanchao & Sun, Chengjie & Wang, Baoxun & Wang, Xiaolong. (2015). Predicting Polarities of Tweets by Composing Word Embeddings with Long Short-Term Memory. 1343-1353. 10.3115/v1/P15-1130. ](https://www.researchgate.net/publication/301404520_Predicting_Polarities_of_Tweets_by_Composing_Word_Embeddings_with_Long_Short-Term_Memory)
+[^40-22]:[25 years ago today: How Deep Blue vs. Kasparov changed AI forever](https://aibusiness.com/ml/25-years-ago-today-how-deep-blue-vs-kasparov-changed-ai-forever)
+[^40-23]:[Gartner Acquisitions](https://www.gartner.com/en/about/acquisitions)
+[^40-24]:[What makes Big Data, Big Data? Exploring the ontological characteristics of 26 datasets](https://journals.sagepub.com/doi/pdf/10.1177/2053951716631130)
+[^40-25]:[Chapter 9 - The Big Data and Artificial Intelligence: Opportunities and Challenges to Modernise the Policy Cycle](https://www.sciencedirect.com/science/article/pii/B9780128225967000097)
+[^40-26]:[Torch: a modular machine learning software library](https://infoscience.epfl.ch/record/82802?ln=en)
+[^40-27]:[A Short History Of Deep Learning — Everyone Should Read](https://bernardmarr.com/a-short-history-of-deep-learning-everyone-should-read/)
+[^40-28]:[Introduction To Deep Learning - Logix_Quest - Medium](https://aminazahid45.medium.com/introduction-to-deep-learning-334c0c01a145)
+[^40-29]:[Auto-encoder based dimensionality reduction](https://www.sciencedirect.com/science/article/abs/pii/S0925231215017671)
+[^40-30]:[Reducing the Dimensionality of Data with Neural Networks](https://www.cs.toronto.edu/~hinton/absps/science.pdf)
+[^40-31]:[Hands-On Machine Learning with R: Chapter 19 Autoencoders](https://bradleyboehmke.github.io/HOML/autoencoders.html)
+[^40-32]:[Auto-Encoders in Deep Learning—A Review with New Perspectives](https://www.mdpi.com/2227-7390/11/8/1777)
+[^40-33]:[Lecture 12 Handwritten Digit (MNIST) Recognition Using Deep Neural Networks](https://bkict-ocw.knu.ac.kr/caster/file/lecture/5DE9F88D7ADC6.pdf)
+[^40-34]:[ImageNet: A Large-Scale Hierarchical Image Database](https://image-net.org/static_files/papers/imagenet_cvpr09.pdf)
+[^40-35]:[ImageNet: A Pioneering Vision for Computers](https://www.historyofdatascience.com/imagenet-a-pioneering-vision-for-computers/)
+[^40-36]:[Large-scale Deep Unsupervised Learning using Graphics Processors](http://robotics.stanford.edu/~ang/papers/icml09-LargeScaleUnsupervisedDeepLearningGPU.pdf)
+[^40-37]:[A Brief History of GPUs](https://medium.com/neuralmagic/a-brief-history-of-gpus-27122d8fd45)
+[^40-38]:[A practical experiment for comparing LeNet, AlexNet, VGG and ResNet models with their advantages and disadvantages.](https://tejasmohanayyar.medium.com/a-practical-experiment-for-comparing-lenet-alexnet-vgg-and-resnet-models-with-their-advantages-d932fb7c7d17)
+[^40-39]:[ImageNet database in *Wikipedia*](https://en.wikipedia.org/wiki/ImageNet)
+[^40-40]:[ImageNet Classification with Deep Convolutional Neural Networks](https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)
+[^40-41]:[AlexNet and ImageNet: The Birth of Deep Learning](https://www.pinecone.io/learn/series/image-search/imagenet/)
+[^40-42]:[The data that transformed AI research—and possibly the world](https://qz.com/1034972/the-data-that-changed-the-direction-of-ai-research-and-possibly-the-world)
+
+## 2015年ごろ以降 ：Deep Learning
 ### boom
-In 1991, Juergen Schmidhuber also published adversarial neural networks
 The Generative Adversarial Neural Network (GAN) was introduced in 2014
+
+2016: Google's AlphaGo becomes the first computer to beat a professional human player in Go.
+
+Tensorflow, Pytorch
+Edge AI()
+
 RNN
 attention
 The modern Transformer was introduced by Ashish Vaswani et. al. in their 2017 paper "Attention Is All You Need.
 Diffusion
+Web3.0 メタバース
 ChatGPT
 Foundation model
+
+
+# 最終確認
+
+https://www.arxiv-vanity.com/papers/2109.01517/
+
+https://www.lamsade.dauphine.fr/~cazenave/papers/games.pdf
+
 
 Probabilistic AI
 https://hawai.tech/ia-waves-and-evolution-of-hardware/
@@ -279,6 +427,67 @@ Machine Learning: The 1980s and 1990s witnessed significant advancements in mach
 Human-Computer Interaction: Heuristic evaluation, a method for identifying usability issues in user interfaces, was introduced by Jakob Nielsen in the 1990s, highlighting the application of heuristics in human-computer interaction.
 As computer science continues to evolve, so do heuristic techniques, with researchers constantly developing new and innovative ways to apply heuristics to tackle increasingly complex problems.
 
+Several focal areas in the quest for AI emerged between the 1950s and the 1970s.[148] Newell and Simon pioneered the foray into heuristic search, an efficient procedure for finding solutions in large, combinatorial spaces. In particular, they applied this idea to construct proofs of mathematical theorems, first through their Logic Theorist program, and then through the General Problem Solver.[149] In the area of computer vision, early work in character recognition by Selfridge and colleagues[150] laid the basis for more complex applications such as face recognition.[151] By the late sixties, work had also begun on natural language processing.[152] “Shakey”, a wheeled robot built at SRI International, launched the field of mobile robotics. Samuel's Checkers-playing program, which improved itself through self-play, was one of the first working instances of a machine learning system.[153] Rosenblatt's Perceptron,[154] a computational model based on biological neurons, became the basis for the field of artificial neural networks. Feigenbaum and others advocated [155]the case for building expert systems—knowledge repositories tailored for specialized domains such as chemistry and medical diagnosis.[156]
+https://ai100.stanford.edu/2016-report/appendix-i-short-history-ai
+
+But the real change I think in the field happened when it became feasible to store and capture large amounts of data. Back in those first days with the probabilistic systems, we didn’t have much data. 
+*Learning from Artificial Intelligence’s Previous Awakenings: The History of Expert Systems*
+
+## 初期のニューラルネットワーク
+https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/History/history1.html
+
+## 教師アリ学習・教師なし学習の流れ
+Nearest neighbour approach
+1967 – Machines gained the ability to recognize patterns 
+    The “nearest neighbor” algorithm was created,
+https://www.isahit.com/blog/what-is-similarity-based-learning-in-supervised-machine-training
+While traditional supervised learning focuses on predicting labels based on input data and unsupervised learning aims to find hidden structures within data, Similarity learning is somewhat in between.
+https://www.datacamp.com/blog/what-is-similarity-learning
+Similarity Based Learningから
+1981, Gerald Dejong discovered Explanation Based Learning
+
+MNIST
+Hopfiled networkの計算効率の悪さ
+次元の呪い
+
+## 強化学習の歴史
+- Mean field?
+- Monte calro
+- Q-learning
+
+## optimization
+Optimizer selection
+Tis section discusses the CNN learning process. Two major issues are included in the
+learning process: the frst issue is the learning algorithm selection (optimizer), while the
+second issue is the use of many enhancements (such as AdaDelta, Adagrad, and momentum) along with the learning algorithm to enhance the output.
+https://ts2.space/en/the-evolution-of-ai-gradient-descent-a-historical-perspective-on-optimization-techniques/
+https://arxiv.org/pdf/2212.09413.pdf
+
+https://medium.com/@adi.fu7/ai-accelerators-part-ii-transistors-and-pizza-or-why-do-we-need-accelerators-75738642fdaa
+
+# 今後のAI技術
+社会実装に向けた課題が増えている
+## ハードの進化
+- クロックの飽和
+- AIハード（チップ、アーキテクチャ）の出現：スケーラビリティ
+- 量子コンピュータ
+## AI倫理
+- データセットの偏見（今あるデータセットでAIが学習すると医者は男、看護師は女という偏見が入ってしまう等）
+## センサー
+- 触覚
+- 嗅覚
+- 味覚
+## 学習データ
+- データ量増大
+## AI作るAI
+- AI同士のコミュニケーション
+
+# おわりに
+AI技術は移り変わりの
+今後の動向をキャッチアップしていくことが非常に重要である。
+技術的にAIを見るうえで、本来は数学的な視点からも発明の変遷を辿るのがベストだが、本記事で記したような状況や背景の全体感を把握をしておけば詳細に入りやすいのではないかと思う。
+調査しきれていない部分もあるので、割愛した部分を加えて電子書籍にしてみるのもありかも。
+
 # 参考
 https://en.wikipedia.org/wiki/History_of_artificial_intelligence
 https://en.wikipedia.org/wiki/History_of_artificial_neural_networks
@@ -289,3 +498,6 @@ https://www.g2.com/articles/history-of-artificial-intelligence
 https://www.dataversity.net/brief-history-deep-learning/
 https://www.holloway.com/g/making-things-think/sections/the-birth-of-artificial-intelligence-19521956
 https://aiqom.ai/en/blogs/The-Evolution-of-Artificial-Intelligence
+https://www.sparkfun.com/news/7896
+
+[^20-1]: [人工知能用言語 Lispの今と将来](https://www.jstage.jst.go.jp/article/jjsai/24/5/24_681/_pdf)
