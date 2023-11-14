@@ -54,6 +54,7 @@ https://www.linkedin.com/pulse/what-artificial-intelligence-without-machine-lear
 AIモデルの構造（例：どんなニューラルネットワークを組むか）
 - Optimization
 どのように推論モデルを最適化するか（例：ニューラルネットワークのパラメータをどのように決めるか）
+課題：局所解、非凸問題
 - Generalization
 どんな問題でも対応できるか（例：学習したデータ以外の場合にも対応できるか、ノイズ耐性）
 
@@ -240,7 +241,7 @@ Rosenblattに発明されたPerceptronは2種類かつ比較的単純な分類�
 ## 1980~1993ごろ：Knowledge-based AI
 ### 2nd AI boom
 前述したDENDRALの研究は、対象とする化学構造の拡大を目指すDendral Project、化学的知識活用の向上を目指すMetaDendral Project、さらなる一般化を目指す[Mycin](https://en.wikipedia.org/wiki/Mycin) Projectに分化するなどして継続されていた[^30-6]。開発当初の検索ベースのアルゴリズム（* Boolean logic and logical reasoning, deterministic model*[^30-10]）で専門家レベルの能力をもったAIとはいかなかったが、「プログラムが問題解決を行うためには（従来重視されていた推論方法よりも）知識が重要である[^30-7]」という考え方に基づいており、これはKnowledge-is-power仮説（後のKnowledge principle）と呼ばれる[^30-5]。専門知識を持つ人間がExpertと称されたことから[^30-8]、このような知識と問題解決方法が分けられた構造を持ちそれぞれ別の開発者（専門知識を持つ人、プログラムを作成する人）が担当できるプログラムを**Expert System**（または**Knowledge based System**）[^30-9]、知識を体系化する取り組みはKnowledge Engineeringと呼ばれるようになった[^30-5]。このような構造をとることにより、プログラマーが必ずしも専門知識を習得したり、専門知識を持つ人がプログラミングを習得する必要がなくなったことが大きな功績の一つといえる[^30-10]。
-一方、この頃ICも着々と集積化を進める。1960年代前半にSSI（Small-Scale Integration）レベル、1960年代後半にMSI（Medium-Scale Integration）レベル、1970年代中盤にはLSI（Large-Scale Integration）レベルへ、そして1971年に初のマイクロプロセッサIntel 4004が発明されるなど、ムーアの法則通り集積度を上げ、コンピュータの小型化と計算能力向上が順調に進んだ[^30-1] [^30-2]（各レベル詳細は割愛）。それによりMinicomputerと呼ばれる中規模のコンピュータ（現在の「サーバー」規模のコンピュータ）が市場に出始めることとなった[^30-3]。Minicomputerは企業で大量に購入され、それによりドキュメントが増加、それらを整理・参照するツールの需要が高まった[^30-4]。
+一方、この頃ICも着々と集積化を進める。1960年代前半にSSI（Small-Scale Integration）レベル、1960年代後半にMSI（Medium-Scale Integration）レベル、1970年代中盤にはLSI（Large-Scale Integration）レベルへ、そして1971年に初のマイクロプロセッサ（Central Processing Unit: CPUとも呼ばれる）Intel 4004が発明されるなど、ムーアの法則通り集積度を上げ、コンピュータの小型化と計算能力向上が順調に進んだ[^30-1] [^30-2]（各レベル詳細は割愛）。それによりMinicomputerと呼ばれる中規模のコンピュータ（現在の「サーバー」規模のコンピュータ）が市場に出始めることとなった[^30-3]。Minicomputerは企業で大量に購入され、それによりドキュメントが増加、それらを整理・参照するツールの需要が高まった[^30-4]。
 このような状況の中、1978年にCMUの研究者が、MiniconputerのベンダーであるDECのコンピュータ構成業務をアシストするためのXCON（eXpert CONfigurator）と呼ばれるシステムを開発した[^30-11]。1982年に導入後、年に4000万ドルのコストダウンがされたとされ、AIが産業界で本格的に用いられる例となった[^30-12] [^30-13]。
 *Forward chainとBackward chain*
 *Decision Treeの起源*
@@ -319,15 +320,18 @@ Perceptropを持ちいた階層型のニューラルネットワーク構造を�
 [^30-48]:[TWO WINTERS AND A SPRING OF ARTIFICIAL INTELLIGENCE](https://medium.com/qed-software/two-winters-and-a-spring-of-artificial-intelligence-71a9901df77d)
 [^30-49]:[The History of Artificial Intelligence from the 1950s to Today: The Emergence of NLPs and Computer Vision in the 1990s](https://www.freecodecamp.org/news/the-history-of-ai/#the-emergence-of-nlps-and-computer-vision-in-the-1990s)
 
-## 1993~2011年ごろ：Machine Learning
-### 3rd AI boom
+## 1993~2012年ごろ：Machine Learning
 前述したExpert Systemが困難だった非構造化データ、非線形データを取り扱うため、機械学習がより注目され始める。ただし機械学習研究が盛り上がった初期は、信頼性のあるデータが少なくハードウェアリソースの限界もあり研究の再現性がとれないこと、出力の説明性が乏しいことなどから、比較的教師データが少なくても性能を発揮し、理論保障が可能な数学・統計的なアプローチが主流だった[^40-1] [^40-2] [^40-3]。
 例えば自然言語処理（NLP: Natural Language Processing）のタスクに対しては、1990年代に**N-gram言語モデル**と呼ばれる、文章内で次にどの単語がくるかの確率を表したようなモデルの使用が、機械翻訳システムで一般的になり、その後NLPの他の分野にも拡張されたことと合わせて[^40-4]、系列データを扱うのに長けている**隠れマルコフモデル**（**HMMs: Hidden Markov Models**）が広く利用された[^40-5]。例
-そして、パターン認識・分類・回帰のタスクに対しては、非線形データ解析の手法であるカーネル法をベースとして1992年に**サポートベクトルマシン**（**SVM: Support Vector Machine**）が提案された[^40-6]。SVMはデータをいくつかのクラス分類するとき、可能な限り各クラスが大きく分離されるような平面（MMSH: Maximum Margin Separating Hyperplane）を見つけるアルゴリズムであり[^40-7]、比較的メモリ効率が良く小さなデータセットに向いていたため、手書き文字画像の認識等に用いられた[^40-8] [^40-9]。例
+そして、パターン認識・分類・回帰のタスクに対しては、非線形データ解析の手法であるカーネル法をベースとして1992年に**サポートベクトルマシン**（**SVM: Support Vector Machine**）が提案された[^40-6]。SVMはデータを（基本的には2つの）クラスに分類するとき、可能な限り各クラスが大きく分離されるような平面（MMSH: Maximum Margin Separating Hyperplane）を見つけるアルゴリズムであり[^40-7]、比較的メモリ効率が良く小さなデータセットに向いていたため、手書き文字画像の認識等に用いられた[^40-8] [^40-9]。例
 In 1995, Dana Cortes and Vladimir Vapnik developed the support vector machine (a system for mapping and recognizing similar data)
+
+> **note**
+
+
 一方で大規模なデータセットや強力なコンピューティングリソースが必要であるニューラルネットワークの分野は、1994年にMNIST（Modified National Institute of Standards and Technology）という学習用に6万、テスト用に1万枚の手書き数字画像を含むデータセットが作成され[^40-13]、翌1995年にLeNetと呼ばれるニューラルネットワークを有するAIが手書き数字画像の分類精度において、SVMを含むその他のアプローチの結果を上回ることが示された[^40-15]（LeNetの研究は1989年ごろから始まっていた[^30-36]）。LeNetはCNN構造をもっており、畳み込み処理に学習可能なパラメータをもたせることでパラメータ・計算の削減に成功した点が重要であり、今後のニューラルネットワーク研究の基盤となっている[^40-14]。
 そしてこの1995年には、Windows95・Internet Explorerの発表によりPCとインターネットが多くの人の身近に届いたことで[^40-16] [^40-17]、コンピュータが情報を得やすくなり、大きなデータセットの共有も現実的なものになった。
-CNNの他にも、Hopfield networkを拡張した[^40-18]、LSTM（Long-Short Time Memory）と呼ばれるRNNが1997年に発表された。LSTMはネットワーク内にMemoryセルと呼ばれる単位で、情報の記憶と忘却を調整することで、RNNで問題となっていた勾配爆発を解決した[^40-20] [^40-21]。
+CNNの他にも、Hopfield networkを拡張した[^40-18]、**LSTM**（Long-Short Time Memory）と呼ばれるRNNが1997年に発表された。LSTMはネットワーク内にMemoryセルと呼ばれる単位で、情報の記憶と忘却を調整することで、RNNで問題となっていた勾配爆発を解決した[^40-20] [^40-21]。さらに、GNN（Graph Neural Network）という[グラフ](https://lethediana.sakura.ne.jp/tech/archives/summary-ja/1367/)を入出力とするリッチなデータ構造に機械学習を用いる構造が発表された[^40-58] [^40-59]。
 
 > **note**
 LSTMの元論文にはメモリーセルが情報をforgetするとは書かれていない[^40-19]
@@ -345,8 +349,17 @@ AI研究は邁進していた。
 Auto encoderと制限付きボルツマンマシン
 
 さらに、アルゴリズム自体だけでなく、データによりアルゴリズムの精度が高まるという考えのもと、2009年に物体認識ソフトウェアの研究のためImageNetという大規模な画像データセットが発表され[^40-34] [^40-35]、翌2010年からILSVRC（ImageNet Large Scale Visual Recognition Challenge）という画像認識AIのコンテストを毎年開催し[^40-39]、この頃およびこれ以後のAIブームの触媒となったといえる。
-2009年のスタンフォード大学の論文で、主にグラフィック処理のために利用されていたプロセッサである**GPU**（Graphic Processor Unit）を利用し、AIの学習を並列に実行することで処理を高速化した[^40-36]。これ以来、ニューラルネットワークの学習・推論にGPUが採用されることが多くなった[^40-37]。
+2009年のスタンフォード大学の論文で、主にグラフィック処理のために利用されていたプロセッサである**GPU**（Graphic Processor Unit）、2006年にNvidia社によって開発されたCUDA[^40-43]と2008年に発表されたそのプログラミングモデル[^40-44]を利用し、AIの学習を並列に実行することで処理を高速化した[^40-36]。これ以来、ニューラルネットワークの学習・推論にGPUが採用されることが多くなった[^40-37]。
 そして、2012年のILSCRCでAlexNetと呼ばれるDeep CNNモデルが発表され[^40-40]、他を凌駕する性能を見せた。AlexNetは5つの畳み込み層と3つの全結合層という深い構造をしており多くのパラメータを有していたが、CNNでは初めてGPUで学習を行うことで、以前のモデルよりも4倍高速に処理できた[^40-38] [^40-41] [^40-42]。この成果により、Deep Learningが夢物語ではないこと、実用化する方法を世界に示したといえる。
+インターネットの普及が続き、2000年初期あたりからWeb2.0と呼ばれる時代に入る[^40-45]。Facebook（2004年[^40-46]）、Youtube（2005年[^40-47]）、Twitter（2006年[^40-48]）をはじめとした動的コンテンツを有するWebサービスが続々と立ち上がり、2006年ごろからのWi-Fiの普及もあって[^40-49]、Web上で人々が活動するようになった。さらに、MySQLやPostgreSQLなどのデータベースシステムの成長[^40-50]や2008年ごろのIoT（Internet of Things）の誕生[^40-51]など、発生するデータが増加する明らかな兆候が見え始める。このような流れもあり、2009年のIDC（International Data Corporation）社の調査では2020年までにデジタルデータは44倍の35ゼタバイトに増加する（Data explosion）と予測され大きな反響を呼んだ[^40-52]。それにより学習データが重要とされているAI、特に機械学習、特にDeep Learningにより期待がかかるようになった。
+また、2008年にGitを使用したソフトウェア開発とバージョン管理のためのプラットフォームであるGithubが公開[^40-54]、このころ勢いをつけていたプログラミング言語であるPythonについて[^40-55]、機械学習プログラミングが容易になるライブラリであるscikit-learn（2007年[^40-57]）、Theano（2007年[^40-56]）などが利用可能となり、AI開発の敷居もますます下がったいえる。
+
+more Moore, more than moore(2009, 2010)
+http://www.itrs2.net/uploads/4/9/7/7/49775221/irc-itrs-mtm-v2_3.pdf
+AWS released GPU instance(2010)
+https://aws.amazon.com/jp/blogs/aws/new-gpu-equipped-ec2-p4-instances-for-machine-learning-hpc/
+
+> ![Data growth and expansion (IDC, 2009)](/images/ai_history/IDC_2009.png)
 
 [^40-1]:[A Quick History of Neural Networks](https://www.analyticsvidhya.com/blog/2020/09/quick-history-neural-networks/)
 [^40-2]:[Explained: Neural networks](https://news.mit.edu/2017/explained-neural-networks-deep-learning-0414)
@@ -390,23 +403,95 @@ Auto encoderと制限付きボルツマンマシン
 [^40-40]:[ImageNet Classification with Deep Convolutional Neural Networks](https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)
 [^40-41]:[AlexNet and ImageNet: The Birth of Deep Learning](https://www.pinecone.io/learn/series/image-search/imagenet/)
 [^40-42]:[The data that transformed AI research—and possibly the world](https://qz.com/1034972/the-data-that-changed-the-direction-of-ai-research-and-possibly-the-world)
+[^40-43]:[About CUDA](https://developer.nvidia.com/about-cuda)
+[^40-44]:[Manycore Parallel Computing with CUDA](https://developer.download.nvidia.com/presentations/2008/ICS2008/ICS2008_Keynote_MarkHarris_public.pdf)
+[^40-45]:[The Evolution of the Internet: Web 1.0, Web 2.0 and Web 3.0.](https://www.linkedin.com/pulse/evolution-internet-web-10-20-30-deepak-lyngdoh/)
+[^40-46]:[History of Facebook in *Wikipedia*](https://en.wikipedia.org/wiki/History_of_Facebook)
+[^40-47]:[History of Youtube in *Wikipedia*](https://en.wikipedia.org/wiki/History_of_YouTube)
+[^40-48]:[Twitter in *Wikipedia*](https://en.wikipedia.org/wiki/Twitter)
+[^40-49]:[15 years of WiFi](https://fon.com/fon-wifi-infographic/)
+[^40-50]:[Database Management System - DBMS](https://padakuu.com/history-of-database-systems-306-article)
+[^40-51]:[A Brief History of Internet of Things (IoT)](https://bytebeam.io/blog/a-brief-history-of-internet-of-things/)
+[^40-52]:[IDC: Data explosion goes into the Zettabytes](https://www.itpro.com/622942/idc-data-explosion-goes-into-the-zettabytes)
+[^40-53]:[The main challenges and issues of big data management](https://www.researchgate.net/publication/272696610_The_main_challenges_and_issues_of_big_data_management)
+[^40-54]:[GitHub in *Wikipedia*](https://en.wikipedia.org/wiki/GitHub)
+[^40-55]:[The Rise of the Python Programming Language](https://www.udacity.com/blog/2021/01/the-rise-of-the-python-programming-language.html)
+[^40-56]:[Theano in *Wikipedia*](https://en.wikipedia.org/wiki/Theano_(software))
+[^40-57]:[scikit-learn in *Wikipedia*](https://en.wikipedia.org/wiki/Scikit-learn)
+[^40-58]:[The graph neural network model](https://ro.uow.edu.au/cgi/viewcontent.cgi?article=10501&context=infopapers)
+[^40-59]:[What Are Graph Neural Networks?](https://blogs.nvidia.com/blog/2022/10/24/what-are-graph-neural-networks/)
 
-## 2015年ごろ以降 ：Deep Learning
-### boom
-The Generative Adversarial Neural Network (GAN) was introduced in 2014
+## 2013年ごろ以降 ：Deep Learning
+2013年頃に、メディア報道に「Big Tech」という技術系大企業（Big FourはGoogle、Amazon、Facebook、Apple、Big Fiveはそれらに加えてMicrosoft）を表す用語が現れはじめた[^50-1] [^50-2]。これらの企業は例えば、Appleが音声認識のデジタルアシスタントであるSiriをiPhone 4Sに実装（2011年）[^50-3]、FacebookがFAIR（Facebook Artificial Intelligence Research）を設立（2013年）[^50-6]、Googleが英国のAIスタートアップDeepMind社を買収（2014年）[^50-5]、AmazonがスマートスピーカーにバーチャルアシスタントAlexaを搭載（2014年）[^50-4]、MicrosoftがデジタルアシスタントCortanaをリリース（2014年）など[^50-7]、AIに対しても非常に積極的な動きを見せていた。
+この頃、CPU性能の一つであるクロック周波数は頭打ち状態となっていたが、マルチコア化、仮想化等により、コンピュータはさらに高性能になっていった[^50-13]。ハードウェア的にもさらに複雑な処理が可能となっていく中、Deep Learningもより高度化していく。
+2013年に、入力を示すベクトル空間を生成する**Embedding**と呼ばれる処理により、単語の意味を表現したWord Embeddingを生成するWord2vecと呼ばれるモデルがGoogleの技術者により発表された[^50-11] [^50-12]。そして2014年に発表されたSeq2seq（Sequence-to-Sequence）モデルでは[^50-18]、RNNでWord Embeddingを行い、さらにRNNで別の言語に変換するという機械翻訳モデルが提案された。このようなEmbeddingを行うEncoderと、それをもとに出力を行うDecoderからなる構造を、**Encoder-Decoder**と呼び[^50-19]、自然言語処理（翻訳）でいうと複雑な文構造や慣用的な表現などニュアンスを考慮した処理を可能とした[^50-20]。
+2014年にStanford大によりGloVeと呼ばれる事前学習されたモデルが発表され[^50-16]、特に機械翻訳ではWord Embeddingが主流になっていった[^50-14]。
 
-2016: Google's AlphaGo becomes the first computer to beat a professional human player in Go.
+> **note**
+Word embeddingという言葉は、2003年に提唱され、2008年の*A unified architecture for natural language processing*という論文で初めて実証されたとされる[^50-14]。入力をベクトル空間に焼き直せばよいので、CNNの畳み込み層を、Image Embeddingとする場合もある[^50-15]。
 
-Tensorflow, Pytorch
+そしてこの2014年には、2種類のニューラルネット（それぞれ、Generator、Descriminatorと呼ばれる。詳細は割愛）を用いてAIが画像を生成できる事例をしめした**GAN**（Generative Adversarial Neural network）というモデルが発表され[^50-22]、クリエイティブな能力を持つAI、すなわち**生成AI**（**Generative AI**）が見えてきた。
+
+この頃、ドイツの[Industrie 4.0](https://www.plattform-i40.de/IP/Navigation/EN/Home/home.html)（2013年に発表、2015年に拡大[^50-27]）中国の[Made in China 2025（中国製造2025）](https://english.www.gov.cn/2016special/madeinchina2025/)（2015年）、日本の[Society 5.0](https://www8.cao.go.jp/cstp/society5_0/)（2016年）、アメリカの[米国AI研究開発戦略計画（National Artificial Intelligence Research and Development Strategic Plan）](https://www.nitrd.gov/PUBS/national_ai_rd_strategic_plan.pdf)（2016年）など[^50-28]、の戦略などAIを組み込んだ政策レベルの動きも活発化し、国家としてAI技術を前提とした社会を大々的に打ち上げるようになってきた。
+また、AI研究においても、2015年には、Google社のエンジニアによりKeras[^50-8]、日本のPreferred Networks社によりChainer[^50-9]、Google社によりTensorflow、翌2016年にFacebook社よりPyTorch[^50-10]というオープンソースのGPUをサポートしたPythonベースの機械学習・Deep Learningのライブラリがリリースされ、さらにAI・機械学習に対する取り組みの敷居が大幅に下がる。さらに同2015年、機械学習モデルの利活用フェーズの考え方として、2009年に発案されたDevOps（Development Operations）の原則[^50-26]を機械学習モデルを組み込んだシステムに適用し、システムの自動化とモニタリングを推進できるMLOps（Machine Operations）というパラダイムも注目され始めた[^50-23] [^50-24] 。
+世間的にも、Google社（厳密にはDeepMind社）のAlphaGoというAIが囲碁の世界チャンピオンに勝利し、大きな話題を呼んだ[^50-29]。
+
+2015年、ニューラルネットワークのさらなる多層化に伴う勾配消失・勾配爆発問題への対策として、Microsoft Research社によりResNet（Residual Network）と呼ばれる、ネットワークの層を飛ばしてニューロンを結合させる（スキップ接続）構造を持ったモデルが提案された [^50-30] [^50-31]。 この技術により、数百数千の層を持つ、ますます深いネットワークの可能性が見出された[^50-32]。
+
+The fixed-size context-vector bottleneck was one of the main motivations by Bahdanau et al. 2015, which proposed a similar architecture but with a crucial improvement:
+“The new architecture consists of a bidirectional RNN as an encoder and a decoder that emulates searching through a source sentence during decoding a translation”
+https://www.davidsbatista.net/blog/2020/01/25/Attention-seq2seq/
+
+
 Edge AI()
+PINN（Gray box Neural Network）
 
-RNN
-attention
 The modern Transformer was introduced by Ashish Vaswani et. al. in their 2017 paper "Attention Is All You Need.
 Diffusion
+
+2018: EU guidelines for AI
+2018 AI Next: DARPA
+
 Web3.0 メタバース
+OpenAI
+
 ChatGPT
 Foundation model
+
+[^50-1]:[Big Tech in *Wikipedia*](https://en.wikipedia.org/wiki/Big_Tech)
+[^50-2]:[Big Tech](https://academic-accelerator.com/encyclopedia/big-tech)
+[^50-3]:[Apple's Siri and the Future of Artificial Intelligence](https://forbes.com/sites/erikkain/2011/10/15/apples-siri-and-the-future-of-artificial-intelligence/?sh=37bdf86d29a0)
+[^50-4]:[Amazon Alexa in *Wikipedia*](https://en.wikipedia.org/wiki/Amazon_Alexa)
+[^50-5]:[Google buys UK artificial intelligence startup Deepmind for £400m](https://www.theguardian.com/technology/2014/jan/27/google-acquires-uk-artificial-intelligence-startup-deepmind)
+[^50-6]:[Meta AI in *Wikipedia*](https://en.wikipedia.org/wiki/Meta_AI)
+[^50-7]:[A brief history of Cortana, Microsoft's trusty digital assistant](https://www.windowscentral.com/history-cortana-microsofts-digital-assistant)
+[^50-8]:[The History of Keras: From Research Project to Industry Standard](https://ts2.space/en/the-history-of-keras-from-research-project-to-industry-standard/)
+[^50-9]:[Chainer in *Wikipedia*](https://en.wikipedia.org/wiki/Chainer)
+[^50-10]:[PyTorch: all about Facebook’s Deep Learning framework](https://datascientest.com/en/pytorch-all-about-this-framework#:~:text=Based%20on%20the%20former%20Torch,a%20simple%20and%20efficient%20way.)
+[^50-11]:[Distributed Representations of Words and Phrases and their Compositionality](https://arxiv.org/abs/1310.4546)
+[^50-12]:[Efficient Estimation of Word Representations in Vector Space](https://arxiv.org/abs/1301.3781)
+[^50-13]:[MULTI-CORE PROCESSORS](https://medium.com/nerd-for-tech/multi-core-processors-53ee2899f90f)
+[^50-14]:[An overview of word embeddings and their connection to distributional semantic models](https://aylien.com/blog/overview-word-embeddings-history-word2vec-cbow-glove)
+[^50-15]:[Image Embeddings explained](https://www.picsellia.com/post/image-embeddings-explained)
+[^50-16]:[GloVe: Global Vectors for Word Representation](https://nlp.stanford.edu/projects/glove/)
+[^50-17]:[Sequence To Sequence ( Seq2Seq )](https://blog.octopt.com/sequence-to-sequence/)
+[^50-18]:[Sequence to Sequence Learning with Neural Networks](https://arxiv.org/abs/1409.3215)
+[^50-19]:[Sequence to Sequence (seq2seq) and Attention](https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html)
+[^50-20]:[The Benefits of AI Seq2Seq Models in Machine Translation and Language Processing](https://ts2.space/en/the-impact-of-ai-seq2seq-models-on-machine-translation-and-language-processing/)
+[^50-21]:[AI-generated world: How Generative Adversarial Networks(GANs) are transforming whole industries today](https://www.linkedin.com/pulse/ai-generated-world-how-generative-adversarial-whole-industries-kusyy/)
+[^50-22]:[Generative Adversarial Networks](https://arxiv.org/abs/1406.2661)
+[^50-23]:[Hidden Technical Debt in Machine Learning Systems](https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf)
+[^50-24]:[Secure MLOps solutions with Azure network security](https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/network-security-mlops)
+[^50-25]:[MLOps: 機械学習における継続的デリバリーと自動化のパイプライン](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning?hl=ja)
+[^50-26]:[What Is DevOps?](https://newrelic.com/devops/what-is-devops)
+[^50-27]:[The background to Plattform Industrie 4.0](https://www.plattform-i40.de/IP/Navigation/EN/ThePlatform/Background/background.html)
+[^50-28]:[Creation of the National Artificial Intelligence Research and Development Strategic Plan](https://onlinelibrary.wiley.com/doi/10.1609/aimag.v39i2.2803)
+[^50-29]:[Artificial intelligence: Google's AlphaGo beats Go master Lee Se-dol](https://www.bbc.com/news/technology-35785875)
+[^50-30]:[Deep Residual Learning for Image Recognition](https://arxiv.org/pdf/1512.03385.pdf)
+[^50-31]:[Residual Networks (ResNet) – Deep Learning](https://www.geeksforgeeks.org/residual-networks-resnet-deep-learning/)
+[^50-32]:[The Impact of Residual Networks on the Advancement of AI](https://ts2.space/en/the-impact-of-residual-networks-on-the-advancement-of-ai/)
+[^50-33]:[Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473)
+[^50-34]:[Review — Neural Machine Translation by Jointly Learning to Align and Translate](https://sh-tsang.medium.com/review-neural-machine-translation-by-jointly-learning-to-align-and-translate-3b381fc032e3)
 
 
 # 最終確認
@@ -433,6 +518,10 @@ https://ai100.stanford.edu/2016-report/appendix-i-short-history-ai
 But the real change I think in the field happened when it became feasible to store and capture large amounts of data. Back in those first days with the probabilistic systems, we didn’t have much data. 
 *Learning from Artificial Intelligence’s Previous Awakenings: The History of Expert Systems*
 
+https://sites.bu.edu/cmcs/2017/11/16/growing-up-with-alexa-siri-and-other-a-i-technology/
+
+https://www.washingtonpost.com/news/the-switch/wp/2017/06/05/why-apple-is-struggling-to-become-an-artificial-intelligence-powerhouse/
+
 ## 初期のニューラルネットワーク
 https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/History/history1.html
 
@@ -445,6 +534,19 @@ While traditional supervised learning focuses on predicting labels based on inpu
 https://www.datacamp.com/blog/what-is-similarity-learning
 Similarity Based Learningから
 1981, Gerald Dejong discovered Explanation Based Learning
+
+Semi-supervised learning
+Self-supervised learning
+
+
+[Embeddings in Machine Learning: Everything You Need to Know](https://www.featureform.com/post/the-definitive-guide-to-embeddings)
+
+> ![Embeddings can produce remarkable analogies.](https://developers.google.com/static/machine-learning/crash-course/images/linear-relationships.svg?hl=ja)
+*Embeddings can produce remarkable analogies.*
+
+[Facebook’s artificial intelligence research team, FAIR, turns five. But what are its biggest accomplishments?](https://hub.packtpub.com/facebooks-artificial-intelligence-research-team-fair-turns-five-but-what-are-its-biggest-accomplishments/)
+2014 seq2seq: attention
+2015 ResNet
 
 MNIST
 Hopfiled networkの計算効率の悪さ
@@ -473,13 +575,15 @@ https://medium.com/@adi.fu7/ai-accelerators-part-ii-transistors-and-pizza-or-why
 - 量子コンピュータ
 ## AI倫理
 - データセットの偏見（今あるデータセットでAIが学習すると医者は男、看護師は女という偏見が入ってしまう等）
-## センサー
-- 触覚
-- 嗅覚
-- 味覚
+https://hypebeast.com/jp/2023/5/geoffrey-hinton-godfather-of-ai-quit-google
+- XAI
 ## 学習データ
 - データ量増大
-## AI作るAI
+- 残りの5感（触覚、嗅覚、味覚
+- メタバース上のデータ
+## Full automation
+- CPS
+- AI作るAI
 - AI同士のコミュニケーション
 
 # おわりに
@@ -487,6 +591,12 @@ AI技術は移り変わりの
 今後の動向をキャッチアップしていくことが非常に重要である。
 技術的にAIを見るうえで、本来は数学的な視点からも発明の変遷を辿るのがベストだが、本記事で記したような状況や背景の全体感を把握をしておけば詳細に入りやすいのではないかと思う。
 調査しきれていない部分もあるので、割愛した部分を加えて電子書籍にしてみるのもありかも。
+
+## もうちょっと調べたい
+- AutoML
+- DeepFake
+- GAFAと呼ぶのは日本だけ？
+    - https://www.xkula.com/gafa-or-faang-japan/https://www.xkula.com/gafa-or-faang-japan/
 
 # 参考
 https://en.wikipedia.org/wiki/History_of_artificial_intelligence
