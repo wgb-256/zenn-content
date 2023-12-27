@@ -424,7 +424,7 @@ https://aws.amazon.com/jp/blogs/aws/new-gpu-equipped-ec2-p4-instances-for-machin
 ## 2013年ごろ以降 ：Deep Learning
 2013年頃に、メディア報道に「Big Tech」という技術系大企業（Big FourはGoogle、Amazon、Facebook、Apple、Big Fiveはそれらに加えてMicrosoft）を表す用語が現れはじめた[^50-1] [^50-2]。これらの企業は例えば、Appleが音声認識のデジタルアシスタントであるSiriをiPhone 4Sに実装（2011年）[^50-3]、FacebookがFAIR（Facebook Artificial Intelligence Research）を設立（2013年）[^50-6]、Googleが英国のAIスタートアップDeepMind社を買収（2014年）[^50-5]、AmazonがスマートスピーカーにバーチャルアシスタントAlexaを搭載（2014年）[^50-4]、MicrosoftがデジタルアシスタントCortanaをリリース（2014年）など[^50-7]、AIに対しても非常に積極的な動きを見せていた。
 この頃、CPU性能の一つであるクロック周波数は頭打ち状態となっていたが、マルチコア化、仮想化等により、コンピュータはさらに高性能になっていった[^50-13]。ハードウェア的にもさらに複雑な処理が可能となっていく中、Deep Learningもより高度化していく。
-2013年に、入力を示すベクトル空間を生成する**Embedding**と呼ばれる処理により、単語の意味を表現したWord Embeddingを生成するWord2vecと呼ばれるモデルがGoogleの技術者により発表された[^50-11] [^50-12]。そして2014年に発表されたSeq2seq（Sequence-to-Sequence）モデルでは[^50-18]、RNNでWord Embeddingを行い、さらにRNNで別の言語に変換するという機械翻訳モデルが提案された。このようなEmbeddingを行うEncoderと、それをもとに出力を行うDecoderからなる構造を、**Encoder-Decoder**と呼び[^50-19]、自然言語処理（翻訳）でいうと複雑な文構造や慣用的な表現などニュアンスを考慮した処理を可能とした[^50-20]。
+2013年に、入力を示すベクトル空間を生成する**Embedding**と呼ばれる処理により、単語の意味を表現したWord Embeddingを生成するWord2vecと呼ばれるモデルがGoogleの技術者により発表された[^50-11] [^50-12]。そして2014年に発表されたSeq2seq（Sequence-to-Sequence）モデルでは[^50-18]、RNNでWord Embeddingを行い、さらにRNNで別の言語に変換するという機械翻訳モデルが提案された。このようなEmbeddingを行うEncoderと、それをもとに出力を行うDecoderからなる構造を、[**Encoder-Decoder**](https://lethediana.sakura.ne.jp/tech/archives/summary-ja/2173/)と呼び[^50-19]、自然言語処理（翻訳）でいうと複雑な文構造や慣用的な表現などニュアンスを考慮した処理を可能とした[^50-20]（構造・機能の定性的なまとめは[こちら](https://lethediana.sakura.ne.jp/tech/archives/summary-ja/2173/)もどうぞ）。
 2014年にStanford大によりGloVeと呼ばれる事前学習されたモデルが発表され[^50-16]、特に機械翻訳ではWord Embeddingが主流になっていった[^50-14]。
 
 > **note**
@@ -437,20 +437,19 @@ Word embeddingという言葉は、2003年に提唱され、2008年の*A unified
 世間的にも、Google社（厳密にはDeepMind社）のAlphaGoというAIが囲碁の世界チャンピオンに勝利し、大きな話題を呼んだ[^50-29]。
 
 2015年、ニューラルネットワークのさらなる多層化に伴う勾配消失・勾配爆発問題への対策として、Microsoft Research社によりResNet（Residual Network）と呼ばれる、ネットワークの層を飛ばしてニューロンを結合させる（スキップ接続）構造を持ったモデルが提案された [^50-30] [^50-31]。 この技術により、数百数千の層を持つ、ますます深いネットワークの可能性が見出された[^50-32]。
+そして、Seq2seqモデルでEncoderの出力が固定長であるため長い入力に対応しづらいことなどを問題点とし[^50-35]、**Attention機構**と呼ばれるDecoderが注目すべき部分を示すベクトルを計算するメカニズムを実装したモデルが提案され、制度が向上することが示された（2015年の論文[^50-37]が多く引用された[^50-34]）[^50-33] [^50-36]。このAttention機構を応用したモデルや[^50-39]、画像処理AIに適用した例など[^50-40]、その後さまざまなアルゴリズムのAttention機構が提案された（Attention機構の詳細は[こちら]()もどうぞ）。
 
-The fixed-size context-vector bottleneck was one of the main motivations by Bahdanau et al. 2015, which proposed a similar architecture but with a crucial improvement:
-“The new architecture consists of a bidirectional RNN as an encoder and a decoder that emulates searching through a source sentence during decoding a translation”
-https://www.davidsbatista.net/blog/2020/01/25/Attention-seq2seq/
-
+しかしAttention機構は高精度化に大きく貢献した一方で、並列計算できないという欠点があった。そこで2017年に発表されたMulti-head Attentionという方式のAttention機構を搭載した、Transformerと呼ばれるモデルで並列計算可能となった。このTransformerは、従来のようなRNNを用いたEncoder-Decoderモデルではなく、Attention機構を。。。したモデルを採用しており、
 
 Edge AI()
 PINN（Gray box Neural Network）
 
-The modern Transformer was introduced by Ashish Vaswani et. al. in their 2017 paper "Attention Is All You Need.
 Diffusion
 
 2018: EU guidelines for AI
 2018 AI Next: DARPA
+
+2020 Vision transformer
 
 Web3.0 メタバース
 OpenAI
@@ -492,7 +491,13 @@ Foundation model
 [^50-32]:[The Impact of Residual Networks on the Advancement of AI](https://ts2.space/en/the-impact-of-residual-networks-on-the-advancement-of-ai/)
 [^50-33]:[Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473)
 [^50-34]:[Review — Neural Machine Translation by Jointly Learning to Align and Translate](https://sh-tsang.medium.com/review-neural-machine-translation-by-jointly-learning-to-align-and-translate-3b381fc032e3)
-
+[^50-35]:[Seq2Seq with Attention](https://hackmd.io/@kkume/rkjOYwfKD)
+[^50-36]:[Sequence to Sequence (seq2seq) and Attention](https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html)
+[^50-37]:[NEURAL MACHINE TRANSLATION BY JOINTLY LEARNING TO ALIGN AND TRANSLATE](https://arxiv.org/pdf/1409.0473.pdf)
+[^50-38]:[Attention Is All You Need](https://arxiv.org/abs/1706.03762)
+[^50-39]:[Attention? Attention!](https://lilianweng.github.io/posts/2018-06-24-attention/)
+[^50-40]:[Show, Attend and Tell: Neural Image Caption Generation with Visual Attention](https://proceedings.mlr.press/v37/xuc15.pdf)
+[]
 
 # 最終確認
 
@@ -545,8 +550,6 @@ Self-supervised learning
 *Embeddings can produce remarkable analogies.*
 
 [Facebook’s artificial intelligence research team, FAIR, turns five. But what are its biggest accomplishments?](https://hub.packtpub.com/facebooks-artificial-intelligence-research-team-fair-turns-five-but-what-are-its-biggest-accomplishments/)
-2014 seq2seq: attention
-2015 ResNet
 
 MNIST
 Hopfiled networkの計算効率の悪さ
@@ -576,8 +579,10 @@ https://medium.com/@adi.fu7/ai-accelerators-part-ii-transistors-and-pizza-or-why
 ## AI倫理
 - データセットの偏見（今あるデータセットでAIが学習すると医者は男、看護師は女という偏見が入ってしまう等）
 https://hypebeast.com/jp/2023/5/geoffrey-hinton-godfather-of-ai-quit-google
+    - 社会的な影響が大きくなっている昨今、技術（AIの出力する結果の精度）だけを追い求めておけばよいフェーズではなくなってきている。
 - XAI
 ## 学習データ
+- マルチモーダル
 - データ量増大
 - 残りの5感（触覚、嗅覚、味覚
 - メタバース上のデータ
@@ -587,16 +592,19 @@ https://hypebeast.com/jp/2023/5/geoffrey-hinton-godfather-of-ai-quit-google
 - AI同士のコミュニケーション
 
 # おわりに
-AI技術は移り変わりの
-今後の動向をキャッチアップしていくことが非常に重要である。
-技術的にAIを見るうえで、本来は数学的な視点からも発明の変遷を辿るのがベストだが、本記事で記したような状況や背景の全体感を把握をしておけば詳細に入りやすいのではないかと思う。
-調査しきれていない部分もあるので、割愛した部分を加えて電子書籍にしてみるのもありかも。
+AI技術の進展はとどまるところを知らないどころか、どんどんと加速している。
+そのため、現時点の最新技術が何かを拾うだけではなく、発展の歴史を頭に入れたうえで動向をキャッチアップしていくことでより適切に。
+また、技術的にAIを見る際には、本来は数学的な視点からも発明の変遷を辿るのがベストだが、本記事で記したような状況や背景の全体感を把握をしておけば詳細に入りやすいのではないかと思う。
 
 ## もうちょっと調べたい
 - AutoML
 - DeepFake
 - GAFAと呼ぶのは日本だけ？
     - https://www.xkula.com/gafa-or-faang-japan/https://www.xkula.com/gafa-or-faang-japan/
+
+## PS
+調査しきれていない部分もあるので、割愛した部分を加えて電子書籍化に挑戦してみてもよいかも？
+
 
 # 参考
 https://en.wikipedia.org/wiki/History_of_artificial_intelligence
