@@ -437,25 +437,20 @@ Word embeddingという言葉は、2003年に提唱され、2008年の*A unified
 世間的にも、Google社（厳密にはDeepMind社）のAlphaGoというAIが囲碁の世界チャンピオンに勝利し、大きな話題を呼んだ[^50-29]。
 
 2015年、ニューラルネットワークのさらなる多層化に伴う勾配消失・勾配爆発問題への対策として、Microsoft Research社によりResNet（Residual Network）と呼ばれる、ネットワークの層を飛ばしてニューロンを結合させる（スキップ接続）構造を持ったモデルが提案された [^50-30] [^50-31]。 この技術により、数百数千の層を持つ、ますます深いネットワークの可能性が見出された[^50-32]。
-そして、Seq2seqモデルでEncoderの出力が固定長であるため長い入力に対応しづらいことなどを問題点とし[^50-35]、**Attention機構**と呼ばれるDecoderが注目すべき部分を示すベクトルを計算するメカニズムを実装したモデルが提案され、制度が向上することが示された（2015年の論文[^50-37]が多く引用された[^50-34]）[^50-33] [^50-36]。このAttention機構を応用したモデルや[^50-39]、画像処理AIに適用した例など[^50-40]、その後さまざまなアルゴリズムのAttention機構が提案された（Attention機構の詳細は[こちら]()もどうぞ）。
+そして、Seq2seqモデルでEncoderの出力が固定長であるため長い入力に対応しづらいことなどを問題点とし[^50-35]、**Attention機構**と呼ばれるDecoderが注目すべき部分を示すベクトルを計算するメカニズムを実装したモデルが提案され、制度が向上することが示された（2015年の論文[^50-37]が多く引用された[^50-34]）[^50-33] [^50-36]。このAttention機構を応用したモデルや[^50-39]、画像処理AIに適用した例など[^50-40]、その後さまざまなアルゴリズムのAttention機構が提案された（Attention機構の詳細は[こちら](https://lethediana.sakura.ne.jp/tech/archives/summary-ja/2170/)もどうぞ）。
+ただし、Attention機構が高精度化に大きく貢献した一方で、RNNを用いたEncoder-Decoderモデルのようなシーケンシャルな構造では大規模な入力に対して、計算に時間がかかりすぎるという欠点があった[^50-43]。これに対して、そこで2017年にMulti-head Attentionという方式のAttention機構を搭載して並列計算可能となった、**Transformer**と呼ばれるモデルが発表された[^50-38]。このTransformerは入力の全体から注目すべき部分を考慮させる点で、入力のうち特定の部分の前後関係を分析するRNNなどのニューラルネットワークとは、根本的に動作が異なり[^50-41] [^50-42]、CNNやRNNより計算量が抑えられ、訓練が容易で、並列処理もしやすいなどの特長を持つ[^50-44]。
+またこの頃、Industrie 4.0のキーテクノロジーの一つにAIが挙げられていることや[^50-45] [^50-46]、この頃のAI技術への投資元のメインは政府ではなく産業界となったこと[^30-39]（DARPAが2018年にAI Next Campaignを打ち出すなど、政府関連も投資は継続している[^50-48]）、2006年ごろから普及しだしたクラウドコンピューティング技術により[^50-47]、多くのソフトウェアがオンプレミスからクラウドへと移行していった反動や、続々とAIのパフォーマンスが人間の能力を超えてきていることもあり[^50-57]、小規模リソースで動作する**Edge AI**が注目されてきた。スマートフォンへのAI実装に向けた開発環境としても、2017年にTensorFlow Liteが発表され[^50-53]、2019年にPytorch Mobileが発表された[^50-54]。
 
-しかしAttention機構は高精度化に大きく貢献した一方で、並列計算できないという欠点があった。そこで2017年に発表されたMulti-head Attentionという方式のAttention機構を搭載した、Transformerと呼ばれるモデルで並列計算可能となった。このTransformerは、従来のようなRNNを用いたEncoder-Decoderモデルではなく、Attention機構を。。。したモデルを採用しており、
+> ![State-of-the-art AI performance on benchmarks, relative to human performance](/images/ai_history/1691138939574.jpeg)
 
-Edge AI()
-PINN（Gray box Neural Network）
+Transformerモデルは非常に有用であり、2018年には目的や学習方法が異なるGoogle社のBERT（Bidirectional Encoder Representations from Transformers）や[^50-49] [^50-50]（2019年にはGoogleの検索にも導入されている[^50-56]）、OpenAI社のGPT（Generative Pre-Trained Transformer）といった[^50-51] [^50-52]、自然言語系のAIモデルが発表された。言語系のモデルは大規模な学習データを用いると不連続にパフォーマンスが向上することがわかってきて、モデルサイズ（パラメータ数のこと。10億（Billion）単位でカウントされる）を増加している[^50-59]。
 
-Diffusion
+> ![Language Model Sizes Over times](https://twosigmaventures.com/wp-content/uploads/sites/2/Model-Size-Over-Time@4x.png)
 
-2018: EU guidelines for AI
-2018 AI Next: DARPA
-
-2020 Vision transformer
-
-Web3.0 メタバース
-OpenAI
-
-ChatGPT
-Foundation model
+このようなモデルは特に**LLMs**（Large Language Models, 大規模言語モデル）と呼ばれ、OpenAI社のGPT-3（2020年7月）[^50-62]、GPT-3.5（2022年3月）[^50-63]、GPT-4（2023年3月）[^50-64]、Google社のLaMDA（2021年3月）[^50-65]、PaLM（2022年4月）[^50-66]、PaLM-2（2023年3月）[^50-67]、Gemini（2023年12月）[^50-68]、Meta社のLLaMa（2023年2月）[^50-60]、LLaMa-2（2023年7月、優先パートナーとしてMicrosoft社が挙げられた）[^50-61]、Anthropic社のClaude（2023年3月）[^50-69]、Claude2（2023年7月）[^50-70]など、現在でも新しいモデルが開発されている。
+そしてLLMsは、追加の学習用データセットを用いてFine tuningを行うことで用途に特化したサービスにすることができ[^50-71]、その意味で**基盤モデル**（**Foundation Model**）と呼ばれることもある[^50-72]。中でも、GPT-3.5をChatbot用にFine tuningした**ChatGPT**というサービスは、2022年11月にリリースされて2か月で月間1億人のアクティブユーザーに到達したと推定され、史上最も急速に成長している消費者向けアプリケーションと呼ばれている[^50-73]。これにより、「生成AI」という言葉が爆発的に普及し、オフィスドキュメントのデファクトスタンダードである[^50-74]Microsoft 365にChatGPTを統合したため、技術者でなくてもAIに触れる機械が激増した。
+これに伴い、元データを提供する情報検索システムを追加してChatGPTのようなLLMsサービスの機能を拡張するパターンであるRAG（Retrieval Augmentation Generation）パターンや[^50-77]、生成AIに目的の出力を生成させる技術としてPrompt Engineeringなど[^50-78]、新しいコンセプトも続々出現している。
+Transformerはそのパフォーマンスの高さから他の分野にも用は拡大し[^50-55] [^50-76]、マシンビジョン（画像認識）向けの**Vision Transformer**（2020年）など[^50-58]、従来のニューラルネットワークが担ってきたタスクを代替する手法としても用いられ始めている。そして、生成AIという観点では、テキストから画像を生成するtext-to-imageモデルと呼ばれる分野も発展し、Stability AI社の[Stable Diffusion](https://huggingface.co/spaces/stabilityai/stable-diffusion)（2022年）、Midjourney社の[Midjourney](https://www.midjourney.com/home/)（2022年）、OpenAI社の[DALL-E3](https://openai.com/dall-e-3)（2023年）などが発表されている。
 
 [^50-1]:[Big Tech in *Wikipedia*](https://en.wikipedia.org/wiki/Big_Tech)
 [^50-2]:[Big Tech](https://academic-accelerator.com/encyclopedia/big-tech)
@@ -497,7 +492,44 @@ Foundation model
 [^50-38]:[Attention Is All You Need](https://arxiv.org/abs/1706.03762)
 [^50-39]:[Attention? Attention!](https://lilianweng.github.io/posts/2018-06-24-attention/)
 [^50-40]:[Show, Attend and Tell: Neural Image Caption Generation with Visual Attention](https://proceedings.mlr.press/v37/xuc15.pdf)
-[]
+[^50-41]:[Transformers Can Mock Part of Human Brain](https://www.infoq.com/news/2022/10/transformers-mock-brain/)
+[^50-42]:[AI models are powerful, but are they biologically plausible?](https://news.mit.edu/2023/ai-models-astrocytes-role-brain-0815)
+[^50-43]:[Attention is all you need: Discovering the Transformer paper](https://towardsdatascience.com/attention-is-all-you-need-discovering-the-transformer-paper-73e5ff5e0634)
+[^50-44]:[CRDS 国立研究開発法人科学技術振興機構 研究開発戦略センター 研究開発の俯瞰報告書 システム・情報科学技術分野（2023年）](https://www.jst.go.jp/crds/pdf/2022/FR/CRDS-FY2022-FR-04/CRDS-FY2022-FR-04_20102.pdf)
+[^50-45]:[VDMA Digitalization & Industrie 4.0](https://www.vdma.org/digitalization-industry-40)
+[^50-46]:[VDMA Artificial Intelligence](https://www.vdma.org/artificial-intelligence)
+[^50-47]:[Docker一強の終焉にあたり、押さえるべきContainer事情](https://zenn.dev/ttnt_1013/articles/f36e251a0cd24e)
+[^50-48]:[AI Next Campaign (Archived)](https://www.darpa.mil/work-with-us/ai-next-campaign)
+[^50-49]:[Unleashing the Power of BERT: How the Transformer Model Revolutionized NLP](https://arize.com/blog-course/unleashing-bert-transformer-model-nlp/)
+[^50-50]:[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805)
+[^50-51]:[GPT: Generative Pre-Trained Transformer (2018)](https://kikaben.com/gpt-generative-pre-training-transformer-2018/)
+[^50-52]:[Improving Language Understanding by Generative Pre-Training](https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf)
+[^50-53]:[Announcing TensorFlow Lite](https://developers.googleblog.com/2017/11/announcing-tensorflow-lite.html)
+[^50-54]:[Facebook launches PyTorch Mobile for edge ML on Android and iOS devices](https://venturebeat.com/ai/facebook-launches-pytorch-mobile-for-edge-ml-on-android-and-ios-devices/)
+[^50-55]:[Stanford CS25: V2 I Introduction to Transformers w/ Andrej Karpathy](https://www.youtube.com/watch?v=XfpMkf4rD6E/)
+[^50-56]:[【図解】BERTとは？Googleの新自然言語処理がどう影響するのか](https://satori.marketing/marketing-blog/what-is-bert/)
+[^50-57]:[4 Charts That Show Why AI Progress Is Unlikely to Slow Down](https://time.com/6300942/ai-progress-charts/)
+[^50-58]:[An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale](https://openreview.net/forum?id=YicbFdNTTy)
+[^50-59]:[The Promise and Perils of Large Language Models](https://twosigmaventures.com/blog/article/the-promise-and-perils-of-large-language-models/?ref=assemblyai.com)
+[^50-60]:[Introducing LLaMA: A foundational, 65-billion-parameter large language model](https://ai.meta.com/blog/large-language-model-llama-meta-ai/)
+[^50-61]:[Metaとマイクロソフト、 次世代Llamaを発表](https://about.fb.com/ja/news/2023/07/meta-and-microsoft-introduce-the-next-generation-of-llama/)
+[^50-62]:[OpenAI’s new language generator GPT-3 is shockingly good—and completely mindless](https://www.technologyreview.com/2020/07/20/1005454/openai-machine-learning-language-generator-gpt-3-nlp/)
+[^50-63]:[OpenAI GPT-3.5](https://lablab.ai/tech/openai/gpt3-5)
+[^50-64]:[OpenAI GPT-4](https://lablab.ai/tech/openai/gpt4)
+[^50-65]:[LaMDA: our breakthrough conversation technology](https://blog.google/technology/ai/lamda/)
+[^50-66]:[Pathways Language Model (PaLM): Scaling to 540 Billion Parameters for Breakthrough Performance](https://blog.research.google/2022/04/pathways-language-model-palm-scaling-to.html)
+[^50-67]:[Introducing PaLM 2](https://blog.google/technology/ai/google-palm-2-ai-large-language-model/)
+[^50-68]:[Introducing Gemini: our largest and most capable AI model](https://blog.google/technology/ai/google-gemini-ai/)
+[^50-69]:[Introducing Claude](https://www.anthropic.com/index/introducing-claude)
+[^50-70]:[Claude 2](https://www.anthropic.com/index/claude-2)
+[^50-71]:[The Ultimate Guide to LLM Fine Tuning: Best Practices & Tools](https://www.lakera.ai/blog/llm-fine-tuning-guide)
+[^50-72]:[Foundation Models and LLMs: a Complete Guide](https://kili-technology.com/large-language-models-llms)
+[^50-73]:[ChatGPT sets record for fastest-growing user base - analyst note](https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/)
+[^50-74]:[The biggest blocker to LibreOffice adoption? LibreOffice.](https://www.dedoimedo.com/computers/libreoffice-adoption.html)
+[^50-75]:[ChatGPTを統合したOfficeの新機能がすごすぎる](https://www.gizmodo.jp/2023/05/microsoft-365-copilot-new-feature.html)
+[^50-76]:[A Comprehensive Survey on Applications of Transformers for Deep Learning Tasks](https://arxiv.org/abs/2306.07303)
+[^50-77]:[Retrieval Augmented Generation (RAG) in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview)
+[^50-78]:[What is Prompt Engineering?](https://aws.amazon.com/what-is/prompt-engineering/)
 
 # 最終確認
 
@@ -572,6 +604,11 @@ https://medium.com/@adi.fu7/ai-accelerators-part-ii-transistors-and-pizza-or-why
 
 # 今後のAI技術
 社会実装に向けた課題が増えている
+## 学習データ
+- マルチモーダル
+- データ量増大
+- 残りの5感（触覚、嗅覚、味覚
+- メタバース上のデータ
 ## ハードの進化
 - クロックの飽和
 - AIハード（チップ、アーキテクチャ）の出現：スケーラビリティ
@@ -580,12 +617,8 @@ https://medium.com/@adi.fu7/ai-accelerators-part-ii-transistors-and-pizza-or-why
 - データセットの偏見（今あるデータセットでAIが学習すると医者は男、看護師は女という偏見が入ってしまう等）
 https://hypebeast.com/jp/2023/5/geoffrey-hinton-godfather-of-ai-quit-google
     - 社会的な影響が大きくなっている昨今、技術（AIの出力する結果の精度）だけを追い求めておけばよいフェーズではなくなってきている。
+    2018: EU guidelines for AI
 - XAI
-## 学習データ
-- マルチモーダル
-- データ量増大
-- 残りの5感（触覚、嗅覚、味覚
-- メタバース上のデータ
 ## Full automation
 - CPS
 - AI作るAI
@@ -598,9 +631,13 @@ AI技術の進展はとどまるところを知らないどころか、どんど
 
 ## もうちょっと調べたい
 - AutoML
+- Game理論との関連性
+    - https://www.lamsade.dauphine.fr/~cazenave/papers/games.pdf
 - DeepFake
 - GAFAと呼ぶのは日本だけ？
     - https://www.xkula.com/gafa-or-faang-japan/https://www.xkula.com/gafa-or-faang-japan/
+- AstrocyteとTransformerの関係
+- PINNについて
 
 ## PS
 調査しきれていない部分もあるので、割愛した部分を加えて電子書籍化に挑戦してみてもよいかも？
