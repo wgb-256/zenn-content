@@ -20,7 +20,7 @@ ChatGPTをはじめとする生成AIにより、技術者に限らず、AIに頼
 
 # AI研究の全体像
 ## AIが担うタスク
-現実世界で用いられるAIは、人間の補助（人間の仕事を手伝う）・代替（人間の代わりに仕事をする）・拡張（人間よりも高度な仕事をする）という立ち位置であることが多い。次章で述べるが、AIの発端は「人間のような知的な機械」という発想である。したがって、AIが担うタスクは、基本的には人間の活動になぞらえるとよいと考えられる。具体的には、見る・聞く・読むことで得た情報を処理し、意思決定・認識（分類）・話す・書くを行うことになる。
+現実世界で用いられるAIは、人間の補助（人間の仕事を手伝う）・代替（人間の代わりに仕事をする）・拡張（人間よりも高度な仕事をする）という立ち位置であることが多い。次章で述べるが、AIの発端は「人間のような知的な機械」という発想である。したがって、AIが担うタスクは、基本的には人間の活動になぞらえるとよいと考えられる。具体的には、入力（見る・聞く・読む）により得た情報を処理し（考える）、出力（意思決定・認識・分類・話す・書く）を行うことになる。
 
 - 入力
     - 見る
@@ -59,8 +59,6 @@ AIモデルの構造（例：どんなニューラルネットワークを組む
 どんな問題でも対応できるか（例：学習したデータ以外の場合にも対応できるか、ノイズ耐性）
 
 # AI技術関連史　　
-AI技術に対する期待とは
-
 ##  ~ 1957年ごろ：「AI」誕生
 17世紀に活躍したドイツの学者[Gottfried Wilhelm Leibniz](https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz)は、安全・時間浪費の観点から計算は人間ではなく機械がするべきであるという考え方を持っており、[Pascalの計算機](https://en.wikipedia.org/wiki/Pascal%27s_calculator)をもとにして、長さの異なる歯をもつシリンダーと移動式の歯車を組み合わせて計算（基本的には自然数の四則演算）を可能にしたStepped reckonerまたはLeibniz Wheel（ライプニッツの車輪）と呼ばれる手動機械式の計算機を、1694年に完成させた[^10-4] [^10-5]。これをきっかけにLeibnizは、数学的記述（mathmatical statement、詳細は以下の**note 1**を参照）の真理値を決定できる機械を作ることができるのではないかと考えるようになった。それが実現できると、機械が論理を扱うことができるようになるため、どういう場合には何をするといった**場合分け処理**や、明確な理由がある**推論**といった[^10-8]、より知的な処理が可能になる。機械が論理を扱うためには、人間が自然に行っているコミュニケーションのような、曖昧さが残る表現やその時によって用法・意味が変わるような**自然言語**（natual langage）ではなく、文法・意味が形式的に与えられて明確に論理が展開できる**形式言語**（formal language）が必要であると考え、Leibnizの研究は形式言語を用いた**形式理論**（formal theory）にも重きが置かれるようになっていった。さらに、Leibnizは活動の中で、現代のコンピュータの基礎となっている2進数演算（binary arithmetics）や[^10-9]、2進数コンピュータ（binary computer）についても功績を残している[^10-10]。
 *上記議論とSymbolとの関係*
@@ -166,8 +164,9 @@ https://sitn.hms.harvard.edu/flash/2017/history-artificial-intelligence/)
 （決められたパターンの中から最適な方法を探索するAI）AI の問題解決手法 (主に検索ベースの手法)
 本節以降では、AIのアルゴリズムや技術の変遷に注目するため発明者や関係者は割愛する場合がある。
 ### 1st AI boom
-1958年、Connectionist AIの分野では、RosenblattによりPerceptronと呼ばれる単層のニューラルネットワークが発明された。Perceptronは、MPニューロンが0または1の2つの値のみを扱うのに対して小数点以下を含んだ値を扱うようになり、加えてHebb理論で導入された重みを教師データを用いて調節する、すなわち前節のSNARC同様に機械が学習する方法も考案された[^20-4] [^20-5]。このような学習方法は**教師あり学習**（Supervised Learning）と呼ばれ、これに対して教師データを用いないこの頃主流だった学習方法は**教師なし学習**（Unsupervised Learning）と呼ばれるようになっていく。
+1958年、Connectionist AIの分野では、RosenblattによりPerceptronと呼ばれる単層のニューラルネットワークが発明された。Perceptronは、MPニューロンが0または1の2つの値のみを扱うのに対して小数点以下を含んだ値を扱うようになり、加えてHebb理論で導入された重みを調節するという概念を用いて、前節のSNARC同様に機械が学習する方法も考案された[^20-4] [^20-5] [^20-39]。具体的には、ニューラルネットワークの予測出力と正解の出力（教師データ）の差を、**損失関数**（Loss function、Cost function）で**損失**（Loss、Cost、Error）として表し、損失を最小化するようにニューラルネットワークのパラメータを最適化する（**Optimization**）という流れで学習を行った。Rosenblattが用いた学習ルール（Learning Rule）は、Perceptron Learning RuleやPerceptron Learning Algorithmと呼ばれる[^20-42] [^20-43] [^20-44]。このように教師データを用いる学習方法は**教師あり学習**（Supervised Learning）と呼ばれ、これに対して教師データを用いないこの頃主流だった学習方法は**教師なし学習**（Unsupervised Learning）と呼ばれるようになっていく。
 このように人間がルールを作らずに機械に学習能力を与える研究分野に対して、1959年にArthur Samuelが**Machine Learning**（**機械学習**）という言葉を提唱した[^20-10]。Samuel自身も1952年に[Checkers](https://ja.wikipedia.org/wiki/%E3%83%81%E3%82%A7%E3%83%83%E3%82%AB%E3%83%BC)をプレイするプログラムを作成し[^20-8]（[Alpha-beta pruning](https://lethediana.sakura.ne.jp/tech/archives/uncategorized-ja/2134/)と呼ばれる方法で効率的に戦略を探索させた）、1955年にRot Learningと呼ばれる方式で勝者の戦略を学習可能とし[^20-11]、1959年に当時のベストプレイヤーを打ち負かしている[^20-9]。
+この頃、Connectionist AIの発展に必要なことは柔軟で強力な学習ルールであるという認識がされており[^20-46]、1960年にBernard WidrowとMarcian E. HoffによりPerceptronのDelta ruleまたはLMS（Least Mean Square） ruleと呼ばれる、
 
 > **note 3**
 ニューロンの数学モデルのことをPerceptronと呼ぶこともあり[^10-53]、その場合、MPニューロンが最初のPerceptronとなる。
@@ -237,6 +236,15 @@ Rosenblattに発明されたPerceptronは2種類かつ比較的単純な分類�
 [^20-36]:[Reinforcement Learning: An Introduction](https://inst.eecs.berkeley.edu/~cs188/sp20/assets/files/SuttonBartoIPRLBook2ndEd.pdf)
 [^20-37]:[1962-6 – “STELLA” CYBERNETIC TORTOISE – JOHN H. ANDREAE AND PETER L. JOYCE (BRITISH)](https://cyberneticzoo.com/cyberneticanimals/1962-6-stella-cybernetic-tortoise-john-h-andreae-and-peter-l-joyce-british/)
 [^20-38]: [1.6 History of Reinforcement Learning](http://incompleteideas.net/book/ebook/node12.html)
+[^20-39]: [The History of Neural Networks Part 2: Rosenblatt's Perceptron](https://www.linkedin.com/pulse/history-neural-networks-part-2-rosenblatts-perceptron-dr-kais-dukes/)
+[^20-40]: [Stochastic gradient descent in *Wikipedia*](https://en.wikipedia.org/wiki/Stochastic_gradient_descent/)
+[^20-41]:[Optimization: Stochastic Gradient Descent](http://deeplearning.stanford.edu/tutorial/supervised/OptimizationStochasticGradientDescent/)
+[^20-42]:[The Math behind Neural Networks: Part 1 - The Rosenblatt Perceptron](https://www.codeproject.com/Articles/4047091/The-Math-behind-Neural-Networks-Part-1-The-Rosenbl#the-heaviside-step-function)
+[^20-43]:[Frank Rosenblatt’s Perceptron, Birth of The Neural Network](https://medium.com/@robdelacruz/frank-rosenblatts-perceptron-19fcce9d627f)
+[^20-44]:[PHYS 139/239: Machine Learning in Physics Lecture 2: Perceptron Learning Algorithm & (Stochastic) Gradient Descent](https://jduarte.physics.ucsd.edu/phys139_239/lectures/02_Perceptron_SGD.pdf)
+[^20-45]:[Adaptive sampled-data systems](https://www-isl.stanford.edu/~widrow/papers/c1960adaptiveswitching.pdf)
+[^20-46]:[A Basic Introduction to Feedforward Backpropagation Neural Networks (after Leverington, 2001)](http://www.webpages.ttu.edu/dleverin/neural_network/neural_networks.html)
+
 
 ## 1980~1993ごろ：Knowledge-based AI
 ### 2nd AI boom
@@ -252,13 +260,13 @@ decision rules, deeply influenced the evolution
 of many fields, and paved the way for the creation of entire disciplines, such as data mining
 and a significant part of bioinformatics
 *Support Vector Machines and Kernel Methods The New Generation of Learning Machines*
-AIに取り組む研究者の関心がExpert Systemに向いているこの頃、さらに複雑なタスクに対応するため、これまでの常識であったSymbolを用いた決定論的アプローチだけでなく、不確実性・数値を用いた確率的アプローチも注目されるようになってきた[^30-14] [^30-15]。初期の例は、Certainly factorを用いたMYCIN（1975年）[^30-18]、Bayesの定理を用いたPROSPECTOR（1978https://com-cog-book.github.io/com-cog-book/features/recurrent-net.html#Learning-objectives年）[^30-19]、Fuzzy論理を用いたCADIAG-2（1980年）[^30-17]などが挙げられ、実用的かつ知的レベルの高いAIを目指した取り組みが盛んに行われた。
+AIに取り組む研究者の関心がExpert Systemに向いているこの頃、さらに複雑なタスクに対応するため、これまでの常識であったSymbolを用いた決定論的アプローチだけでなく、不確実性・数値を用いた確率的アプローチも注目されるようになってきた[^30-14] [^30-15]。初期の例は、Certainly factorを用いたMYCIN（1975年）[^30-18]、Bayesの定理を用いたPROSPECTOR（1978年）[^30-19]、Fuzzy論理を用いたCADIAG-2（1980年）[^30-17]などが挙げられ、実用的かつ知的レベルの高いAIを目指した取り組みが盛んに行われた。
 このようなExpert Systemの発展に伴い、IBMを追い越そうと日本の通商産業省所管の新世代コンピュータ技術開発機構（ICOT：Institute for New Generation Computer Technology）で、国家プロジェクトとして第五世代コンピュータ（FGCS：the Fifth Generation Computer Systems）プロジェクトを推進し[^30-21]、1982年ごろから4億ドルを超える大規模な投資を行った[^30-22]。これに伴い、米国DARPAがSCI（Strategic Computing Initiative）を開始、英国ではAlveyプロジェクトが発足する等、FGCSは海外にも大きな影響を与えた[^30-20]。
 基本的にはSymbolic AIの分野でExpert Systemがこのような盛り上がりを見せる一方、Connectionist AIの分野でも大きな進歩があった。
 Perceptropを持ちいた階層型のニューラルネットワーク構造を用いたAIは、1979年にNeocognitronと呼ばれるニューラルネットワークが考案され、手書き文字の認識を成功させたことで、AIによる画像のパターン認識が可能であることを示した[^30-23]。Neocognitronは、スライディングウインドウ処理を用いて、画像の中の位置に関わらずパターンを検出することのできる構造であり[^30-24] [^30-25]、後のConvolution Neural Network（CNN、畳み込みニューラルネットワーク）に非常に大きな影響を与えることとなる。
 また、ニューロンが相互接続する構造のニューラルネットワークもこの頃発明される。1982年のHopfield networkは、強磁性体による磁場の説明に用いられるIsingモデルに基づいて考案されたニューラルネットワークで[^30-27]、0または1を出力するニューロンが相互に接続されており、パターンを記憶してその情報を利用することができるようになっている[^30-26]。実際には計算効率が悪く非現実的であったが、後のRecurrent Neural Networkに大きなインスピレーションを与えた[^30-28]。また1985年には、ニューロンの出力を確率的にした制限付きボルツマンマシンが発明されている[^30-30]。
 そして教師あり学習の方法にういて、1986年にDavid Rumelhart、Geoffrey Hinton、Ronald Williamsの論文[^30-31]で発表された**BP**（**Backpropagation、誤差逆伝搬**）**法**が有効であることが示された。BP法により、教師あり学習において教師データとニューラルネットワークの出力の誤差を、逆伝搬させてネットワークが持つパラメータを調整する（誤差が大きいほどパラメータを大きく調整する）ことができ[^30-32]、広く使われるようになった（BP法の基本コンセプトが発明されたのは厳密には1961年とされるが詳細は割愛）[^30-33]。
-同1986年、NETTalkという文字から音素（音の最小単位）への変換が可能なニューラルネットワークが発表された。後の一般的なニューラルネットワークのように入力層-隠れ層-出力層という3層の構造を持ち、学習方法にはBP法と*************（勾配降下法。勾配降下等の歴史についても要調査）が用いられ[^30-29]、英語のテキストを読み上げることが可能であることを示した。同様のタスクにExpert Systemで取り組み（読み上げ精度は高いものの）数年間かかったDECtalkと比べて、ニューラルネットワークを用いたモデルは開発期間が短いことを示した[^30-34]。
+同1986年、NETTalkという文字から音素（音の最小単位）への変換が可能なニューラルネットワークが発表された。後の一般的なニューラルネットワークのように入力層-隠れ層-出力層という3層の構造を持ち[^30-29]、学習方法にはBP法とSGDが用いられ[^20-40]、英語のテキストを読み上げることが可能であることを示した。同様のタスクにExpert Systemで取り組み（読み上げ精度は高いものの）数年間かかったDECtalkと比べて、ニューラルネットワークを用いたモデルは開発期間が短いことを示した[^30-34]。
 *Christopher Watkins developed a Q-learning algorithm*
 
 ### 2nd AI Winter
@@ -325,6 +333,7 @@ Perceptropを持ちいた階層型のニューラルネットワーク構造を�
 例えば自然言語処理（NLP: Natural Language Processing）のタスクに対しては、1990年代に**N-gram言語モデル**と呼ばれる、文章内で次にどの単語がくるかの確率を表したようなモデルの使用が、機械翻訳システムで一般的になり、その後NLPの他の分野にも拡張されたことと合わせて[^40-4]、系列データを扱うのに長けている**隠れマルコフモデル**（**HMMs: Hidden Markov Models**）が広く利用された[^40-5]。例
 そして、パターン認識・分類・回帰のタスクに対しては、非線形データ解析の手法であるカーネル法をベースとして1992年に**サポートベクトルマシン**（**SVM: Support Vector Machine**）が提案された[^40-6]。SVMはデータを（基本的には2つの）クラスに分類するとき、可能な限り各クラスが大きく分離されるような平面（MMSH: Maximum Margin Separating Hyperplane）を見つけるアルゴリズムであり[^40-7]、比較的メモリ効率が良く小さなデータセットに向いていたため、手書き文字画像の認識等に用いられた[^40-8] [^40-9]。例
 In 1995, Dana Cortes and Vladimir Vapnik developed the support vector machine (a system for mapping and recognizing similar data)
+この頃、ラベル付きデータとラベルなしデータの両方を学習に用いる**半教師あり学習**（Semi-supervised learning）という手法も普及しだし[^40-60] [^40-61]、学習データの取り扱いの幅も広がってきたといえる。
 
 > **note**
 
@@ -351,6 +360,11 @@ Auto encoderと制限付きボルツマンマシン
 さらに、アルゴリズム自体だけでなく、データによりアルゴリズムの精度が高まるという考えのもと、2009年に物体認識ソフトウェアの研究のためImageNetという大規模な画像データセットが発表され[^40-34] [^40-35]、翌2010年からILSVRC（ImageNet Large Scale Visual Recognition Challenge）という画像認識AIのコンテストを毎年開催し[^40-39]、この頃およびこれ以後のAIブームの触媒となったといえる。
 2009年のスタンフォード大学の論文で、主にグラフィック処理のために利用されていたプロセッサである**GPU**（Graphic Processor Unit）、2006年にNvidia社によって開発されたCUDA[^40-43]と2008年に発表されたそのプログラミングモデル[^40-44]を利用し、AIの学習を並列に実行することで処理を高速化した[^40-36]。これ以来、ニューラルネットワークの学習・推論にGPUが採用されることが多くなった[^40-37]。
 そして、2012年のILSCRCでAlexNetと呼ばれるDeep CNNモデルが発表され[^40-40]、他を凌駕する性能を見せた。AlexNetは5つの畳み込み層と3つの全結合層という深い構造をしており多くのパラメータを有していたが、CNNでは初めてGPUで学習を行うことで、以前のモデルよりも4倍高速に処理できた[^40-38] [^40-41] [^40-42]。この成果により、Deep Learningが夢物語ではないこと、実用化する方法を世界に示したといえる。
+
+学習に用いるデータセットが大規模になってくると、Optimizationの研究も活発になってきた。最適化アルゴリズムついても、2011年に**AdaGrad**（Adaptive Gradient）と呼ばれる、学習率が調節可能である手法や[^40-62] [^40-63]、2012年に**RMSprop**（Root Mean Square Propagation）と呼ばれる、勾配の大きさに応じて学習率を調整するように損失の振動を抑制した手法が提案された[^40-64] [^40-65]。
+AdaGrad: https://www.codingninjas.com/studio/library/what-is-adagrad
+RMSprop: https://www.linkedin.com/pulse/rmsprop-optimization-gayathri-sadhineni/
+
 インターネットの普及が続き、2000年初期あたりからWeb2.0と呼ばれる時代に入る[^40-45]。Facebook（2004年[^40-46]）、Youtube（2005年[^40-47]）、Twitter（2006年[^40-48]）をはじめとした動的コンテンツを有するWebサービスが続々と立ち上がり、2006年ごろからのWi-Fiの普及もあって[^40-49]、Web上で人々が活動するようになった。さらに、MySQLやPostgreSQLなどのデータベースシステムの成長[^40-50]や2008年ごろのIoT（Internet of Things）の誕生[^40-51]など、発生するデータが増加する明らかな兆候が見え始める。このような流れもあり、2009年のIDC（International Data Corporation）社の調査では2020年までにデジタルデータは44倍の35ゼタバイトに増加する（Data explosion）と予測され大きな反響を呼んだ[^40-52]。それにより学習データが重要とされているAI、特に機械学習、特にDeep Learningにより期待がかかるようになった。
 また、2008年にGitを使用したソフトウェア開発とバージョン管理のためのプラットフォームであるGithubが公開[^40-54]、このころ勢いをつけていたプログラミング言語であるPythonについて[^40-55]、機械学習プログラミングが容易になるライブラリであるscikit-learn（2007年[^40-57]）、Theano（2007年[^40-56]）などが利用可能となり、AI開発の敷居もますます下がったいえる。
 
@@ -420,6 +434,12 @@ https://aws.amazon.com/jp/blogs/aws/new-gpu-equipped-ec2-p4-instances-for-machin
 [^40-57]:[scikit-learn in *Wikipedia*](https://en.wikipedia.org/wiki/Scikit-learn)
 [^40-58]:[The graph neural network model](https://ro.uow.edu.au/cgi/viewcontent.cgi?article=10501&context=infopapers)
 [^40-59]:[What Are Graph Neural Networks?](https://blogs.nvidia.com/blog/2022/10/24/what-are-graph-neural-networks/)
+[^40-60]:[Semi-Supervised Learning](https://www.molgen.mpg.de/3659531/MITPress--SemiSupervised-Learning.pdf)
+[^40-61]:[A survey on semi-supervised learning](https://www.researchgate.net/publication/337299262_A_survey_on_semi-supervised_learning)
+[^40-62]:[AdaGrad: AI Terms Explained](https://www.playerzero.ai/advanced/ai-terms-explained/adagrad-ai-terms-explained)
+[^40-63]:[Adaptive Subgradient Methods for Online Learning and Stochastic Optimization](https://www.jmlr.org/papers/volume12/duchi11a/duchi11a.pdf)
+[^40-64]:[RMSProp](https://d2l.ai/chapter_optimization/rmsprop.html)
+[^40-65]:[Neural Networks for Machine Learning](https://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf)
 
 ## 2013年ごろ以降 ：Deep Learning
 2013年頃に、メディア報道に「Big Tech」という技術系大企業（Big FourはGoogle、Amazon、Facebook、Apple、Big Fiveはそれらに加えてMicrosoft）を表す用語が現れはじめた[^50-1] [^50-2]。これらの企業は例えば、Appleが音声認識のデジタルアシスタントであるSiriをiPhone 4Sに実装（2011年）[^50-3]、FacebookがFAIR（Facebook Artificial Intelligence Research）を設立（2013年）[^50-6]、Googleが英国のAIスタートアップDeepMind社を買収（2014年）[^50-5]、AmazonがスマートスピーカーにバーチャルアシスタントAlexaを搭載（2014年）[^50-4]、MicrosoftがデジタルアシスタントCortanaをリリース（2014年）など[^50-7]、AIに対しても非常に積極的な動きを見せていた。
@@ -431,6 +451,7 @@ https://aws.amazon.com/jp/blogs/aws/new-gpu-equipped-ec2-p4-instances-for-machin
 Word embeddingという言葉は、2003年に提唱され、2008年の*A unified architecture for natural language processing*という論文で初めて実証されたとされる[^50-14]。入力をベクトル空間に焼き直せばよいので、CNNの畳み込み層を、Image Embeddingとする場合もある[^50-15]。
 
 そしてこの2014年には、2種類のニューラルネット（それぞれ、Generator、Descriminatorと呼ばれる。詳細は割愛）を用いてAIが画像を生成できる事例をしめした**GAN**（Generative Adversarial Neural network）というモデルが発表され[^50-22]、クリエイティブな能力を持つAI、すなわち**生成AI**（**Generative AI**）が見えてきた。
+また同2014年に、**Adam**と呼ばれる[^50-82] [^50-83]
 
 この頃、ドイツの[Industrie 4.0](https://www.plattform-i40.de/IP/Navigation/EN/Home/home.html)（2013年に発表、2015年に拡大[^50-27]）中国の[Made in China 2025（中国製造2025）](https://english.www.gov.cn/2016special/madeinchina2025/)（2015年）、日本の[Society 5.0](https://www8.cao.go.jp/cstp/society5_0/)（2016年）、アメリカの[米国AI研究開発戦略計画（National Artificial Intelligence Research and Development Strategic Plan）](https://www.nitrd.gov/PUBS/national_ai_rd_strategic_plan.pdf)（2016年）など[^50-28]、の戦略などAIを組み込んだ政策レベルの動きも活発化し、国家としてAI技術を前提とした社会を大々的に打ち上げるようになってきた。
 また、AI研究においても、2015年には、Google社のエンジニアによりKeras[^50-8]、日本のPreferred Networks社によりChainer[^50-9]、Google社によりTensorflow、翌2016年にFacebook社よりPyTorch[^50-10]というオープンソースのGPUをサポートしたPythonベースの機械学習・Deep Learningのライブラリがリリースされ、さらにAI・機械学習に対する取り組みの敷居が大幅に下がる。さらに同2015年、機械学習モデルの利活用フェーズの考え方として、2009年に発案されたDevOps（Development Operations）の原則[^50-26]を機械学習モデルを組み込んだシステムに適用し、システムの自動化とモニタリングを推進できるMLOps（Machine Operations）というパラダイムも注目され始めた[^50-23] [^50-24] 。
@@ -443,6 +464,7 @@ Word embeddingという言葉は、2003年に提唱され、2008年の*A unified
 
 > ![State-of-the-art AI performance on benchmarks, relative to human performance](/images/ai_history/1691138939574.jpeg)
 
+大量のデータをGPU等大規模な計算リソースで処理できるようになってきたことにより、2019、2020年ごろから、ラベルのないデータから独自のラベルを自動的に作り、それをもとに学習を進める**自己教師あり学習**（**Self-Supervised Learning: SSL**）が注目を浴びてきた[^50-79] [^50-80] [^50-81]。
 Transformerモデルは非常に有用であり、2018年には目的や学習方法が異なるGoogle社のBERT（Bidirectional Encoder Representations from Transformers）や[^50-49] [^50-50]（2019年にはGoogleの検索にも導入されている[^50-56]）、OpenAI社のGPT（Generative Pre-Trained Transformer）といった[^50-51] [^50-52]、自然言語系のAIモデルが発表された。言語系のモデルは大規模な学習データを用いると不連続にパフォーマンスが向上することがわかってきて、モデルサイズ（パラメータ数のこと。10億（Billion）単位でカウントされる）を増加している[^50-59]。
 
 > ![Language Model Sizes Over times](https://twosigmaventures.com/wp-content/uploads/sites/2/Model-Size-Over-Time@4x.png)
@@ -530,62 +552,28 @@ Transformerはそのパフォーマンスの高さから他の分野にも用は
 [^50-76]:[A Comprehensive Survey on Applications of Transformers for Deep Learning Tasks](https://arxiv.org/abs/2306.07303)
 [^50-77]:[Retrieval Augmented Generation (RAG) in Azure AI Search](https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview)
 [^50-78]:[What is Prompt Engineering?](https://aws.amazon.com/what-is/prompt-engineering/)
+[^50-79]:[A Survey on Self-supervised Learning: Algorithms, Applications, and Future Trends](https://arxiv.org/pdf/2301.05712.pdf)
+[^50-80]:[【初学者向け】対照学習（Contrastive Learning）とは？](https://aiacademy.jp/media/?p=1096)
+[^50-81]:[A Cookbook of Self-Supervised Learning](https://arxiv.org/abs/2304.12210)
+[^50-82]:[ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION](https://arxiv.org/pdf/1412.6980.pdf)
+[^50-83]:[Adam](https://d2l.ai/chapter_optimization/adam.html)
 
 # 最終確認
-
-https://www.arxiv-vanity.com/papers/2109.01517/
-
-https://www.lamsade.dauphine.fr/~cazenave/papers/games.pdf
-
-
-Probabilistic AI
-https://hawai.tech/ia-waves-and-evolution-of-hardware/
-
-
-https://softjourn.com/insights/heuristic-programming#
-Game Theory: In the 1950s and 1960s, researchers like Claude Shannon and Arthur Samuel developed early heuristics to explore optimal game strategies like chess and checkers. Their work paved the way for more advanced heuristic techniques used in game theory today.
-Optimization: In the 1970s, researchers began developing metaheuristic optimization algorithms, such as genetic and simulated annealing, to find near-optimal solutions to complex optimization problems.
-Machine Learning: The 1980s and 1990s witnessed significant advancements in machine learning techniques, such as decision trees and neural networks, which rely on heuristic methods to learn from data and make predictions.
-Human-Computer Interaction: Heuristic evaluation, a method for identifying usability issues in user interfaces, was introduced by Jakob Nielsen in the 1990s, highlighting the application of heuristics in human-computer interaction.
-As computer science continues to evolve, so do heuristic techniques, with researchers constantly developing new and innovative ways to apply heuristics to tackle increasingly complex problems.
-
-Several focal areas in the quest for AI emerged between the 1950s and the 1970s.[148] Newell and Simon pioneered the foray into heuristic search, an efficient procedure for finding solutions in large, combinatorial spaces. In particular, they applied this idea to construct proofs of mathematical theorems, first through their Logic Theorist program, and then through the General Problem Solver.[149] In the area of computer vision, early work in character recognition by Selfridge and colleagues[150] laid the basis for more complex applications such as face recognition.[151] By the late sixties, work had also begun on natural language processing.[152] “Shakey”, a wheeled robot built at SRI International, launched the field of mobile robotics. Samuel's Checkers-playing program, which improved itself through self-play, was one of the first working instances of a machine learning system.[153] Rosenblatt's Perceptron,[154] a computational model based on biological neurons, became the basis for the field of artificial neural networks. Feigenbaum and others advocated [155]the case for building expert systems—knowledge repositories tailored for specialized domains such as chemistry and medical diagnosis.[156]
-https://ai100.stanford.edu/2016-report/appendix-i-short-history-ai
-
-But the real change I think in the field happened when it became feasible to store and capture large amounts of data. Back in those first days with the probabilistic systems, we didn’t have much data. 
-*Learning from Artificial Intelligence’s Previous Awakenings: The History of Expert Systems*
-
-https://sites.bu.edu/cmcs/2017/11/16/growing-up-with-alexa-siri-and-other-a-i-technology/
-
-https://www.washingtonpost.com/news/the-switch/wp/2017/06/05/why-apple-is-struggling-to-become-an-artificial-intelligence-powerhouse/
-
-## 初期のニューラルネットワーク
-https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/History/history1.html
-
-## 教師アリ学習・教師なし学習の流れ
-Nearest neighbour approach
-1967 – Machines gained the ability to recognize patterns 
-    The “nearest neighbor” algorithm was created,
-https://www.isahit.com/blog/what-is-similarity-based-learning-in-supervised-machine-training
-While traditional supervised learning focuses on predicting labels based on input data and unsupervised learning aims to find hidden structures within data, Similarity learning is somewhat in between.
-https://www.datacamp.com/blog/what-is-similarity-learning
-Similarity Based Learningから
-1981, Gerald Dejong discovered Explanation Based Learning
-
-Semi-supervised learning
-Self-supervised learning
-
-
-[Embeddings in Machine Learning: Everything You Need to Know](https://www.featureform.com/post/the-definitive-guide-to-embeddings)
 
 > ![Embeddings can produce remarkable analogies.](https://developers.google.com/static/machine-learning/crash-course/images/linear-relationships.svg?hl=ja)
 *Embeddings can produce remarkable analogies.*
 
-[Facebook’s artificial intelligence research team, FAIR, turns five. But what are its biggest accomplishments?](https://hub.packtpub.com/facebooks-artificial-intelligence-research-team-fair-turns-five-but-what-are-its-biggest-accomplishments/)
 
-MNIST
-Hopfiled networkの計算効率の悪さ
 次元の呪い
+It looks like, intuitively, that in high dimensionality the data accumulate in the corners. Bellman (1961), referring to
+the computational complexity of searching the neighborhood of data points in high-dimensional settings, was the first to
+put forward the term curse of dimensionality in order to describe the problem of data sparseness. Hughes (1968)
+conducted a statistics analysis, showing how the accuracy of a classifier depends of the number of training samples.
+Therefore, the curse of dimensionality is also known as the Hughes effect or the Hughes phenomenon. Many works have
+dealt with this dimensionality phenomenon for the last four decades; most recently, Lavergnea and Patilea (2008)
+proposed a general nonparametric method trying to avoid or reduce the Hughes effect; Gheyas and Smith (2010) present
+a hybrid algorithm since, as they say, no existing a
+https://www.asprs.org/wp-content/uploads/2010/12/Alonso.pdf
 
 ## 強化学習の歴史
 - Mean field?
@@ -594,12 +582,23 @@ Hopfiled networkの計算効率の悪さ
 
 ## optimization
 Optimizer selection
-Tis section discusses the CNN learning process. Two major issues are included in the
-learning process: the frst issue is the learning algorithm selection (optimizer), while the
-second issue is the use of many enhancements (such as AdaDelta, Adagrad, and momentum) along with the learning algorithm to enhance the output.
-https://ts2.space/en/the-evolution-of-ai-gradient-descent-a-historical-perspective-on-optimization-techniques/
-https://arxiv.org/pdf/2212.09413.pdf
+The true breakthrough came in the late 1950s, when the computer scientist Frank Rosenblatt developed the perceptron, an early form of artificial neural network. The perceptron was designed to mimic the behavior of a single neuron, and it relied on a simple learning rule known as the delta rule. This rule, which can be seen as a precursor to gradient descent, adjusted the weights of the perceptron based on the difference between the predicted and actual outputs.
 
+The delta rule set the stage for the development of more sophisticated optimization techniques. In 1960, the computer scientist Bernard Widrow and his colleagues introduced the least mean squares (LMS) algorithm, which further refined the delta rule by using a continuous update process. The LMS algorithm, although not explicitly based on gradient descent, shared many similarities with it and paved the way for future advancements.
+
+The true birth of gradient descent as we know it today can be attributed to the work of the computer scientist Stuart Dreyfus in the 1960s. Dreyfus recognized the potential of gradient descent as a general-purpose optimization algorithm and developed the backpropagation algorithm, which allowed for efficient training of multi-layer neural networks. Backpropagation, which is based on the chain rule of calculus, computes the gradient of the error function with respect to the weights of the network, and adjusts them accordingly.
+
+Since then, gradient descent has become a cornerstone of AI research and has undergone significant improvements. Variants such as stochastic gradient descent and mini-batch gradient descent have been developed to address the limitations of the original algorithm, allowing for faster and more efficient training of neural networks. Additionally, researchers have explored advanced optimization techniques such as momentum, adaptive learning rates, and second-order methods to further enhance the performance of gradient descent.
+
+In conclusion, the birth of gradient descent marked a significant milestone in the field of optimization techniques. From its humble beginnings in the 19th century to its current state as a fundamental algorithm in AI, gradient descent has evolved and adapted to meet the challenges of increasingly complex problems. As AI continues to advance, it is likely that gradient descent will remain a vital tool in the quest for intelligent machines.
+https://ts2.space/en/the-evolution-of-ai-gradient-descent-a-historical-perspective-on-optimization-techniques/
+
+https://qiita.com/omiita/items/1735c1d048fe5f611f80
+
+
+Processor Evolution — Phase III: The Accelerator Era (2010s-?)
+
+Dark silicon was essentially the grand preview of “the end of Moore’s law” — and times became challenging for processor manufacturers. On one hand, compute demands were skyrocketing: smartphones became ubiquitous and crammed copious amounts of computing power, cloud servers needed to handle growing numbers of customers and services, and “worst of all” — AI has been (re-)discovered and it has been gobbling up compute resources at staggering rates. On the other side, in unfortunate timing, dark silicon became a limiter for what can be achieved by transistor-based chips. So now, when we need to improve our processing capabilities more than ever, it has gotten much harder than ever before.
 https://medium.com/@adi.fu7/ai-accelerators-part-ii-transistors-and-pizza-or-why-do-we-need-accelerators-75738642fdaa
 
 # 今後のAI技術
@@ -612,6 +611,7 @@ https://medium.com/@adi.fu7/ai-accelerators-part-ii-transistors-and-pizza-or-why
 ## ハードの進化
 - クロックの飽和
 - AIハード（チップ、アーキテクチャ）の出現：スケーラビリティ
+    - DPU, NPU (https://hawai.tech/ia-waves-and-evolution-of-hardware/)
 - 量子コンピュータ
 ## AI倫理
 - データセットの偏見（今あるデータセットでAIが学習すると医者は男、看護師は女という偏見が入ってしまう等）
@@ -625,19 +625,33 @@ https://hypebeast.com/jp/2023/5/geoffrey-hinton-godfather-of-ai-quit-google
 - AI同士のコミュニケーション
 
 # おわりに
-AI技術の進展はとどまるところを知らないどころか、どんどんと加速している。
-そのため、現時点の最新技術が何かを拾うだけではなく、発展の歴史を頭に入れたうえで動向をキャッチアップしていくことでより適切に。
+AI技術の進展はとどまるところを知らないどころか、どんどん加速している。
+そのため、現時点の最新技術が何かを拾うだけではなく、最新技術の背景を頭に入れたうえで動向をキャッチアップしていくことでより適切にAI技術をとらえることが。
 また、技術的にAIを見る際には、本来は数学的な視点からも発明の変遷を辿るのがベストだが、本記事で記したような状況や背景の全体感を把握をしておけば詳細に入りやすいのではないかと思う。
 
 ## もうちょっと調べたい
+- 初期のニューラルネットワーク
+    - [History: The 1940's to the 1970's](https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/History/history1.html)
+    - Hopfiled networkの計算効率の悪さ
+        - https://com-cog-book.github.io/com-cog-book/features/recurrent-net.html#Learning-objectives
+    - RosenblattのPerceptronのOptimizer
+        - [PERCEPTRON IS NOT SGD: A BETTER INTERPRETATION THROUGH PSEUDOGRADIENTS](https://parameterfree.com/2021/02/14/perceptron-is-not-sgd-a-better-interpretation-through-pseudogradients/)
+        - [A Perceiving and recognizing automaton](https://blogs.umass.edu/brain-wars/files/2016/03/rosenblatt-1957.pdf)
+        - [THE PERCEPTRON: A PROBABILISTIC MODEL FOR INFORMATION STORAGE AND ORGANIZATION IN THE BRAIN](https://www.academia.edu/60542953/The_perceptron_a_probabilistic_model_for_information_storage_and_organization_in_the_brain)
+        - [Optimization: Stochastic Gradient Descent](http://deeplearning.stanford.edu/tutorial/supervised/OptimizationStochasticGradientDescent/)
 - AutoML
 - Game理論との関連性
-    - https://www.lamsade.dauphine.fr/~cazenave/papers/games.pdf
+    - [Artificial Intelligence for Games](https://www.lamsade.dauphine.fr/~cazenave/papers/games.pdf)
 - DeepFake
-- GAFAと呼ぶのは日本だけ？
+- GAFAの動き
+    - [Facebook’s artificial intelligence research team, FAIR, turns five. But what are its biggest accomplishments?](https://hub.packtpub.com/facebooks-artificial-intelligence-research-team-fair-turns-five-but-what-are-its-biggest-accomplishments/)
+    - https://www.washingtonpost.com/news/the-switch/wp/2017/06/05/why-apple-is-struggling-to-become-an-artificial-intelligence-powerhouse/
     - https://www.xkula.com/gafa-or-faang-japan/https://www.xkula.com/gafa-or-faang-japan/
+    - https://sites.bu.edu/cmcs/2017/11/16/growing-up-with-alexa-siri-and-other-a-i-technology/
 - AstrocyteとTransformerの関係
 - PINNについて
+- Probabilistic AI
+- Neuro Symbolic AI
 
 ## PS
 調査しきれていない部分もあるので、割愛した部分を加えて電子書籍化に挑戦してみてもよいかも？
