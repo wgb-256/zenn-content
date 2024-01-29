@@ -182,6 +182,7 @@ https://sitn.hms.harvard.edu/flash/2017/history-artificial-intelligence/)
 - GOMS
 
 このようなAI研究の成功に加え、1961年に世界初のICチップが販売[^20-15]（これまでのコンピュータ（IBM704）がメモリ不足だった[^20-16]というAI研究に対するボトルネックを克服するハードウェアの進化）、1965年のムーアの法則[^20-31]、1962年にARPA（Advanced Research Projects Agency、高等研究計画局）にIPTO（Information Processing Techniques Office、情報処理技術局）の設立と[^20-17]、それによるマサチューセッツ工科大学（MIT）、スタンフォード大学（SAIL（Stanford Artificial Intelligence Laboratory）、Stanford HPP（Heuristics Programming Project）等）、カーネギーメロン大学をはじめとするAI研究への投資などにより、AI研究の規模が根本的に変わり、小規模なプロジェクトの集まりから大規模で注目度の高い分野へと推進された[^20-18]。
+1963
 1965年にはHPPでDENDRAL（DENDRitic ALgorithm）と呼ばれる、化学者が未知の有機分子を特定できるように分子のスペクトル分析を行い構造を示すAIの開発が開始された[^20-19]。SAILのコンピュータPDP-6で作成されたプログラムであり、分子を構成する原子の情報や、探索の優先度など化学者の知識をあらかじめ組み込み、それらを利用して質量分析を行うことができる[^20-21] [^20-22]（プログラムの構成等については[こちら](https://lethediana.sakura.ne.jp/tech/archives/summary-ja/2154/)も参照ください）。**DENDRAL**はルールベースで（ゲーム等ではない）現実の問題のために作られたプログラムであると言われる[^20-20]。次節で述べるが、DENDRALはこの後も開発が継続される。
 また、1966年にはMITのMAC time-sharingシステム上で**ELIZA**という自然言語処理のAIプログラムが開発された[^20-25]。GUIを持ち、ユーザーの入力からキーワードやフレーズを認識して事前にプログラムされたフレーズからユーザーへの応答を行うため、世界初のChatbotと称されている[^20-23]。プログラム内では、If-thenルールを用いた、単純なパターンマッチングを行っており、膨大な数の会話パターンを事前に用意しておかなければならなかったが[^20-24]、Rogerian療法のセラピストとして応対するバージョン（DOCTOR）で有名になった[^20-26] [^20-27]。
 
@@ -194,20 +195,7 @@ The nearest neighbour algorithm was introduced in 1967,
 
 ### 1st AI Winter
 前節のような盛り上がりを見せたAI研究も、1960年代後半ごろから冬の時代が訪れた。
-Rosenblattに発明されたPerceptronは2種類かつ比較的単純な分類タスク（厳密には、線形分離可能なタスク）にしか対応できないことがわかり[^20-3]、1969年に出版された*Perceptrons: an introduction to computational geometry*という書籍で単純な論理XOR関数を学習できないことを示されるなど[^20-6]、非常に厳しい目を向けられることとなった。またこの頃の多くの研究者が、1965年頃から使われだした**強化学習**（try and errorで学習していく方法）に取り組んでいるつもりが、教師あり学習になってしまうケースが多発するなどの混乱もあり、学習アルゴリズムにフォーカスした研究が多くなかった[^20-38]。John AndreaeがSTeLLA（Standard Telecommunication Laboratories[^20-37]）という環境からtrial and errorで学習を行う（後の強化学習）システムを発明しても注目度が上がらないなど[^20-36]、Connectionist AIや機械学習の分野は下火になっていた。
-
-
-次元の呪い
-It looks like, intuitively, that in high dimensionality the data accumulate in the corners. Bellman (1961), referring to
-the computational complexity of searching the neighborhood of data points in high-dimensional settings, was the first to
-put forward the term curse of dimensionality in order to describe the problem of data sparseness. Hughes (1968)
-conducted a statistics analysis, showing how the accuracy of a classifier depends of the number of training samples.
-Therefore, the curse of dimensionality is also known as the Hughes effect or the Hughes phenomenon. Many works have
-dealt with this dimensionality phenomenon for the last four decades; most recently, Lavergnea and Patilea (2008)
-proposed a general nonparametric method trying to avoid or reduce the Hughes effect; Gheyas and Smith (2010) present
-a hybrid algorithm since, as they say, no existing a
-https://www.asprs.org/wp-content/uploads/2010/12/Alonso.pdf
-
+Rosenblattに発明されたPerceptronは2種類かつ比較的単純な分類タスク（厳密には、線形分離可能なタスク）にしか対応できないことがわかり[^20-3]、1969年に出版された*Perceptrons: an introduction to computational geometry*という書籍で単純な論理XOR関数を学習できないことを示されるなど[^20-6]、非常に厳しい目を向けられることとなった。またこの頃の多くの研究者が、1965年頃から使われだした**強化学習**（try and errorで学習していく方法）に取り組んでいるつもりが、教師あり学習になってしまうケースが多発するなどの混乱もあり、学習アルゴリズムにフォーカスした研究が多くなかった[^20-38]。John AndreaeがSTeLLA（Standard Telecommunication Laboratories[^20-37]）という環境からtrial and errorで学習を行う（後の強化学習）システムを発明しても注目度が上がらない[^20-36]、**次元の呪い**の提唱など[^20-55]、Connectionist AIや機械学習の分野は下火になっていた。
 そして、1969年のマンスフィールド修正案により、ARPAの後身となるDARPA（Defense Advanced Research Projects Agency）の投資対象を、基礎研究ではなく具体的な目的をもった研究を重視するように大きく変更された[^20-35]。
 それに加え、1973年にScience Research Council（イギリスの科学研究評議会）に向けてAI研究の評価を行ったLighthill reportで、航空機の自動着陸システムがAIよりも従来手法の方が優れていること、AIプログラムの作りこみが難しいこと、組み合わせ爆発問題が起こること等に注目し、AI研究に対して悲観的な見解を示した[^20-32] [^20-33] [^20-34]。
 このような流れもあって資金の確保が難しくなり、AI研究の勢いは次第に失速した。AIへの期待は、人間の脳のような柔軟性や汎用性をもってほしいという究極の知性よりも、特定の分野であってもより現実的な問題の解決へと移っていった。
@@ -265,13 +253,13 @@ https://www.asprs.org/wp-content/uploads/2010/12/Alonso.pdf
 [^20-52]:[A Stochastic Approximation Method](https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-22/issue-3/A-Stochastic-Approximation-Method/10.1214/aoms/1177729586.full)
 [^20-53]:[Some methods of speeding up the convergence of iteration methods](https://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=zvmmf&paperid=7713&option_lang=eng)
 [^20-54]:[Stochastic Optimization: First order method](https://ibis.t.u-tokyo.ac.jp/suzuki/lecture/2015/nagoya_intensive/Nagoya2015_2_FirstOrder.pdf)
+[^20-55]:[CONSEQUENCES OF THE HUGHES PHENOMENON ON SOME CLASSIFICATION TECHNIQUES](https://www.asprs.org/wp-content/uploads/2010/12/Alonso.pdf)
 
 ## 1980~1993ごろ：Knowledge-based AI
 ### 2nd AI boom
 前述したDENDRALの研究は、対象とする化学構造の拡大を目指すDendral Project、化学的知識活用の向上を目指すMetaDendral Project、さらなる一般化を目指す[Mycin](https://en.wikipedia.org/wiki/Mycin) Projectに分化するなどして継続されていた[^30-6]。開発当初の検索ベースのアルゴリズム（* Boolean logic and logical reasoning, deterministic model*[^30-10]）で専門家レベルの能力をもったAIとはいかなかったが、「プログラムが問題解決を行うためには（従来重視されていた推論方法よりも）知識が重要である[^30-7]」という考え方に基づいており、これはKnowledge-is-power仮説（後のKnowledge principle）と呼ばれる[^30-5]。専門知識を持つ人間がExpertと称されたことから[^30-8]、このような知識と問題解決方法が分けられた構造を持ちそれぞれ別の開発者（専門知識を持つ人、プログラムを作成する人）が担当できるプログラムを**Expert System**（または**Knowledge based System**）[^30-9]、知識を体系化する取り組みはKnowledge Engineeringと呼ばれるようになった[^30-5]。このような構造をとることにより、プログラマーが必ずしも専門知識を習得したり、専門知識を持つ人がプログラミングを習得する必要がなくなったことが大きな功績の一つといえる[^30-10]。
 一方、この頃ICも着々と集積化を進める。1960年代前半にSSI（Small-Scale Integration）レベル、1960年代後半にMSI（Medium-Scale Integration）レベル、1970年代中盤にはLSI（Large-Scale Integration）レベルへ、そして1971年に初のマイクロプロセッサ（Central Processing Unit: CPUとも呼ばれる）Intel 4004が発明されるなど、ムーアの法則通り集積度を上げ、コンピュータの小型化と計算能力向上が順調に進んだ[^30-1] [^30-2]（各レベル詳細は割愛）。それによりMinicomputerと呼ばれる中規模のコンピュータ（現在の「サーバー」規模のコンピュータ）が市場に出始めることとなった[^30-3]。Minicomputerは企業で大量に購入され、それによりドキュメントが増加、それらを整理・参照するツールの需要が高まった[^30-4]。
 このような状況の中、1978年にCMUの研究者が、MiniconputerのベンダーであるDECのコンピュータ構成業務をアシストするためのXCON（eXpert CONfigurator）と呼ばれるシステムを開発した[^30-11]。1982年に導入後、年に4000万ドルのコストダウンがされたとされ、AIが産業界で本格的に用いられる例となった[^30-12] [^30-13]。
-*Forward chainとBackward chain*
 *Decision Treeの起源*
  decision trees (e.g.,Quinlan, 1986a) and logical concept definitions (Mitchell, 1982; Michalski, 1983)
  The nonlinear revolution of the 1980s, initiated when the introduction of back-propagation networks and decision trees opened the
@@ -287,12 +275,11 @@ Perceptropを持ちいた階層型のニューラルネットワーク構造を�
 また、ニューロンが相互接続する構造のニューラルネットワークもこの頃発明される。1982年のHopfield networkは、強磁性体による磁場の説明に用いられるIsingモデルに基づいて考案されたニューラルネットワークで[^30-27]、0または1を出力するニューロンが相互に接続されており、パターンを記憶してその情報を利用することができるようになっている[^30-26]。実際には計算効率が悪く非現実的であったが、後のRecurrent Neural Networkに大きなインスピレーションを与えた[^30-28]。また1985年には、ニューロンの出力を確率的にした制限付きボルツマンマシンが発明されている[^30-30]。
 そして教師あり学習の方法について、1986年にDavid Rumelhart、Geoffrey Hinton、Ronald Williamsの論文[^30-31]で発表された**BP**（**Backpropagation、誤差逆伝搬**）**法**が有効であることが示された。BP法により、教師あり学習において教師データとニューラルネットワークの出力の誤差を、逆伝搬させてネットワークが持つパラメータを調整する（誤差が大きいほどパラメータを大きく調整する）ことができ[^30-32]、広く使われるようになった（BP法の基本コンセプトが発明されたのは厳密には1961年とされるが詳細は割愛）[^30-33]。
 同1986年、NETTalkという文字から音素（音の最小単位）への変換が可能なニューラルネットワークが発表された。後の一般的なニューラルネットワークのように入力層-隠れ層-出力層という3層の構造を持ち[^30-29]、学習則にはBP法とSGDが用いられ[^20-40]、英語のテキストを読み上げることが可能であることを示した。同様のタスクにExpert Systemで取り組み（読み上げ精度は高いものの）数年間かかったDECtalkと比べて、ニューラルネットワークを用いたモデルは開発期間が短いことを示した[^30-34]。
-*Christopher Watkins developed a Q-learning algorithm*
+1989年に発表された論文内での分類用の弱い学習ツール（weak learner）を変換して強力な学習ツール（strong learner）にもできるかどうかという議論から[^30-53] [^30-54]、1990年に同一タスクに対して複数のニューラルネットワークで学習および推定を行い、最終的な出力値を決定する**アンサンブル学習**（**Ensemble Learning**）という手法により、ニューラルネットワークの汎化パフォーマンスを向上できることが示され[^30-50] [^30-51]、これ以降の機械学習研究の中心にアンサンブル学習も存在することとなった[^30-52]。
 
 ### 2nd AI Winter
 1980年以降に期待されたExpert Systemは、実は1984年にAIの先駆者であるJohn McCarthyに批判されている。主な批判内容は、Expert Systemのプログラム変更が容易でなく変化に対応しづらいこと、人が当たり前に持っている常識的な知識をAIが持っていないため意思決定が不適切になりうること、の2つである[^30-37]。さらに、実際に専門家の知識をルール化することが非常に難しい場合が目立ってきた[^30-39]。すなわち、Expert systemは構造化されたデータとルール化可能な論理があって初めて可能であり、自然言語や画像等の（曖昧な）データを取り扱うことが困難だった[^30-49]。1987年から1989年にかけてDARPAのISTO (Information Science and Technology Office)には、Expert systemが非常に限定的な領域でしか成功していない、と結論付けられている[^30-38]。
 また、マイクロプロセッサが開発されてから個人で利用するPC（Personal Computer）が低コスト化していった[^30-46]。それに伴い、1987年までにC言語等のコンパイル言語を扱うOSを搭載したAppleやIBMのPCが流通し、多くのExpert Systemが実行されていたLISPマシンのそれを上回ったにも関わらず、コンパイル言語にExpert systemの開発にマッチしなかったとされている[^30-39]。
-*なぜExpert system開発がコンパイル言語とマッチしなかったのか*
 そして1980年代後半から、特に機械学習による教師あり学習の性能が注目されてきたが、教師データが十分にとれないことや[^30-43]、BP法による学習に時間がかかる点が問題として認識され[^30-42]、コンピュータの性能向上が期待された。
 また最適化の問題点として、複雑な処理に対応しようとニューラルネットワークを多層にすればするほど、損失関数の勾配が指数関数的に変化するため、0に近づきやすくなりBP法での学習が困難になる（ニューラルネットワークの重みが更新されない）という問題（勾配消失問題）が1991年に提唱され[^30-40] [^30-41]、逆に無限大に発散してしまい学習が困難になる問題（勾配爆発問題）が1994年に提唱された[^30-44] [^30-45]。
 経済的にも1987年にDARPAはAIに対する投資を中止[^30-13]、1992年に目標をほとんど達成することなくFGCSは正式に終了しており[^30-47]、研究者は学術界や企業からの排斥を恐れて、意図的にAIという用語の使用を避けはじめた（代わりに、機械学習、データ分析、Intelligent System、Big Data、Data scienceといった単語を利用した）[^30-48]。
@@ -347,7 +334,11 @@ Perceptropを持ちいた階層型のニューラルネットワーク構造を�
 [^30-47]: [2 AI winters and 1 hot AI summer](https://www.entefy.com/blog/2-ai-winters-and-1-hot-ai-summer/)
 [^30-48]:[TWO WINTERS AND A SPRING OF ARTIFICIAL INTELLIGENCE](https://medium.com/qed-software/two-winters-and-a-spring-of-artificial-intelligence-71a9901df77d)
 [^30-49]:[The History of Artificial Intelligence from the 1950s to Today: The Emergence of NLPs and Computer Vision in the 1990s](https://www.freecodecamp.org/news/the-history-of-ai/#the-emergence-of-nlps-and-computer-vision-in-the-1990s)
-
+[^30-50]:[Neural Network Ensembles](https://www.researchgate.net/publication/3191841_Neural_Network_Ensembles)
+[^30-51]:[The strength of weak learnability](https://link.springer.com/article/10.1007/BF00116037)
+[^30-52]:[Ensemble learning](http://www.scholarpedia.org/article/Ensemble_learning#History)
+[^30-53]:[Cryptographic Limitations on Learning Boolean Formulae and Finite Automata](https://www.cis.upenn.edu/~mkearns/papers/crypto.pdf)
+[^30-54]:[The Evolution of Boosting Algorithms From Machine Learning to Statistical Modelling](https://arxiv.org/pdf/1403.1452.pdf)
 
 ## 1993~2012年ごろ：Machine Learning
 前述したExpert Systemが困難だった非構造化データ、非線形データを取り扱うため、機械学習がより注目され始める。ただし機械学習研究が盛り上がった初期は、信頼性のあるデータが少なくハードウェアリソースの限界もあり研究の再現性がとれないこと、出力の説明性が乏しいことなどから、比較的教師データが少なくても性能を発揮し、理論保障が可能な数学・統計的なアプローチが主流だった[^40-1] [^40-2] [^40-3]。
@@ -366,12 +357,8 @@ CNNの他にも、Hopfield networkを拡張した[^40-18]、**LSTM**（Long-Shor
 > **note**
 LSTMの元論文にはメモリーセルが情報をforgetするとは書かれていない[^40-19]
 
-そして、
-
-In 1998, Leo Breiman formulated AdaBoost as a gradient descent 
-Taking this further, Jerome Friedman, in 1999, came up with the generalisation of boosting algorithms, and thus, a new method: Gradient Boosting Machines. 
-
-AI研究は邁進していた。
+そして、アンサンブル学習の研究でも、Weak learnerにより学習された複数の分類機を、並列に実行して出力結果を集約（Aggregation）する**Bagging**（Bootstrap Aggregating、1996年[^40-70]）や、直列に結合して一つの強力な分類機を得る**Boosting**（1990年[^30-51]、1995年[^40-72]）といった、主流となる手法が確立された。
+これらを元としたアルゴリズムとして、複数の決定木を用いたBaggingに特徴選択プロセスにランダム性を導入することでモデルのパフォーマンスを向上させた**Random Forest**（2001年）や[^40-73]、使用する学習データセットのサブセット選択にランダム性をもたせることでBoostingをより一般的な学習フレームワークとした**AdaBoost**（Adaptive Boosting、1997年）[^40-74]、AdaBoostとGD法を組み合わせた**Gradient Boost**など[^40-74]、様々な派生形が出現した。
 その頃世間でも、1997年にIBM社のDeep Blueがチェスの世界チャンピオンに勝利したり[^40-22]、AIを搭載した製品であるSONY社のAIBO（Artificial Interigence roBOt、1999年）[^40-10] [^40-11]、iRobot社のRoomba（2002年）[^40-12]がリリースされる等、AIのニュースが出始めていた。また、2001年にIT調査会社のMETA Group社（2005年にGartner社に買収されている[^40-23]）が**Big Data**を提唱し[^40-24]、データソースの範囲が大幅に増加し、データを統合して新しい洞察を生成することが示唆され[^40-25]、2002年にはC/C++の機械学習ライブラリTorchがリリースされるなど[^40-26]、AIの活躍・進化がますます期待された。
 ただし、隠れ層の多いニューラルネットワークは**DNN**（Deep Neural Network）と呼ばれ[^40-32]、より複雑な非線形関係を計算コストを削減して表現できるようになると期待されたが[^40-31]、依然として学習が難しい（勾配消失問題、局所最適化等）とされ、隠れ層は1層または2層というのが定石だった[^40-29]。そんな中、2006年のGeoffrey HintonとRuslan Salakhutdinovの論文でAutoencoderを持ちいた次元削減の方法が示され[^40-30]、DNNを分類タスクに適用することも可能になった[^40-33]。これ以降、**Deep Learning**という用語が一般的となり、より注目を浴びていくこととなる[^40-27] [^40-28]。
 
@@ -464,7 +451,12 @@ https://aws.amazon.com/jp/blogs/aws/new-gpu-equipped-ec2-p4-instances-for-machin
 [^40-67]:[stochastic average gradientな話](https://vaaaaaanquish.hatenablog.com/entry/2013/12/11/084002)
 [^40-68]:[A Stochastic Quasi-Newton Method for Online Convex Optimization](https://proceedings.mlr.press/v2/schraudolph07a/schraudolph07a.pdf)
 [^40-69]:[Quasi-Newton methods for machine learning: forget the past, just sample](https://par.nsf.gov/servlets/purl/10313496)
-
+[^40-70]:[Bagging Predictors](https://sci2s.ugr.es/keel/pdf/algorithm/articulo/1996-ML-Breiman-Bagging%20Predictors.pdf)
+[^40-71]:[Experiments with a New Boosting Algorithm](https://cseweb.ucsd.edu/~yfreund/papers/boostingexperiments.pdf)
+[^40-72]:[Boosting a Weak Learning Algorithm by Majority](https://www.sciencedirect.com/science/article/pii/S0890540185711364)
+[^40-73]:[Random Forests](https://link.springer.com/article/10.1023/A:1010933404324)
+[^40-74]:[A Decision-Theoretic Generalization of On-Line Learning and an Application to Boosting](https://www.sciencedirect.com/science/article/pii/S002200009791504X)
+[^40-75]:[Greedy function approximation: A gradient boosting machine](https://projecteuclid.org/journals/annals-of-statistics/volume-29/issue-5/Greedy-function-approximation-A-gradient-boosting-machine/10.1214/aos/1013203451.full)
 
 ## 2013年ごろ以降 ：Deep Learning
 2013年頃に、メディア報道に「Big Tech」という技術系大企業（Big FourはGoogle、Amazon、Facebook、Apple、Big Fiveはそれらに加えてMicrosoft）を表す用語が現れはじめた[^50-1] [^50-2]。これらの企業は例えば、Appleが音声認識のデジタルアシスタントであるSiriをiPhone 4Sに実装（2011年）[^50-3]、FacebookがFAIR（Facebook Artificial Intelligence Research）を設立（2013年）[^50-6]、Googleが英国のAIスタートアップDeepMind社を買収（2014年）[^50-5]、AmazonがスマートスピーカーにバーチャルアシスタントAlexaを搭載（2014年）[^50-4]、MicrosoftがデジタルアシスタントCortanaをリリース（2014年）など[^50-7]、AIに対しても非常に積極的な動きを見せていた。
@@ -476,7 +468,7 @@ https://aws.amazon.com/jp/blogs/aws/new-gpu-equipped-ec2-p4-instances-for-machin
 Word embeddingという言葉は、2003年に提唱され、2008年の*A unified architecture for natural language processing*という論文で初めて実証されたとされる[^50-14]。入力をベクトル空間に焼き直せばよいので、CNNの畳み込み層を、Image Embeddingとする場合もある[^50-15]。
 
 そしてこの2014年には、2種類のニューラルネット（それぞれ、Generator、Descriminatorと呼ばれる。詳細は割愛）を用いてAIが画像を生成できる事例をしめした**GAN**（Generative Adversarial Neural network）というモデルが発表され[^50-22]、クリエイティブな能力を持つAI、すなわち**生成AI**（**Generative AI**）が見えてきた。
-また同2014年に、**Adam**（Adaptive moment estimation）と呼ばれる[^50-82] [^50-83]、RMSrop法とMomentum法を組み合わせたOptimizerが登場した。
+また同2014年に、**Adam**（Adaptive moment estimation）と呼ばれる[^50-82] [^50-83]、RMSrop法とMomentum法を組み合わせたOptimizer、**XGBoost**（eXtream Gradient Boost）と呼ばれるアンサンブル学習法が登場した。
 
 この頃、ドイツの[Industrie 4.0](https://www.plattform-i40.de/IP/Navigation/EN/Home/home.html)（2013年に発表、2015年に拡大[^50-27]）中国の[Made in China 2025（中国製造2025）](https://english.www.gov.cn/2016special/madeinchina2025/)（2015年）、日本の[Society 5.0](https://www8.cao.go.jp/cstp/society5_0/)（2016年）、アメリカの[米国AI研究開発戦略計画（National Artificial Intelligence Research and Development Strategic Plan）](https://www.nitrd.gov/PUBS/national_ai_rd_strategic_plan.pdf)（2016年）など[^50-28]、の戦略などAIを組み込んだ政策レベルの動きも活発化し、国家としてAI技術を前提とした社会を大々的に打ち上げるようになってきた。
 また、AI研究においても、2015年には、Google社のエンジニアによりKeras[^50-8]、日本のPreferred Networks社によりChainer[^50-9]、Google社によりTensorflow、翌2016年にFacebook社よりPyTorch[^50-10]というオープンソースのGPUをサポートしたPythonベースの機械学習・Deep Learningのライブラリがリリースされ、さらにAI・機械学習に対する取り組みの敷居が大幅に下がる。さらに同2015年、機械学習モデルの利活用フェーズの考え方として、2009年に発案されたDevOps（Development Operations）の原則[^50-26]を機械学習モデルを組み込んだシステムに適用し、システムの自動化とモニタリングを推進できるMLOps（Machine Operations）というパラダイムも注目され始めた[^50-23] [^50-24] 。
@@ -646,6 +638,9 @@ AI技術の進展はとどまるところを知らないどころか、どんど
     - https://www.xkula.com/gafa-or-faang-japan/https://www.xkula.com/gafa-or-faang-japan/
     - https://sites.bu.edu/cmcs/2017/11/16/growing-up-with-alexa-siri-and-other-a-i-technology/
 - AstrocyteとTransformerの関係
+- Expert System
+    - なぜExpert system開発がコンパイル言語とマッチしなかったのか
+    - Forward chainとBackward chain
 - PINNについて
 - Probabilistic AI
 - Neuro Symbolic AI
@@ -654,6 +649,9 @@ AI技術の進展はとどまるところを知らないどころか、どんど
     - Mean field?
     - Monte calro
     - Q-learning
+- Ensemble学習
+    - Stacking
+    - Ensemble Deep Learning
 - LBFGS以外の高次法
     - LSRI
 
