@@ -182,16 +182,14 @@ https://sitn.hms.harvard.edu/flash/2017/history-artificial-intelligence/)
 - GOMS
 
 このようなAI研究の成功に加え、1961年に世界初のICチップが販売[^20-15]（これまでのコンピュータ（IBM704）がメモリ不足だった[^20-16]というAI研究に対するボトルネックを克服するハードウェアの進化）、1965年のムーアの法則[^20-31]、1962年にARPA（Advanced Research Projects Agency、高等研究計画局）にIPTO（Information Processing Techniques Office、情報処理技術局）の設立と[^20-17]、それによるマサチューセッツ工科大学（MIT）、スタンフォード大学（SAIL（Stanford Artificial Intelligence Laboratory）、Stanford HPP（Heuristics Programming Project）等）、カーネギーメロン大学をはじめとするAI研究への投資などにより、AI研究の規模が根本的に変わり、小規模なプロジェクトの集まりから大規模で注目度の高い分野へと推進された[^20-18]。
-1963
 1965年にはHPPでDENDRAL（DENDRitic ALgorithm）と呼ばれる、化学者が未知の有機分子を特定できるように分子のスペクトル分析を行い構造を示すAIの開発が開始された[^20-19]。SAILのコンピュータPDP-6で作成されたプログラムであり、分子を構成する原子の情報や、探索の優先度など化学者の知識をあらかじめ組み込み、それらを利用して質量分析を行うことができる[^20-21] [^20-22]（プログラムの構成等については[こちら](https://lethediana.sakura.ne.jp/tech/archives/summary-ja/2154/)も参照ください）。**DENDRAL**はルールベースで（ゲーム等ではない）現実の問題のために作られたプログラムであると言われる[^20-20]。次節で述べるが、DENDRALはこの後も開発が継続される。
 また、1966年にはMITのMAC time-sharingシステム上で**ELIZA**という自然言語処理のAIプログラムが開発された[^20-25]。GUIを持ち、ユーザーの入力からキーワードやフレーズを認識して事前にプログラムされたフレーズからユーザーへの応答を行うため、世界初のChatbotと称されている[^20-23]。プログラム内では、If-thenルールを用いた、単純なパターンマッチングを行っており、膨大な数の会話パターンを事前に用意しておかなければならなかったが[^20-24]、Rogerian療法のセラピストとして応対するバージョン（DOCTOR）で有名になった[^20-26] [^20-27]。
 
-> **note 3**
-ELIZA効果（割愛）
-
-The nearest neighbour algorithm was introduced in 1967,
-
 その他、自らの行動を推論できる初の汎用移動ロボットであるShakey the robotや[^20-28]、世界初のPlannningシステムであるSTRIPS（STanford Research Institute Problem Solver）等も[^20-29] [^20-30]、この頃のAIの例として挙げられるが、詳細は割愛する。
+
+> **note**
+AIの研究としてではないが、下記の2つも後に重要となる。
+1963年、James MorganとJohn Sonquistにより、学歴と年収などのデータの関係性をを分析（**回帰分析**）するために、数値的な基準を設けてデータを2つに分けることを繰り返してグループ分けを行う、後にAID（Automatic Interaction Detection）と呼ばれる手法が発表された[^29-56] [^29-57]。そして、1972年にはそれをカテゴリ分類へ拡張させたTHAID（THeta Automatic Interaction Detection）と呼ばれる手法も発表された。これらのようにデータを木の枝状に分割していく分析手法は**回帰木**（**Regression Tree**）および**分類木**（**Classification Tree**）、またはそれらをまとめてCART（Classification And Regression Tree）と称され、今日でも発展を続けている。
 
 ### 1st AI Winter
 前節のような盛り上がりを見せたAI研究も、1960年代後半ごろから冬の時代が訪れた。
@@ -254,22 +252,21 @@ Rosenblattに発明されたPerceptronは2種類かつ比較的単純な分類�
 [^20-53]:[Some methods of speeding up the convergence of iteration methods](https://www.mathnet.ru/php/archive.phtml?wshow=paper&jrnid=zvmmf&paperid=7713&option_lang=eng)
 [^20-54]:[Stochastic Optimization: First order method](https://ibis.t.u-tokyo.ac.jp/suzuki/lecture/2015/nagoya_intensive/Nagoya2015_2_FirstOrder.pdf)
 [^20-55]:[CONSEQUENCES OF THE HUGHES PHENOMENON ON SOME CLASSIFICATION TECHNIQUES](https://www.asprs.org/wp-content/uploads/2010/12/Alonso.pdf)
+[^29-56]:[PROBLEMS IN THE ANALYSIS OF SURVEY DATA, AND A PROPOSAL](http://cda.psych.uiuc.edu/statistical_learning_course/morgan_sonquist.pdf)
+[^29-57]:[Fifty Years of Classification and Regression Trees](https://pages.stat.wisc.edu/~loh/treeprogs/guide/LohISI14.pdf)
 
 ## 1980~1993ごろ：Knowledge-based AI
 ### 2nd AI boom
 前述したDENDRALの研究は、対象とする化学構造の拡大を目指すDendral Project、化学的知識活用の向上を目指すMetaDendral Project、さらなる一般化を目指す[Mycin](https://en.wikipedia.org/wiki/Mycin) Projectに分化するなどして継続されていた[^30-6]。開発当初の検索ベースのアルゴリズム（* Boolean logic and logical reasoning, deterministic model*[^30-10]）で専門家レベルの能力をもったAIとはいかなかったが、「プログラムが問題解決を行うためには（従来重視されていた推論方法よりも）知識が重要である[^30-7]」という考え方に基づいており、これはKnowledge-is-power仮説（後のKnowledge principle）と呼ばれる[^30-5]。専門知識を持つ人間がExpertと称されたことから[^30-8]、このような知識と問題解決方法が分けられた構造を持ちそれぞれ別の開発者（専門知識を持つ人、プログラムを作成する人）が担当できるプログラムを**Expert System**（または**Knowledge based System**）[^30-9]、知識を体系化する取り組みはKnowledge Engineeringと呼ばれるようになった[^30-5]。このような構造をとることにより、プログラマーが必ずしも専門知識を習得したり、専門知識を持つ人がプログラミングを習得する必要がなくなったことが大きな功績の一つといえる[^30-10]。
 一方、この頃ICも着々と集積化を進める。1960年代前半にSSI（Small-Scale Integration）レベル、1960年代後半にMSI（Medium-Scale Integration）レベル、1970年代中盤にはLSI（Large-Scale Integration）レベルへ、そして1971年に初のマイクロプロセッサ（Central Processing Unit: CPUとも呼ばれる）Intel 4004が発明されるなど、ムーアの法則通り集積度を上げ、コンピュータの小型化と計算能力向上が順調に進んだ[^30-1] [^30-2]（各レベル詳細は割愛）。それによりMinicomputerと呼ばれる中規模のコンピュータ（現在の「サーバー」規模のコンピュータ）が市場に出始めることとなった[^30-3]。Minicomputerは企業で大量に購入され、それによりドキュメントが増加、それらを整理・参照するツールの需要が高まった[^30-4]。
 このような状況の中、1978年にCMUの研究者が、MiniconputerのベンダーであるDECのコンピュータ構成業務をアシストするためのXCON（eXpert CONfigurator）と呼ばれるシステムを開発した[^30-11]。1982年に導入後、年に4000万ドルのコストダウンがされたとされ、AIが産業界で本格的に用いられる例となった[^30-12] [^30-13]。
-*Decision Treeの起源*
- decision trees (e.g.,Quinlan, 1986a) and logical concept definitions (Mitchell, 1982; Michalski, 1983)
- The nonlinear revolution of the 1980s, initiated when the introduction of back-propagation networks and decision trees opened the
-possibility of efficiently learning nonlinear
-decision rules, deeply influenced the evolution
-of many fields, and paved the way for the creation of entire disciplines, such as data mining
-and a significant part of bioinformatics
+
+The nonlinear revolution of the 1980s, initiated when the introduction of back-propagation networks and decision trees opened the possibility of efficiently learning nonlinear decision rules, deeply influenced the evolution of many fields, and paved the way for the creation of entire disciplines, such as data mining and a significant part of bioinformatics.
 *Support Vector Machines and Kernel Methods The New Generation of Learning Machines*
+
 AIに取り組む研究者の関心がExpert Systemに向いているこの頃、さらに複雑なタスクに対応するため、これまでの常識であったSymbolを用いた決定論的アプローチだけでなく、不確実性・数値を用いた確率的アプローチも注目されるようになってきた[^30-14] [^30-15]。初期の例は、Certainly factorを用いたMYCIN（1975年）[^30-18]、Bayesの定理を用いたPROSPECTOR（1978年）[^30-19]、Fuzzy論理を用いたCADIAG-2（1980年）[^30-17]などが挙げられ、実用的かつ知的レベルの高いAIを目指した取り組みが盛んに行われた。
 このようなExpert Systemの発展に伴い、IBMを追い越そうと日本の通商産業省所管の新世代コンピュータ技術開発機構（ICOT：Institute for New Generation Computer Technology）で、国家プロジェクトとして第五世代コンピュータ（FGCS：the Fifth Generation Computer Systems）プロジェクトを推進し[^30-21]、1982年ごろから4億ドルを超える大規模な投資を行った[^30-22]。これに伴い、米国DARPAがSCI（Strategic Computing Initiative）を開始、英国ではAlveyプロジェクトが発足する等、FGCSは海外にも大きな影響を与えた[^30-20]。
+1984年に*CART: Classification and Regression Trees.*という研究論文が発表されて以降、CARTを含んだ樹形図を用いてデータを分析するための機械学習アルゴリズムである**決定木**（**Decision Tree**、樹形図自体を決定木と呼ぶ場合もある）に関する研究が活発になった[^30-56]。1986年には、Expert Systemが推論を行うためのルール生成のために機械学習が重要であるとし田植えで、ID3（Iterative Dichotomiser 3）と呼ばれる決定木が開発された[^30-55]。これまでのCARTが各ノードが2種類の分類を行う木（Binary Tree）を想定していたところを、複数種類に分類できる木（Binary Treeに対してGeneral Tree）に対応するなど[^30-57]、ID3は決定木における大きなブレイクスルーとなっている[^30-58]。
 基本的にはSymbolic AIの分野でExpert Systemがこのような盛り上がりを見せる一方、Connectionist AIの分野でも大きな進歩があった。
 Perceptropを持ちいた階層型のニューラルネットワーク構造を用いたAIは、1979年にNeocognitronと呼ばれるニューラルネットワークが考案され、手書き文字の認識を成功させたことで、AIによる画像のパターン認識が可能であることを示した[^30-23]。Neocognitronは、スライディングウインドウ処理を用いて、画像の中の位置に関わらずパターンを検出することのできる構造であり[^30-24] [^30-25]、後のConvolution Neural Network（CNN、畳み込みニューラルネットワーク）に非常に大きな影響を与えることとなる。
 また、ニューロンが相互接続する構造のニューラルネットワークもこの頃発明される。1982年のHopfield networkは、強磁性体による磁場の説明に用いられるIsingモデルに基づいて考案されたニューラルネットワークで[^30-27]、0または1を出力するニューロンが相互に接続されており、パターンを記憶してその情報を利用することができるようになっている[^30-26]。実際には計算効率が悪く非現実的であったが、後のRecurrent Neural Networkに大きなインスピレーションを与えた[^30-28]。また1985年には、ニューロンの出力を確率的にした制限付きボルツマンマシンが発明されている[^30-30]。
@@ -339,6 +336,10 @@ Perceptropを持ちいた階層型のニューラルネットワーク構造を�
 [^30-52]:[Ensemble learning](http://www.scholarpedia.org/article/Ensemble_learning#History)
 [^30-53]:[Cryptographic Limitations on Learning Boolean Formulae and Finite Automata](https://www.cis.upenn.edu/~mkearns/papers/crypto.pdf)
 [^30-54]:[The Evolution of Boosting Algorithms From Machine Learning to Statistical Modelling](https://arxiv.org/pdf/1403.1452.pdf)
+[^30-55]:[Induction of decision trees](https://hunch.net/~coms-4771/quinlan.pdf)
+[^30-56]:[CART: Classification and Regression Trees](https://vincentqin.gitee.io/blogresource-2/cv-books/10-CART.pdf)
+[^30-57]:[The Complete Guide to Decision Tree Analysis](https://www.explorium.ai/blog/machine-learning/the-complete-guide-to-decision-trees/)
+[^30-58]:[Decision Tree History](https://holypython.com/dt/decision-tree-history/)
 
 ## 1993~2012年ごろ：Machine Learning
 前述したExpert Systemが困難だった非構造化データ、非線形データを取り扱うため、機械学習がより注目され始める。ただし機械学習研究が盛り上がった初期は、信頼性のあるデータが少なくハードウェアリソースの限界もあり研究の再現性がとれないこと、出力の説明性が乏しいことなどから、比較的教師データが少なくても性能を発揮し、理論保障が可能な数学・統計的なアプローチが主流だった[^40-1] [^40-2] [^40-3]。
@@ -628,6 +629,7 @@ AI技術の進展はとどまるところを知らないどころか、どんど
         - [A Perceiving and recognizing automaton](https://blogs.umass.edu/brain-wars/files/2016/03/rosenblatt-1957.pdf)
         - [THE PERCEPTRON: A PROBABILISTIC MODEL FOR INFORMATION STORAGE AND ORGANIZATION IN THE BRAIN](https://www.academia.edu/60542953/The_perceptron_a_probabilistic_model_for_information_storage_and_organization_in_the_brain)
         - [Optimization: Stochastic Gradient Descent](http://deeplearning.stanford.edu/tutorial/supervised/OptimizationStochasticGradientDescent/)
+- ELIZA効果
 - AutoML
 - Game理論との関連性
     - [Artificial Intelligence for Games](https://www.lamsade.dauphine.fr/~cazenave/papers/games.pdf)
