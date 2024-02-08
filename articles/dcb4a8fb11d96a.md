@@ -1,5 +1,5 @@
 ---
-title: "ChatGPTに支配される前に、押さえるべきAI・機械学習事情"
+title: "生成AI・ChatGPTに支配される前に、押さえるべきAI事情"
 emoji: "🧠"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["機械学習", "AI", "初心者"]
@@ -16,7 +16,7 @@ published: false
 # はじめに
 AIに支配されうる未来が見え始めている。
 ChatGPTをはじめとする生成AIにより、技術者に限らず、AIに頼らざるを得ない状況になった。技術進展スピードと影響力を考えると、より一層AIが影響を与える範囲は広がっていくことは間違いない。しかし発展が目まぐるしく、高度すぎる技術になっているため、一朝一夕では最新のAI技術についてキャッチアップすることはできなくなっており、よくわからないままAIに触れることになってしまったり、AIという技術が実はとっつきにくいものになってしまった。
-その結果、上辺だけのAI議論、過剰な期待・恐怖、不適切な利用を招いてしまう危険がある。そしてそんなことをしているうちにAIがより高度になり、気づかないうちにAIが人間を支配、すなわち単独で人間社会を最適化し始めるということは、もはや起こりえない夢のではなくなっている。したがって、AIという「技術」に対して向き合うことは今後大変重要になってくるはずである。本記事では、これからAIの勉強を始めたい人や再度情報の整理をしたい人に向け、AI界隈の状況についてまとめた。
+その結果、上辺だけのAI議論、過剰な期待・恐怖、不適切な利用を招いてしまう危険がある。そしてそんなことをしているうちにAIがより高度になり、気づかないうちにAIが人間を支配、すなわち単独で人間社会を最適化し始めるということは、もはや起こりえない夢の話ではなくなってきている。したがって、AIという「技術」に対して向き合うことは今後大変重要になってくるはずである。本記事では、これからAIの勉強を始めたい人や再度情報の整理をしたい人に向け、AI界隈の状況についてまとめた。
 
 # AI研究の全体像
 ## AIが担うタスク
@@ -71,7 +71,7 @@ Leibnizの論文がドイツのHannoverで閲覧可能になった1830年代以�
 Note that in its original form (Hilbert & Ackermann 1928), the problem was stated in terms of validity rather than derivability. Given Gödel’s completeness theorem (Gödel 1929) proving that there is an effective procedure (or not) for derivability is also a solution to the problem in its validity form. In order to tackle this problem, one needs a formalized notion of “effective procedure” and Turing’s machines were intended to do exactly that
 
 > **note 2**
-数学者や数学団体は自身が発案・直面した未解決問題を公開し、研究を生み出してきた。1900年にHilbertが、パリで開催された国際数学者会議（International Congress of Mathematicians: ICM）および彼の著作で、次の世紀に研究されるべき23の主要な数学的問題が発表された[^10-1] [^10-2] [^10-3]。Entscheidungsproblemは[Hilbertの23の問題](https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%AB%E3%83%99%E3%83%AB%E3%83%88%E3%81%AE23%E3%81%AE%E5%95%8F%E9%A1%8C)のうち、[Diophantine方程式](https://en.wikipedia.org/wiki/Diophantine_equation)に解があるかどうかを決定するアルゴリズムを求める第10問題に関連している。（**第2問題も？？** // Church-turing thesis）
+数学者や数学団体は自身が発案・直面した未解決問題を公開し、研究を生み出してきた。1900年にHilbertが、パリで開催された国際数学者会議（International Congress of Mathematicians: ICM）および彼の著作で、次の世紀に研究されるべき23の主要な数学的問題が発表された[^10-1] [^10-2] [^10-3]。Entscheidungsproblemは[Hilbertの23の問題](https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%AB%E3%83%99%E3%83%AB%E3%83%88%E3%81%AE23%E3%81%AE%E5%95%8F%E9%A1%8C)のうち、[Diophantine方程式](https://en.wikipedia.org/wiki/Diophantine_equation)に解があるかどうかを決定するアルゴリズムを求める第10問題に関連している。
 
 1935年、HilbertのEntscheidungsproblemに興味を持ったAlan Turingは、任意の数学的記述の導出に必要な「形式化された手順」が必要である、として研究を開始した。すなわち、どんな数学的記述も導出できる手順が存在するということは、どんな数学的記述も証明可能であると言える、という考え方である。Turingは翌1936年に発表した論文[^10-22]で、そういう手順が可能である仮想的な機械（UTM: **Universal Turing machine**[^10-26]）を考案し、Entscheidungsproblemが成り立たたないことを証明した[^10-17] [^10-18] [^10-19] [^10-20]。したがって例えば、数学の定理を証明するためのアルゴリズム的な手法は存在せず、総当たり（Brute force）的に証明を試さなければならないということが示されたことになる[^10-54]。
 Turingのアプローチで独創的だったのは、UTMを考案するにあたり、それまで発明されていた「機械」に注目するのではなく、子供が勉強で使う方眼紙や何か手順を踏むときの人間の思考など、「人間」に注目した上で、実行する手順を徹底的に曖昧さがない論理的な処理に落とし込んだことである[^10-21]。
@@ -81,11 +81,8 @@ UTMの論理性は、1943年に発表された、神経生理学者Warren McCull
 Hebb理論は、1949年にカナダの心理学者Donald Olding Hebの[著書](https://pure.mpg.de/rest/items/item_2346268_3/component/file_2346267/content)で提唱された[^10-48]、ニューロンの数学モデルの学習ルールとそのアルゴリズムを含む理論である。Hebbは、つながっている2つのニューロンが同時に発火すればするほど、それらの接続強度（以降、重み）は強くなるという規則を主張した（これは、後に長期記憶の理論にも影響した）[^10-52]。この規則に基づいて重みを調整すれば、ロジックが変えられる、すなわち所望のロジックを得るために重みを調整すれば、機械が改善されることになるため「学習」と呼ぶことができる（SNARCではHebb則に基づいて重みの更新を人の手で行っていた）[^10-50]。
 ただし、純粋な総当たり処理をすべてのタスクに対して行う計算はこの頃のコンピュータの性能では不可能であり[^10-55]、特に探索や認識といった複雑なタスクに対しては、知性的に解を求める方法が求められていたと考えられる。さらに1949年、アメリカのコンピュータ科学者Edmund Berkeleyが著書*Giant Brains, or Machines That Think*で「A machine, therefore, can think.」と言及し[^10-32] [^10-33] [^10-34]、1950年にTuringが発表した論文を「I PROPOSE to consider the question, ‘Can machines think?’」で始めるなど[^10-35]、思考する機械への関心はさらに盛り上がりを見せていた。Turingはその論文でTuring Testという非常に重要な。。。（Turing Testについて詳細は割愛）。
 
-> **note 3**
-Turing machineとUniversal Turing Machineの違い
-
 > **note 4**
-Turing machineは自身の論文の中でcomputing machineと呼ばれ[^10-22]、無限長のテープと。詳細は割愛。
+Turing machineは論文の中ではcomputing machineと呼ばれている[^10-22]。
 
 1954年にRAND（Research and Development）Corporationで、JOHNNIAC（John von Neumann Numerical Integrator and Automatic Computerの略でvon Neumannも開発に携わった）という計算機が構築され[^10-36]、翌年にかけてコンピュータ科学者・認知心理学者のAllen Newellと政治・経済・社会学者のHerbert Simonを中心にLogic Theoristと呼ばれる、IPL（Information Processing Languageというプログラミング言語）を用いたプログラムが作成された[^10-37] [^10-38] [^10-39]。Logic Theoristは、人間の数学者の頭脳の能力を模倣するように、Symbolを組み合わせて表現に組み込む「symbolic reasoning」と呼ばれる推論に基づいており[^10-41]、元になる数学定理のから新しい定理を証明することが可能である（しかもいくつかの数学定理は、人間の数学者よりも詳細な証明を示すことができた）[^10-37]。このように、基にする要素（root）から論理規則に基づいて分岐しながら目的の要素を探索するアルゴリズムは、今日でも探索木（search tree）として知られており、Logic Theoristは解ける保証がない問題に取り組むプログラムを作成した点が一つの大きな発明であると考えられる。また、Logic Theoristは実際の問題を解決するために人間の推論能力をシミュレートした世界初の人工知能プログラムと称され[^10-51]、Symbolを用いて人間の思考プロセスをプログラム化するいう思想に基づいたこのような手法は後に、**Symbolic AI**に分類される[^10-42]。Symbolic AIに対して、人間の脳をモデル化すれば人間と同じように知能をもたせることができるという思想に基づいて、ニューロンの数学モデルを用いてANNを構成する手法は**Connectionist AI**と呼ばれる[^10-49]。
 Heuristics? Reasoning search?
@@ -93,9 +90,6 @@ Logic AI
 https://plato.stanford.edu/entries/logic-ai/
 
 上記のように、この頃、「考える機械（thinking machine）」に関する取り組みが非常に活発だったと言えるが、Dartmouth大学の数学助教授だったJohn McCarthyがより明確にその研究領域を発展させるために[^10-45]、DSRPAI（Dartmouth Summer Research Project on Artificial Intelligence、ダートマス会議）でRockefeller財団にセミナーのための資金提供を要請し、その研究領域を**人工知能**（**Artificial Intelligence**）と名付けた[^10-44]。これが、AIという用語が使われた最初の文書であり[^10-46]、これがAIという研究分野の誕生とされる（1956年にDSRPAIが開催され、Logic theoristはそこで発表された[^10-43]）。
-
-> **note 5**
-Research and Development (RAND) Corporationとは（割愛）
 
 > **note 7**
 > John McCarthyの要請原文
@@ -344,9 +338,6 @@ Perceptropを持ちいた階層型のニューラルネットワーク構造を�
 In 1995, Dana Cortes and Vladimir Vapnik developed the support vector machine (a system for mapping and recognizing similar data)
 この頃、ラベル付きデータとラベルなしデータの両方を学習に用いる**半教師あり学習**（Semi-supervised learning）という手法も普及しだし[^40-60] [^40-61]、学習データの取り扱いの幅も広がってきたといえる。
 
-> **note**
-
-
 一方で大規模なデータセットや強力なコンピューティングリソースが必要であるニューラルネットワークの分野は、1994年に**MNIST**（Modified National Institute of Standards and Technology）という学習用に6万、テスト用に1万枚の手書き数字画像を含むデータセットが作成され[^40-13]、翌1995年にLeNetと呼ばれるニューラルネットワークを有するAIが手書き数字画像の分類精度において、SVMを含むその他のアプローチの結果を上回ることが示された[^40-15]（LeNetの研究は1989年ごろから始まっていた[^30-36]）。LeNetはCNN構造をもっており、畳み込み処理に学習可能なパラメータをもたせることでパラメータ・計算の削減に成功した点が重要であり、今後のニューラルネットワーク研究の基盤となっている[^40-14]。
 そしてこの1995年には、Windows95・Internet Explorerの発表によりPCとインターネットが多くの人の身近に届いたことで[^40-16] [^40-17]、コンピュータが情報を得やすくなり、大きなデータセットの共有も現実的なものになった。
 CNNの他にも、Hopfield networkを拡張した[^40-18]、**LSTM**（Long-Short Time Memory）と呼ばれるRNNが1997年に発表された。LSTMはネットワーク内にMemoryセルと呼ばれる単位で、情報の記憶と忘却を調整することで、RNNで問題となっていた勾配爆発を解決した[^40-20] [^40-21]。さらに、GNN（Graph Neural Network）という[グラフ](https://lethediana.sakura.ne.jp/tech/archives/summary-ja/1367/)を入出力とするリッチなデータ構造に機械学習を用いる構造が発表された[^40-58] [^40-59]。
@@ -487,7 +478,7 @@ Transformerモデルは非常に有用であり、2018年には目的や学習�
 このようなモデルは特に**LLMs**（Large Language Models, 大規模言語モデル）と呼ばれ、OpenAI社のGPT-3（2020年7月）[^50-62]、GPT-3.5（2022年3月）[^50-63]、GPT-4（2023年3月）[^50-64]、Google社のLaMDA（2021年3月）[^50-65]、PaLM（2022年4月）[^50-66]、PaLM-2（2023年3月）[^50-67]、Gemini（2023年12月）[^50-68]、Meta社のLLaMa（2023年2月）[^50-60]、LLaMa-2（2023年7月、優先パートナーとしてMicrosoft社が挙げられた）[^50-61]、Anthropic社のClaude（2023年3月）[^50-69]、Claude2（2023年7月）[^50-70]など、現在でも新しいモデルが開発されている。
 そしてLLMsは、追加の学習用データセットを用いてFine tuningを行うことで用途に特化したサービスにすることができ[^50-71]、その意味で**基盤モデル**（**Foundation Model**）と呼ばれることもある[^50-72]。中でも、GPT-3.5をChatbot用にFine tuningした**ChatGPT**というサービスは、2022年11月にリリースされて2か月で月間1億人のアクティブユーザーに到達したと推定され、史上最も急速に成長している消費者向けアプリケーションと呼ばれている[^50-73]。これにより、「生成AI」という言葉が爆発的に普及し、オフィスドキュメントのデファクトスタンダードである[^50-74]Microsoft 365にChatGPTを統合したため、技術者でなくてもAIに触れる機械が激増した。
 これに伴い、元データを提供する情報検索システムを追加してChatGPTのようなLLMsサービスの機能を拡張するパターンであるRAG（Retrieval Augmentation Generation）パターンや[^50-77]、生成AIに目的の出力を生成させる技術としてPrompt Engineeringなど[^50-78]、新しいコンセプトも続々出現している。
-Transformerはそのパフォーマンスの高さから他の分野にも用は拡大し[^50-55] [^50-76]、マシンビジョン（画像認識）向けの**Vision Transformer**（2020年）など[^50-58]、従来のニューラルネットワークが担ってきたタスクを代替する手法としても用いられ始めている。そして、生成AIという観点では、テキストから画像を生成するtext-to-imageモデルと呼ばれる分野も発展し、Stability AI社の[Stable Diffusion](https://huggingface.co/spaces/stabilityai/stable-diffusion)（2022年）、Midjourney社の[Midjourney](https://www.midjourney.com/home/)（2022年）、OpenAI社の[DALL-E3](https://openai.com/dall-e-3)（2023年）などが発表されている。
+Transformerはそのパフォーマンスの高さから他の分野にも用は拡大し[^50-55] [^50-76]、マシンビジョン（画像認識）向けの**Vision Transformer**（**ViT**、2020年）など[^50-58]、従来のニューラルネットワークが担ってきたタスクを代替する手法としても用いられ始めている。そして、生成AIという観点では、テキストから画像を生成するtext-to-imageモデルと呼ばれる分野も発展し、Stability AI社の[Stable Diffusion](https://huggingface.co/spaces/stabilityai/stable-diffusion)（2022年）、Midjourney社の[Midjourney](https://www.midjourney.com/home/)（2022年）、OpenAI社の[DALL-E3](https://openai.com/dall-e-3)（2023年）などが発表されている。
 
 [^50-1]:[Big Tech in *Wikipedia*](https://en.wikipedia.org/wiki/Big_Tech)
 [^50-2]:[Big Tech](https://academic-accelerator.com/encyclopedia/big-tech)
@@ -577,26 +568,94 @@ Transformerはそのパフォーマンスの高さから他の分野にも用は
 [^50-86]:[Dark Memory and Accelerator-Rich System Optimization in the Dark Silicon Era](https://arxiv.org/pdf/1602.04183.pdf)
 [^50-87]:[AI Accelerators — Part II: Transistors and Pizza (or: Why Do We Need Accelerators)?](https://medium.com/@adi.fu7/ai-accelerators-part-ii-transistors-and-pizza-or-why-do-we-need-accelerators-75738642fdaa)
 
-# 今後のAI技術
+# 今後注目すべきAI技術関連動向
 社会実装に向けた課題が増えている
-## AI倫理
-- データセットの偏見（今あるデータセットでAIが学習すると医者は男、看護師は女という偏見が入ってしまう等）
-https://hypebeast.com/jp/2023/5/geoffrey-hinton-godfather-of-ai-quit-google
-    - 社会的な影響が大きくなっている昨今、技術（AIの出力する結果の精度）だけを追い求めておけばよいフェーズではなくなってきている。
-    2018: EU guidelines for AI
-- XAI
-    - LDAR
+## AI倫理（AI Ethics）
+AI倫理は、AIが責任を持って開発および使用されることを保証するために、関係者 (エンジニアから政府関係者まで) が使用する一連の指針で、AIに対して安心・安全なアプローチをとるための研究分野である[^60-1]。近年急激に注目度を増してきており[^60-2]、AI倫理の課題として下記の4点が挙げられている[^60-3]。
+1. Explainability（説明可能性）
+AIの推測理由を説明できる必要があるという課題。意思決定がAIによってどのように行われるかを理解する必要性が高まっており[^60-6]、金融やヘルスケアなどの分野で注目を集めている[^60-7]。DARPAはDeep Learningをはじめとする高パフォーマンスなAI技術が不透明であることを懸念し、AIを適切に信頼・効果的に管理するため、人間のユーザーに理論的根拠を説明できるAIシステムである**XAI**（eXplainable AI、説明可能AI）のプログラムを2017年に開始[^60-5]、EC（European Commision）がEthics guidelines for trustworthy AIを2019年に発表するなど[^60-8]、国家レベルでも重要な課題として認識されている。
+代表的なXAIの手法例として下記の6種類を挙げる。
+    - LIME（Local Interpretable Model-agnostic Explanations）
+    2016年発表[^60-10]。機械学習モデルの入力データに変動を加えた時、予測（出力データ）にどのような変化が起こるかを検証し、その検証結果から局所的に機械学習モデルと同じ出力をするモデル（ローカルサロゲートモデル）を作成する手法[^60-9]。
+    - SHAP（SHapley Additive exPlanations）
+    2017年発表[^60-13]。協力型ゲーム理論での、各プレイヤーの課題に対する貢献度を算出するShapley値を、機械学習モデルが用いる特徴量の予測精度に対する貢献度として用いる[^60-12]。これにより、各予測に対して寄与度の高い特徴量を求める手法[^60-11]。
+    - Anchor
+    2018年発表[^60-14]。機械学習モデルの入力データに変動を加えた時、どれくらいの範囲が同じラベルになるかを検証し、If-Thenルールを作成する手法[^60-15] [^60-16]。
+    - Grad-CAM（Graddient-weighted Class Activation Mapping）
+    2016年発表[^60-17]。Computer Visionの分野で、特にCNNに対して用いられ、最後の畳み込み層に流入する勾配を分析することで、入力画像内の予測に寄与した重要な領域を強調表示するHeatmapを作成する[^60-18]。Score-CAM[^60-19]やGroup-CAM[^60-20]など様々な派生形も出現している。
+    - DeepLIFT（Deep Learning Important FeaTures）
+    2017年発表[^60-21]。BP法を用いて、ある入力に対する各ニューロン出力を基準とし、他の入力との出力の差を考えることで特徴量の効果を考えたうえで出力形成に大きな影響を与えたニューロンと重みを見つける[^60-22]。
+
+    ただし、ユーザーによって求める説明が異なること（初心者と専門家に同じ説明をするのが適切ではない等）や、応答速度と説明精度のトレードオフ、継続的なメンテナンス性など、XAIの課題はまだまだ多い[^60-23]。それでも、、2020年のICMLではよりハイレベルな説明可能性をもったXAIとしてXXAI（eXtended XAI）のワークショップが実施されるなど、注目度は高まるばかりである[^60-24]。
+1. Responsibility（責任性）
+AIに基づく意思決定の結果に対する説明責任を誰がどうとるのか、という課題。
+AIを使用してこれまで人間の介入が必要だったタスクを自動化および改善する企業が増えてきており[^60-27]、AIのガバナンスの側面から**RAI**（Responsible AI）として議論されることが多い。Google、Microsoft、IBMは、生成AIを含めたAIの規制を求め、既に独自のガバナンスフレームワークとガイドラインを構築しており[^60-27] [^60-26]、企業のエネルギーがAIの実践をより「責任」を重視する方向に注がれている[^60-28]。
+    > **note**
+    経済産業省の我が国のAIガバナンスの在り方（ver. 1.1）でAIガバナンスは「AIの利活用によって生じるリスクをステークホルダーにとって受容可能な水準で管理しつつ、そこからもたらされる正のインパクトを最大化することを目的とする、ステークホルダーによる技術的、組織的、及び社会的システムの設計及び運用」と定義されている[^60-25]
+
+1. Fairness（公平性）
+データセットに偏見（Bias）が入ってしまうという課題。
+例えば、あるデータセットでAIが学習すると医者は男、看護師は女という偏見が入ってしまう[^60-4]、Amazonの採用候補者の選別AIが中立的な方法で評価していなかった[^60-29]等の事例がある。
+Biasの入ったAI利用は、より大きなBiasを助長する可能性があるといった社会的問題もあり[^60-30]、アメリカのFederal Trade Commission（FTC）が、人種的に偏ったアルゴリズムの販売や法律に違反する可能性のある方法で使用しないよう警告するなどの対策が講じられている[^60-31]。
+
+1. Misuse（不当利用性）
+AIが作成目的以外の（危険な）利用のされ方をしてしまうという課題。
+例えば、アメリカの大統領や韓国のニュースキャスターが虚偽のアナウンスをする動画が公開される事例がある[^60-36]。そのような現実に起こっていない画像や動画を生成する技術は**Deepfake**と呼ばれ[^60-35]、問題視されている[^60-33]。
+他にも、パスワードの推測にAI技術が利用されるという研究も進んでいるなど[^60-32]、AI技術の適切な利用が必要になっている。
+
+このように、AI技術の社会的な影響が大きくなっている昨今、技術（AIの出力する結果の精度）だけを追い求めておけばよいフェーズではなくなってきている。OpenAI社は、現時点では、近い将来登場すると予測される人間よりもはるかに賢いAIであるSuperintelligence（超知能）を制御、すなわちAIの不正行為を防ぐようなソリューションはないとし、ほぼ人間レベルの“automated alignment researcher”を構築すること目指したチームを結成するなど[^60-34]、AIでAIを監視させることを目指す動きも存在する。
+
+[^60-1]:[AI Ethics: What It Is and Why It Matters](https://www.coursera.org/articles/ai-ethics)
+[^60-2]:[AI Ethics: A Long History and a Recent Burst of Attention](https://www.computer.org/csdl/magazine/co/2021/01/09321834/1qmbkXCazy8)
+[^60-3]:[AI ethics (AI code of ethics)](https://www.techtarget.com/whatis/definition/AI-code-of-ethics)
+[^60-4]:[“AI のゴットファーザー”と称される研究者が Google を退社して人工知能に関する懸念を表明](https://hypebeast.com/jp/2023/5/geoffrey-hinton-godfather-of-ai-quit-google)
+[^60-5]:[DARPA’s Explainable Artificial Intelligence Program](https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/2850/3419)
+[^60-6]:[XAIR: A Systematic Metareview of Explainable AI (XAI) Aligned to the Software Development Process](https://www.researchgate.net/publication/367081479_XAIR_A_Systematic_Metareview_of_Explainable_AI_XAI_Aligned_to_the_Software_Development_Process)
+[^60-7]:[Explainability as the key ingredient for AI adoption in Industry 5.0 settings](https://www.frontiersin.org/articles/10.3389/frai.2023.1264372/full)
+[^60-8]:[Ethics guidelines for trustworthy AI](https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai)
+[^60-9]:[5.7 Local Surrogate (LIME)](https://hacarus.github.io/interpretable-ml-book-ja/lime.html#lime)
+[^60-10]:["Why Should I Trust You?": Explaining the Predictions of Any Classifier](https://arxiv.org/abs/1602.04938)
+[^60-11]:[SHAP を用いて機械学習モデルを説明する](https://www.datarobot.com/jp/blog/explain-machine-learning-models-using-shap/)
+[^60-12]:[Explaining AI - The Key Differences Between LIME and SHAP Methods](https://safjan.com/explaining-ai-the-key-differences-between-lime-and-shap-methods/)
+[^60-13]:[A Unified Approach to Interpreting Model Predictions](https://arxiv.org/abs/1705.07874)
+[^60-14]:[Anchors: High-Precision Model-Agnostic Explanations](https://homes.cs.washington.edu/~marcotcr/aaai18.pdf)
+[^60-15]:[説明可能なAI（Explainable AI：XAI）の各手法調査(2)](https://zenn.dev/pluck/articles/c5360fab91ca53)
+[^60-16]:[9.4 Scoped Rules (Anchors)](https://christophm.github.io/interpretable-ml-book/anchors.html#fn61)
+[^60-17]:[Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization](https://arxiv.org/abs/1610.02391)
+[^60-18]:[Visualizing Model Insights: A Guide to Grad-CAM in Deep Learning](https://www.analyticsvidhya.com/blog/2023/12/grad-cam-in-deep-learning/)
+[^60-19]:[Score-CAM: Score-Weighted Visual Explanations for Convolutional Neural Networks](https://arxiv.org/abs/1910.01279)
+[^60-20]:[Group-CAM: Group Score-Weighted Visual Explanations for Deep Convolutional Networks](https://arxiv.org/abs/2103.13859)
+[^60-21]:[Learning Important Features Through Propagating Activation Differences](https://arxiv.org/abs/1704.02685)
+[^60-22]:[Explainability and Auditability in ML: Definitions, Techniques, and Tools](https://neptune.ai/blog/explainability-auditability-ml-definitions-techniques-tools)
+[^60-23]:[Survey on Explainable AI: From Approaches, Limitations and Applications Aspects](https://link.springer.com/article/10.1007/s44230-023-00038-y)
+[^60-24]:[xxAI - Beyond Explainable AI](https://link.springer.com/book/10.1007/978-3-031-04083-2)
+[^60-25]:[我が国の AI ガバナンスの在り方 ver. 1.1](https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/pdf/20210709_1.pdf)
+[^60-26]:[What Is ‘Responsible AI’ And Why Is Big Tech Investing Billions In It?](https://www.forbes.com/sites/saibala/2023/05/29/what-is-responsible-ai-and-why-is-big-tech-investing-billions-in-it/?sh=4bcca71e227c)
+[^60-27]:[Responsible AI: Ways to Avoid the Dark Side of AI Use](https://www.altexsoft.com/blog/responsible-ai/)
+[^60-28]:[Companies Committed to Responsible AI: From Principles towards Implementation and Regulation?](https://link.springer.com/article/10.1007/s13347-021-00474-3)
+[^60-29]:[Amazon Scraps Secret AI Recruiting Engine that Showed Biases Against Women](https://www.ml.cmu.edu/news/news-archive/2016-2020/2018/october/amazon-scraps-secret-artificial-intelligence-recruiting-engine-that-showed-biases-against-women.html)
+[^60-30]:[Fairness in AI and Its Long-Term Implications on Society](https://arxiv.org/abs/2304.09826)
+[^60-31]:[AI & Fairness Metrics: Understanding & Eliminating Bias](https://councils.forbes.com/blog/ai-and-fairness-metrics#tag=tech)
+[^60-32]:[Malicious Uses and Abuses of Artificial Intelligence](https://documents.trendmicro.com/assets/white_papers/wp-malicious-uses-and-abuses-of-artificial-intelligence.pdf)
+[^60-33]:[Misuse of technology to create deepfakes threat to society: President Murmu](https://www.thehindu.com/news/national/misuse-of-technology-to-create-deepfakes-threat-to-society-president-murmu/article67597935.ece)
+[^60-34]:[OpenAI、“スーパーインテリジェンス”の人類の敵化防止を目指す新チーム立ち上げ](https://www.itmedia.co.jp/news/articles/2307/06/news127.html)
+[^60-35]:[What Are Deepfakes and How Are They Created?](https://spectrum.ieee.org/what-is-deepfake)
+[^60-36]:[Deepfakes: The new face of fraud](https://withpersona.com/blog/what-are-deepfakes)
+
 ## 学習データ
 - マルチモーダル
+LVMs
 - データ量増大
 - 残りの5感（触覚、嗅覚、味覚
 - メタバース上のデータ
+
 ## ハードの進化
 https://www.easybom.com/blog/a/under-the-trend-of-hi-how-to-solve-the-dark-silicon-effect
 https://www.eejournal.com/article/20150707-graysilicon/
 - AIハード（チップ、アーキテクチャ）の出現：スケーラビリティ
     - DPU, NPU (https://hawai.tech/ia-waves-and-evolution-of-hardware/)
 - 量子コンピュータ
+
 ## Full automation
 - CPS
 - AI作るAI
@@ -604,47 +663,51 @@ https://www.eejournal.com/article/20150707-graysilicon/
 
 # おわりに
 AI技術の進展はとどまるところを知らないどころか、どんどん加速している。
-そのため、現時点の最新技術が何かを拾うだけではなく、最新技術の背景を頭に入れたうえで動向をキャッチアップしていくことでより適切にAI技術をとらえやすくなる。
+そのため、現時点の最新技術が何かを拾うだけではなく、技術的な背景を頭に入れたうえで動向をキャッチアップし、現状を整理していくことでより適切にAI技術をとらえやすくなる。
 また、技術的にAIを見る際には、本来は数学的な視点からも発明の変遷を辿るのがベストだが、本記事で記したような状況や背景の全体感を把握をしておけば詳細に入りやすいのではないかと思う。
 
 ## もうちょっと調べたい（追記する可能性あり）
-- 初期のニューラルネットワーク
-    - [History: The 1940's to the 1970's](https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/History/history1.html)
-    - Hopfiled networkの計算効率の悪さ
-        - https://com-cog-book.github.io/com-cog-book/features/recurrent-net.html#Learning-objectives
-    - RosenblattのPerceptronのOptimizer
-        - [PERCEPTRON IS NOT SGD: A BETTER INTERPRETATION THROUGH PSEUDOGRADIENTS](https://parameterfree.com/2021/02/14/perceptron-is-not-sgd-a-better-interpretation-through-pseudogradients/)
-        - [A Perceiving and recognizing automaton](https://blogs.umass.edu/brain-wars/files/2016/03/rosenblatt-1957.pdf)
-        - [THE PERCEPTRON: A PROBABILISTIC MODEL FOR INFORMATION STORAGE AND ORGANIZATION IN THE BRAIN](https://www.academia.edu/60542953/The_perceptron_a_probabilistic_model_for_information_storage_and_organization_in_the_brain)
-        - [Optimization: Stochastic Gradient Descent](http://deeplearning.stanford.edu/tutorial/supervised/OptimizationStochasticGradientDescent/)
-- ELIZA効果
-- AutoML
-- Game理論との関連性
-    - [Artificial Intelligence for Games](https://www.lamsade.dauphine.fr/~cazenave/papers/games.pdf)
-- DeepFake
-- [more Moore, more than moore](http://www.itrs2.net/uploads/4/9/7/7/49775221/irc-itrs-mtm-v2_3.pdf)
-- GAFAの動き
-    - [Facebook’s artificial intelligence research team, FAIR, turns five. But what are its biggest accomplishments?](https://hub.packtpub.com/facebooks-artificial-intelligence-research-team-fair-turns-five-but-what-are-its-biggest-accomplishments/)
-    - https://www.washingtonpost.com/news/the-switch/wp/2017/06/05/why-apple-is-struggling-to-become-an-artificial-intelligence-powerhouse/
-    - https://www.xkula.com/gafa-or-faang-japan/https://www.xkula.com/gafa-or-faang-japan/
-    - https://sites.bu.edu/cmcs/2017/11/16/growing-up-with-alexa-siri-and-other-a-i-technology/
-- AstrocyteとTransformerの関係
-- Expert System
-    - なぜExpert system開発がコンパイル言語とマッチしなかったのか
-    - Forward chainとBackward chain
-- PINNについて
-- Probabilistic AI
-- Neuro Symbolic AI
-- Meta learning
-- 強化学習
-    - Mean field?
-    - Monte calro
-    - Q-learning
-- Ensemble学習
-    - Stacking
-    - Ensemble Deep Learning
-- LBFGS以外の高次法
-    - LSRI
+- 動向
+    - 初期のニューラルネットワーク
+        - [History: The 1940's to the 1970's](https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/History/history1.html)
+        - Hopfiled networkの計算効率の悪さ
+            - [Introduction to Neural Network Models of Cognition](https://com-cog-book.github.io/com-cog-book/features/recurrent-net.html#Historical-and-theoretical-background)
+        - RosenblattのPerceptronのOptimizer
+            - [PERCEPTRON IS NOT SGD: A BETTER INTERPRETATION THROUGH PSEUDOGRADIENTS](https://parameterfree.com/2021/02/14/perceptron-is-not-sgd-a-better-interpretation-through-pseudogradients/)
+            - [A Perceiving and recognizing automaton](https://blogs.umass.edu/brain-wars/files/2016/03/rosenblatt-1957.pdf)
+            - [THE PERCEPTRON: A PROBABILISTIC MODEL FOR INFORMATION STORAGE AND ORGANIZATION IN THE BRAIN](https://www.academia.edu/60542953/The_perceptron_a_probabilistic_model_for_information_storage_and_organization_in_the_brain)
+            - [Optimization: Stochastic Gradient Descent](http://deeplearning.stanford.edu/tutorial/supervised/OptimizationStochasticGradientDescent/)
+    - ELIZA効果
+    - Game理論との関連性
+        - [Artificial Intelligence for Games](https://www.lamsade.dauphine.fr/~cazenave/papers/games.pdf)
+    - [more Moore, more than moore](http://www.itrs2.net/uploads/4/9/7/7/49775221/irc-itrs-mtm-v2_3.pdf)
+    - GAFAの動き
+        - [Facebook’s artificial intelligence research team, FAIR, turns five. But what are its biggest accomplishments?](https://hub.packtpub.com/facebooks-artificial-intelligence-research-team-fair-turns-five-but-what-are-its-biggest-accomplishments/)
+        - [GROWING UP WITH ALEXA, SIRI, AND OTHER A.I. TECHNOLOGY](https://sites.bu.edu/cmcs/2017/11/16/growing-up-with-alexa-siri-and-other-a-i-technology/)
+- アーキテクチャ
+    - Probabilistic AI
+    - Neuro Symbolic AI
+    - PIML（Physics Informed Machine Learning）
+    - Expert System
+        - なぜExpert system開発がコンパイル言語とマッチしなかったのか
+        - Forward chainとBackward chain
+    - AutoML
+- 学習・最適化
+    - Meta learning
+    - 強化学習
+        - Mean field?
+        - Monte calro
+        - Q-learning
+    - Ensemble学習
+        - Stacking
+        - Ensemble Deep Learning
+    - LBFGS以外の高次法
+        - LSRI
+- その他
+    - Turing machineとUniversal Turing Machineの違い
+    - EntscheidungsproblemとHilbertの23の問題のうち第2問題にも関連している？（Church-turing thesis）
+    - Research and Development (RAND) Corporationの詳細
+    - AstrocyteとTransformerの関係
 
 ## PS
 調査しきれていない部分もあるので、割愛した部分を加えて電子書籍化に挑戦してみてもよいかも？
@@ -661,5 +724,7 @@ https://www.dataversity.net/brief-history-deep-learning/
 https://www.holloway.com/g/making-things-think/sections/the-birth-of-artificial-intelligence-19521956
 https://aiqom.ai/en/blogs/The-Evolution-of-Artificial-Intelligence
 https://www.sparkfun.com/news/7896
+https://www.techslang.com/definition/what-is-an-ai-accelerator/
+https://www.sciencedirect.com/science/article/pii/S1566253523001148
 
 [^20-1]: [人工知能用言語 Lispの今と将来](https://www.jstage.jst.go.jp/article/jjsai/24/5/24_681/_pdf)
