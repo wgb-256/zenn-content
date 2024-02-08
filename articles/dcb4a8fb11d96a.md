@@ -642,12 +642,14 @@ AIが作成目的以外の（危険な）利用のされ方をしてしまうと
 [^60-35]:[What Are Deepfakes and How Are They Created?](https://spectrum.ieee.org/what-is-deepfake)
 [^60-36]:[Deepfakes: The new face of fraud](https://withpersona.com/blog/what-are-deepfakes)
 
-## 学習データ
-- マルチモーダル
-LVMs
-- データ量増大
-- 残りの5感（触覚、嗅覚、味覚
-- メタバース上のデータ
+## マルチモーダル化
+さまざまなタスクに対する機械学習のデータセットのサイズは増え続けており、言語系では1兆点を超えるデータが利用されるようになってきている[^70-1]。そんな中、複数種類のデータを用いた**マルチモーダル**AIの注目度が高まっている。特に、**VLM**（Vision-Language Model）と呼ばれる、大規模な画像-テキストペアのデータセットを学習データとして用いる機械学習モデルに関する研究が盛んで[^70-2]、OpenAI社の[CLIP](https://openai.com/research/clip)（Contrastive Language–Image Pre-training）などが有名である。
+その他にも、音声-動画のデータセットからの音声認識や感情認識のタスクに取り組むAIの研究もおこなわれている[^70-2]。
+さらに、IoTデバイスで収集されたデータや[^70-3]、メタバースで収集されたデータが利用されるなど（[DAO・メタバースに関する私見](https://medium.com/@ttnt.1013/the-potential-effect-of-daos-on-the-future-7d56b665da73)）、新しいタスクへの展開も考えられる。
+
+[^70-1]:[Trends in Training Dataset Sizes](https://epochai.org/blog/trends-in-training-dataset-sizes)
+[^70-2]:[Multimodal Machine Learning:A Survey and Taxonomy](https://arxiv.org/pdf/1705.09406.pdf)
+[^70-3]:[Unsupervised Deep Learning for IoT Time Series](https://arxiv.org/pdf/2302.03284.pdf)
 
 ## ハードの進化
 https://www.easybom.com/blog/a/under-the-trend-of-hi-how-to-solve-the-dark-silicon-effect
