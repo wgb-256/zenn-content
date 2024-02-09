@@ -33,7 +33,8 @@ ChatGPTをはじめとする生成AIにより、技術者に限らず、AIに頼
     - 書く
 
 > **note**
-嗅覚・触覚・味覚に関するセンサーが一般的でないため、それらを入力とするAIはまだ少ないため、記載していない。今後、第六感にも期待。
+嗅覚・触覚・味覚に関するセンサーが一般的でなくそれらを入力とするAIはまだ少ないため、記載していない。
+今後、それらに加え雰囲気・第六感のような曖昧な情報も取り扱われると考えられる。
 
 ## 用語・分類
 AI
@@ -45,8 +46,8 @@ SymbolicとConnectionistはLearning systemが違う
 https://www.linkedin.com/pulse/what-artificial-intelligence-without-machine-learning-claudia-pohlink/
 
 ## プログラムとAIプログラムの違い
-固定動作：プログラム（人間の偏見の影響を受ける）
-自己調整する：AI（人間の想定を超える）、答えがあるかどうかわからない問題に取り組む、答えが想定されすぎていない
+固定動作：プログラム（設計者の偏見の影響を受ける）
+自己調整する：AI（設計者の想定を超えうる）、答えがあるかどうかわからない問題に取り組む、答えが想定されすぎていない
  
 ## 研究の視点
 およそ、下記の3つの視点での研究活動が行われている。ただし、それぞれ影響を与え合っているため、取り組みをそれぞれに分類することは難しい。
@@ -667,10 +668,24 @@ AIを実行するプロセッサとしてGPUが主流であったが、ニュー
 [^80-10]:[NEC　ベクトルアニーリング活用で業務効率化の効果を実証「CEATEC AWARD 2022」トータルソリューション部門 準グランプリ受賞](https://exp.ceatec.com/related/ceatecnews_vol44/)
 [^80-11]:[CMOSアニーリングによる信号機制御で渋滞解消など、日立がデモ展示](https://xtech.nikkei.com/atcl/nxt/column/18/01537/00602/)
 
-## フルオートメーション化
-- CPS
-- AI作るAI
-- AI同士のコミュニケーション
+## 自動化・自律化
+学習率、ニューラル ネットワークの隠れ層の数、正則化の強度など、モデルの動作を制御する**ハイパーパラメータ**の設定は、かなりの専門知識と経験を必要とするため、ハイパーパラメーターの最適な組み合わせを自動的に検索し、自動的に機械学習モデルを生成するシステム[^90-3]が注目されている。AIが生成したAIをChild AIと呼ぶこともあり、例えばGoogle社のAutoML、オープンソースのPythonライブラリであるAuto-SklearnやAutoKerasなどが有名である。
+またIndustrie 4.0では、物理世界とサイバー世界が相互作用するコンセプトであるCPS（Cyber Physical System）が提唱されている。このCPSを制御し、自律的に動作させるAI技術が考えられている[^90-1] [^90-2]。そして継続的にデータを収集し、自律的に改善を行っていくCPSにAIが組み込まれた場合、AIの改善が自動化されることは容易に想像できる。
+
+> **note**
+製造業におけるCPSの一例として、下記のような継続的な最適化を行う流れが挙げられる。
+1. ロボットの動作をセンサーで取得する
+1. データをIIoT（Industrial IoT）技術により収集・蓄積する
+1. その情報をもとにロボットのDigital Twinを更新する
+1. Digital Twinを用いて制御シミュレーションを行う
+1. AIにより制御方法の最適化を行う
+1. 最適化された制御方法をロボットコントローラへ適用する
+1. ロボットの動作をセンサーで取得する（以下、繰り返し）
+
+[^90-1]:[Supporting AI-powered real-time cyber-physical systems on heterogeneous platforms via hypervisor technology](https://link.springer.com/article/10.1007/s11241-023-09402-4)
+[^90-2]:[When Cyber-Physical Systems Meet AI: A Benchmark, an Evaluation, and a Way Forward](https://arxiv.org/abs/2111.04324)
+[^90-3]:[AutoML](https://www.run.ai/guides/automl)
+[^90-4]:[Can an AI Create Another AI?](https://techevaluate.com/can-an-ai-create-another-ai/)
 
 # おわりに
 AI技術の進展はとどまるところを知らないどころか、どんどん加速している。
@@ -678,6 +693,7 @@ AI技術の進展はとどまるところを知らないどころか、どんど
 また、技術的にAIを見る際には、本来は数学的な視点からも発明の変遷を辿るのがベストだが、本記事で記したような状況や背景の全体感を把握をしておけば詳細に入りやすいのではないかと思う。
 
 ## もうちょっと調べたい（追記する可能性あり）
+調査しきれていない部分もあるので、割愛した部分を加えて電子書籍化に挑戦してみてもよいかも
 - 動向
     - 初期のニューラルネットワーク
         - [History: The 1940's to the 1970's](https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/History/history1.html)
@@ -719,10 +735,6 @@ AI技術の進展はとどまるところを知らないどころか、どんど
     - EntscheidungsproblemとHilbertの23の問題のうち第2問題にも関連している？（Church-turing thesis）
     - Research and Development (RAND) Corporationの詳細
     - AstrocyteとTransformerの関係
-
-## PS
-調査しきれていない部分もあるので、割愛した部分を加えて電子書籍化に挑戦してみてもよいかも？
-
 
 # 参考
 https://en.wikipedia.org/wiki/History_of_artificial_intelligence
