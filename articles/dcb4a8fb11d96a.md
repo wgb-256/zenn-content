@@ -651,14 +651,23 @@ AIが作成目的以外の（危険な）利用のされ方をしてしまうと
 [^70-2]:[Multimodal Machine Learning:A Survey and Taxonomy](https://arxiv.org/pdf/1705.09406.pdf)
 [^70-3]:[Unsupervised Deep Learning for IoT Time Series](https://arxiv.org/pdf/2302.03284.pdf)
 
-## ハードの進化
-https://www.easybom.com/blog/a/under-the-trend-of-hi-how-to-solve-the-dark-silicon-effect
-https://www.eejournal.com/article/20150707-graysilicon/
-- AIハード（チップ、アーキテクチャ）の出現：スケーラビリティ
-    - DPU, NPU (https://hawai.tech/ia-waves-and-evolution-of-hardware/)
-- 量子コンピュータ
+## ハードウェアの進化
+AIを実行するプロセッサとしてGPUが主流であったが、ニューラルネットワークの複雑化や、ネットワーク規模が増大することによる消費電力の問題が懸念される[^80-1]。さらに、自動運転車に搭載する画像処理などには、より高速な処理が必要とされる[^80-2]。そこで、ニューラルネットワーク等のAIアルゴリズムの実行に特化したプロセッサとして**NPU**（Neural Processing Unit）の開発が進められている[^80-3]。NPUは多くの場合AIアルゴリズムのアクセラレータとして働き[^80-4]、Google社のTPU（Tensor Processing Unit）、Apple社のNE（Neural Engine）等が有名である。また、メモリアクセス速度と計算量を確保するため、従来のGPUの50倍以上の大きさのチップを作成する（Cerebras社）[^80-5] [^80-6]、アナログ・インメモリコンピューティング技術を用いる（IBM社）[^80-7]など、様々なアプローチでAI専用Chipへの取り組みが行われている。
+また、**量子コンピューティング**もAI技術への応用が期待されている[^80-8]。実用的な量子コンピュータの実現にはまだまだ課題が多いが[^80-9]、最適化問題に特化した量子アニーリング技術を現行のコンピュータで実行可能にした**疑似量子アニーリング**技術により、実用問題の解決事例がすでに発表されている[^80-10] [^80-11]。
 
-## Full automation
+[^80-1]:[From GPUs to NPUs: Evolution of AI hardware in smartphones](https://indianexpress.com/article/technology/tech-news-technology/gpu-npu-role-ai-smartphones-9040864/)
+[^80-2]:[The Evolution of Neural Processing for Embedded Applications](https://www.synopsys.com/designware-ip/technical-bulletin/neural-processor-npx-ip.html)
+[^80-3]:[What is Neural processing unit (NPU)?](https://iq.opengenus.org/neural-processing-unit-npu/)
+[^80-4]:[Unlocking the Power of NPUs: Transforming Smartphone AI and Machine Learning](https://medium.com/@craigadebanji46/unlocking-the-power-of-npus-transforming-smartphone-ai-and-machine-learning-1542effddc90)
+[^80-5]:[Scaling AI at Cerebras](https://conferences.oreilly.com/artificial-intelligence/ai-ca-2019/cdn.oreillystatic.com/en/assets/1/event/298/Scaling%20AI%20at%20Cerebras%20Presentation.pdf)
+[^80-6]:[Why We Need Big Chips for Deep Learning](https://www.cerebras.net/blog/cerebras-wafer-scale-engine-why-we-need-big-chips-for-deep-learning/)
+[^80-7]:[IBM Research's latest analog AI chip for deep learning inference](https://research.ibm.com/blog/analog-ai-chip-inference)
+[^80-8]:[Quantum Artificial Intelligence Is Closer Than You Think](https://www.forbes.com/sites/jonathanreichental/2023/11/20/quantum-artificial-intelligence-is-closer-than-you-think/?sh=7a829ebc4818)
+[^80-9]:[Why don’t we have Quantum Computers already?](https://tomrocksmaths.com/2023/04/19/why-dont-we-have-quantum-computers-already/)
+[^80-10]:[NEC　ベクトルアニーリング活用で業務効率化の効果を実証「CEATEC AWARD 2022」トータルソリューション部門 準グランプリ受賞](https://exp.ceatec.com/related/ceatecnews_vol44/)
+[^80-11]:[CMOSアニーリングによる信号機制御で渋滞解消など、日立がデモ展示](https://xtech.nikkei.com/atcl/nxt/column/18/01537/00602/)
+
+## フルオートメーション化
 - CPS
 - AI作るAI
 - AI同士のコミュニケーション
