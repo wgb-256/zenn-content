@@ -364,3 +364,5 @@ https://www.techslang.com/definition/what-is-an-ai-accelerator/
 https://www.sciencedirect.com/science/article/pii/S1566253523001148
 
 [^20-1]: [人工知能用言語 Lispの今と将来](https://www.jstage.jst.go.jp/article/jjsai/24/5/24_681/_pdf)
+[^10-42]: [Symbolic artificial intelligence in *Wikipedia*](https://en.wikipedia.org/wiki/Symbolic_artificial_intelligence)
+[^10-49]: [Symbolic vs Connectionist A.I.](https://towardsdatascience.com/symbolic-vs-connectionist-a-i-8cf6b656927)
