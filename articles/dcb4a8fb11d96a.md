@@ -3,7 +3,7 @@ title: "生成AI・ChatGPTに支配される前に、押さえるべきAI事情�
 emoji: "🧠"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["機械学習", "AI", "初心者"]
-published: false
+published: true
 ---
 
 # 章立て
