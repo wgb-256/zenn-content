@@ -13,13 +13,13 @@ published: false
 1. 今後のAI技術について
 1. おわりに
 
-# はじめに
+# 1. はじめに
 AIに支配されうる未来が見え始めている。
 ChatGPTをはじめとする生成AIにより、技術者に限らず、AIに頼らざるを得ない状況になった。技術進展スピードと影響力を考えると、より一層AIが影響を与える範囲は広がっていくことは間違いない。しかし発展が目まぐるしく、高度すぎる技術になっているため、一朝一夕では最新のAI技術についてキャッチアップすることはできなくなっており、よくわからないままAIに触れることになってしまったり、AIという技術が実はとっつきにくいものになってしまった。
 その結果、上辺だけのAI議論、過剰な期待・恐怖、不適切な利用を招いてしまう危険がある。そしてそんなことをしているうちにAIがより高度になり、気づかないうちにAIが人間を支配、すなわち単独で人間社会を最適化し始めるということは、もはや起こりえない夢の話ではなくなってきている。したがって、AIという「技術」に対して向き合うことは今後大変重要になってくるはずである。本記事では、これからAIの勉強を始めたい人や再度情報の整理をしたい人に向け、AI界隈の状況についてまとめた。
 
-# AI研究の全体像
-## AIが担うタスク
+# 2. AI研究の全体像
+## 2.1. AIが担うタスク
 現実世界で用いられるAIは、人間の補助（人間の仕事を手伝う）・代替（人間の代わりに仕事をする）・拡張（人間よりも高度な仕事をする）という立ち位置であることが多い。次章で述べるが、AIの発端は「人間のような知的な機械」という発想である。したがって、AIが担うタスクは、基本的には人間の活動になぞらえるとよいと考えられる。具体的には、入力（見る・聞く・読む 等）により得た情報を処理し（考える）、出力（意思決定・認識・分類・話す・書く 等）を行うことになる。
 
 ![AIのタスク](/images/ai_history/AITask.png)
@@ -27,7 +27,7 @@ ChatGPTをはじめとする生成AIにより、技術者に限らず、AIに頼
 > **note**
 嗅覚・触覚・味覚に関するセンサーが一般的でなくそれらを入力とするAIはまだ少ないため、記載していない。今後、それらに加え雰囲気・第六感のような曖昧な情報も取り扱われる可能性も十分ある。
 
-## AIプログラムとは
+## 2.2. AIプログラムとは
 現状、AIは基本的にソフトウェア、特にコンピュータプログラムである。あるプログラムがAIであるというためには何が必要か、私見を述べる。
 今回の調査を通して、AIプログラムは「推論（Reasoning）」または「推測（Inference）」を行っていると考えられる。
 推論とは、利用可能な情報（証拠・過去事例等）から、結論や新しい情報を導く思考過程であり、推測とは、与えられた情報を越えた判断である[^2-1]。
@@ -39,56 +39,127 @@ ChatGPTをはじめとする生成AIにより、技術者に限らず、AIに頼
 
 [^2-1]:[推論(reasoning, inference)](https://cogpsy.educ.kyoto-u.ac.jp/personal/Kusumi/inference.htm)
 
-## AI技術のカテゴリ・分類
-### 思想によるAI実現アプローチの分類
-AIを実現するためのアプローチは、思想の違いから大きく分けてSymbolic AIとConnectionist AIに分類することができる。
-#### Symbolic AI
-#### Connectionist AI
-をカテゴリに分類すると、下記のようになる。
-- Symbolic AI
-    Symbolを用いて人間の思考プロセスをプログラム化するいう思想に基づいた手法[^10-42]。
-    Symbolとは
-    Tree技術
-- Subsymbolic AI（Neuro-symbolic AI）
-- Connectionist AI
-    人間の脳をモデル化すれば人間と同じように知能をもたせることができるという思想に基づいて、ニューロンの数学モデルを用いてANNを構成する手法[^10-49]
-- Machine Learning
-    機械学習。データを利用した
-- Deep Learning
-    深層学習
-
-### データの取り扱い方機械学習手法の分類 
-データの扱い方で学習方法を下記のように分類できる。
-- 教師アリ学習
-    教師データを用いて
-- 教師なし学習
-
-- 半教師あり学習
-
-また、下記のような特別な学習方法もある。
-- アンサンブル学習
-
-SymbolicとConnectionistはLearning systemが違う
-https://www.linkedin.com/pulse/what-artificial-intelligence-without-machine-learning-claudia-pohlink/
-
+## 2.3. AI技術のカテゴリ・分類
+### 2.3.1. 思想によるAI実現アプローチの分類
+AIを実現するためのアプローチは、思想の違いで分類することができる。本節では、中でも大きな潮流であるSymbolic AIとConnectionist AIを中心に述べる。
 ![AI Categories](/images/ai_history/ai_categories.png)
 *AI分類*
+#### Symbolic AI
+Symbol操作を用いて人間の思考プロセスをプログラム化するいう思想に基づいたAIであり[^10-42] [^3-3]、推測の論理規則によるSymbol処理を行うSymbolicism（象徴主義）的なアプローチ[^3-9]。
+1976年にAllen NewellとHerbert Simonから発表された、知能を記号（Symbol）処理によって表現し得るというPhysical Symbol System Hypothesis（物理記号システム仮説）に基づいている[^3-1] [^3-2]。
+主に検索木とHeuristicsを用いた最も初期に発展した古典的なアプローチは、特にGOFAI（Good Old-Fashioned AI）と呼ばれ、明示的なロジックに基づいており、説明性が高いとして有用性を主張される場合もある[^3-4] [^3-6]。
+基本的に手作業でアルゴリズムの最適化が行われる[^3-7]。
 
-## 研究の視点
-およそ、下記の3つの視点での研究活動が行われている。ただし、それぞれ影響を与え合っているため、取り組みをそれぞれに分類することは難しい。
-- Architechture
-AIモデルの構造（例：どんなニューラルネットワークを組むか）
-- Optimization
-どのように推論モデルを最適化するか（例：ニューラルネットワークのパラメータをどのように決めるか）
-課題：局所解、非凸問題
-- Generalization
-どんな問題でも対応できるか（例：学習したデータ以外の場合にも対応できるか、ノイズ耐性）
+> **note**
+Symbolic AIの文脈で、SymbolismとSymbolicismのどちら思想も取り上げられる場合があるが[^3-8] [^3-9]、[この記事](https://thecontentauthority.com/blog/symbolism-vs-symbolicism)の*Symbolicismは、システムまたは理論におけるSymbolまたはSymbolic Elementの使用を指す。*という定義から、今回はSymbolisicmを用いた。
 
-# AI技術関連史　　
+#### Connectionist AI
+ニューロンの数学モデルを用いて人工ニューラルネットワーク（ANN: Artificial Neural Network）を構成する手法であり[^10-49]、ANNを利用して知的能力を説明しようとするConnectionism的なアプローチ[^3-10]。Subsymbolic AIとも呼ばれる[^3-5]。
+##### Machine Learning（機械学習）
+人間がルールを作らずに機械に学習能力を与える研究分野。特に、既存のデータから何らかの関係性やパターンの発見に焦点をおいており[^3-11]、人力では取り扱いが不可能なほどの膨大な量のデータ（Big Data）からモデル（Data-Driven model）を得られることが大きなメリットとなる。ただし昨今では、モデルのブラックボックス性（データから得た学習アルゴリズムを人間が説明できないこと）が問題となる場合も多い。
+##### Deep Learning（深層学習）
+機械学習の中でも、3層以上の多層ニューラルネットワークを用いてモデルを構築する分野[^3-12]。多層にすることでモデルの表現力が上がり、より高度なアルゴリズムを得ることができる一方、ネットワークの最適化が難しいこと、多大な計算リソースを要すること等が課題として挙げられる。
+#### その他のアプローチ
+##### Neuro-Symbolic AI
+Symbolic AIの記号推論（Symbolic Reasoning）とConnectionist AIのニューラルネットワークの技術を組み合わせ、それぞれの説明性と認知能力を補完しようとするアプローチ[^3-13]。Symbolを用いた論理的な表現をニューラルネットワークに焼き直す手法と、ニューラルパターンから情報を抽出してSymbol表現へマッピング後、Symbolic Reasoningを行う手法の2つに大別される[^3-14]。
+##### Actionist AI
+機械の自動制御や動物の神経系機能の類似性や関連性をテーマとする人工頭脳学（Cybernetics）[^3-15]を由来とし、知性は認識・行動に依存し、知識・表現・推論は必要ないという思想であるActionism的なアプローチ[^3-16]。外部環境との相互作用に基づいて、環境フィードバックを自律的に認識して適切な行動を行うことによって知的行動が完成すると置いている[^3-17]。
+###### 強化学習（Reinforcement Learning）
+特定の環境（Environment）で報酬（Rewards）を最大化するために適切な行動（Action）をとることを目的としてプログラム（Agent）を学習させる、環境と相互作用する自己評価学習手法[^3-19] [^3-17]。
+（大規模な）データセットが不要であるため、学習データに依存せず複雑な振る舞いをモデル化することができるなどの利点を持つ[^3-20]。機械学習の一種とも言うことができる[^3-18]。
+
+>![Reinforcement Learning](https://miro.medium.com/v2/resize:fit:2000/format:webp/0*WC4l7u90TsKs_eXj.png)
+*Reinforcement Learning（引用:[^3-19]）*
+
+###### 進化的計算（Evolutionary Computation）
+変化する環境に適応するために、多大な可能性から解決策を探索する進化（Evolution）のプロセスを[^3-21]、計算上の問題（特にここではAIの最適化）に応用する手法。
+主なアルゴリズムとして、遺伝的アルゴリズム（Genetic Algorithm: GA）等が挙げられる。
+
+[^3-1]: [Computer Science as Empirical Inquiry: Symbols and Search](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=443653b1905d1ee95bfd504f66f5f3f6487fba56)
+[^3-2]: [記号創発問題　─記号創発ロボティクスによる記号接地問題の本質的解決に向けて─](https://www.jstage.jst.go.jp/article/jjsai/31/1/31_74/_pdf/-char/ja)
+[^3-3]:[Symbolic Artificial Intelligence](https://primo.ai/index.php?title=Symbolic_Artificial_Intelligence)
+[^3-4]:[Reviving Explainability with Good Old-Fashioned AI](https://www.cpq.se/the-cpq-blog/reviving-explainability-with-good-old-fashioned-ai)
+[^3-5]:[A Survey on Verification and Validation, Testing and Evaluations of Neurosymbolic Artificial Intelligence](https://arxiv.org/abs/2401.03188)
+[^3-6]:[GOFAI Considered Harmful (And Mythical)](http://cs-www.cs.yale.edu/homes/dvm/papers/nogofai.pdf)
+[^3-7]:[The Difference Between Symbolic AI and Connectionist AI](https://blog.re-work.co/the-difference-between-symbolic-ai-and-connectionist-ai/)
+[^3-8]:[Symbolism Versus Connectionism In AI: Is There A Third Way?](https://www.forbes.com/sites/forbestechcouncil/2020/09/01/symbolism-versus-connectionism-in-ai-is-there-a-third-way/?sh=36000ab07549)
+[^3-9]:[Symbolicism and Connectionism: AI Back at a Join Point](https://users.monash.edu/~korb/shadowfax/pubs/dreyfus.pdf)
+[^3-10]:[Connectionism](https://plato.stanford.edu/entries/connectionism/)
+[^3-11]:[What is machine learning and how does it work? In-depth guide](https://www.techtarget.com/searchenterpriseai/definition/machine-learning-ML)
+[^3-12]:[What is deep learning?](https://www.ibm.com/topics/deep-learning)
+[^3-13]:[Neurosymbolic AI: Competing or Complementary (to Human) Intelligence](https://www.adalanai.com/post/neurosymbolic-ai-competing-or-complementary-to-human-intelligence)
+[^3-14]:[Neurosymbolic AI - Why, What, and How](https://arxiv.org/abs/2305.00813)
+[^3-15]:[サイバネティクス](https://www.sophia-it.com/content/cybernetics)
+[^3-16]:[Major schools of AI- how they reshape the way we interact with machines and understand artificial intelligence](https://medium.com/@ikraaamzerrouki/major-schools-of-ai-how-they-reshape-the-way-we-interact-with-machines-and-understand-artificial-e7df1e1bd5f3#:~:text=Actionism%20is%20also%20known%20as,knowledge%2C%20representation%2C%20or%20reasoning.)
+[^3-17]:[From Independence to Interconnection—A Review of AI Technology Applied in Energy Systems](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8661901)
+[^3-18]:[Reinforcement learning](https://www.geeksforgeeks.org/what-is-reinforcement-learning/)
+[^3-19]:[Reinforcement Learning, Part 1: A Brief Introduction](https://medium.com/ai%C2%B3-theory-practice-business/reinforcement-learning-part-1-a-brief-introduction-a53a849771cf)
+[^3-20]:[The Benefits of Reinforcement Machine Learning](https://www.modev.com/blog/the-benefits-of-reinforcement-machine-learning)
+[^3-21]:[Evolutionary Computation: An Overview](https://link.springer.com/chapter/10.1007/3-540-56602-3_163)
+
+### 2.3.2. データの取り扱い方による機械学習手法の分類
+データの扱い方で学習方法を下記のように分類できる。
+（同様の分類で、強化学習もここにしばしば含まれるが、前述したため割愛する）
+#### 教師あり学習（Supervised Learning）
+入力データに対する正しい出力が紐づけられている、ラベル付きデータセットを教師データ（Target data）として用いて、主に回帰・分類タスクを行う機械学習モデルを獲得する手法。
+#### 教師なし学習（Unsupervised Learning）
+入力データに対する出力が紐づけられていない、ラベルなしデータセットを教師データとして用いて、主にクラスタリング・次元削減タスクを行う機械学習モデルを獲得する手法。
+#### 半教師あり学習（Semi-supervised Learning）
+ラベル付きデータとラベルなしデータの両方を用いる手法（ラベル付きデータの方が少ない場合が多い）。
+#### 自己教師あり学習（Self-Supervised Learning）
+ラベルのないデータから独自のラベルを自動的に作り、それをもとに学習を進める学習方法[^50-79]。
+
+### 2.3.3. その他、特殊な学習方法
+その他の学習方法で、重要と思われる手法を簡単に紹介する。
+#### アンサンブル学習
+複数のモデルからの予測を結合することで予測の精度を向上させる学習方法[^4-1]。
+#### 転移学習
+あるタスク向けに学習したモデルを、類似したタスクを実行するモデルの開始点として使用する学習方法[^4-2]。
+
+[^4-1]:[A Comprehensive Guide to Ensemble Learning (with Python codes)](https://www.analyticsvidhya.com/blog/2018/06/comprehensive-guide-for-ensemble-models/)
+[^4-2]:[Transfer Learning - 転移学習](https://jp.mathworks.com/discovery/transfer-learning.html)
+
+## 2.4. AI研究の視点
+AIに関する研究開発のうち現在最も活発なのは機械学習の分野である。そしてその中でも、およそ下記の3つの視点での研究活動が行われている[^7-2]（ただし、それぞれ影響を与え合っているため、取り組みをそれぞれに分類することは難しい）。
+### Representation（Architecture）
+AIモデルの構造をどのようにするかという視点。例えば、CNN、RNN、GAN、Transformer等（それぞれ次章でも触れる）、様々なトポロジーが有効であることが示されており[^6-2]、モデル構造がパターンの記憶や検索のプロセスにおいて非常に重要であることがわかっている[^6-4]。
+この種の研究では、進化や生物学的なシステムの知見をAIモデルの設計に生かすことや[^6-3]、最適なトポロジー探索の自動化が有効な手段であると考えられている[^6-5]。
+
+> ![Various kinds of neural networks](https://miro.medium.com/v2/resize:fit:2000/format:webp/1*gccuMDV8fXjcvz1RSk4kgQ.png)
+*Various kinds of neural networks（引用:[^6-1]）*
+
+[^6-1]:[Cheat Sheets for AI, Neural Networks, Machine Learning, Deep Learning & Big Data](https://becominghuman.ai/cheat-sheets-for-ai-neural-networks-machine-learning-deep-learning-big-data-678c51b4b463)
+[^6-2]:[Neural Network Architecture: all you need to know as an MLE [2023 edition]](https://kili-technology.com/data-labeling/machine-learning/neural-network-architecture-all-you-need-to-know-as-an-mle-2023-edition#573)
+[^6-3]:[Improving Neural Networks with Neuroscience](https://medium.com/mlearning-ai/improving-neural-networks-with-neuroscience-e7a500ed0ab)
+[^6-4]:[Influence of topology on the performance of a neural network](https://arxiv.org/abs/cond-mat/0310205)
+[^6-5]:[Finding the Optimal Topology of an Approximating Neural Network](https://www.mdpi.com/2227-7390/11/1/217)
+
+### Optimization
+どのようにAIアルゴリズムを最適化するか、多くの場合ニューラルネットワークパラメータをどのように決めるかという視点[^7-1]。最適化は、利用されるニューラルネットワークが大規模になるにつれ困難であることもあり[^7-3]、活発に研究が行われている。主な課題は、勾配爆発・勾配消失等による解の収束に関する問題、収束速度に関する問題、局所解（Local minima）の取り扱いに関する問題などである[^7-2]。
+
+>![Local minima and Global minima](https://blog.paperspace.com/content/images/2018/05/challenges-1.png)
+*Local minima and Global minima in Optimization（引用:[^7-4]）*
+
+[^7-1]:[Why Optimization Is Important in Machine Learning](https://machinelearningmastery.com/why-optimization-is-important-in-machine-learning/)
+[^7-2]:[Optimization for deep learning: theory and algorithms](https://arxiv.org/abs/1912.08957)
+[^7-3]:[Thick-Net: Parallel Network Structure for Sequential Modeling](https://arxiv.org/abs/1911.08074)
+[^7-4]:[Intro to optimization in deep learning: Gradient Descent](https://blog.paperspace.com/intro-to-optimization-in-deep-learning-gradient-descent/)
+
+### Generalization
+AIによる推論の一般性、すなわち学習データに含まれないようなデータが入力された場合でも正確に推論できるかという視点[^8-1]。この視点は、特に製造業（予知保全や品質管理などのタスク）において顕著なものとなる[^8-2]。主な課題として、偏りのないデータセットの準備、オーバーフィッティング、ラベルの正確性等が挙げられる[^8-2]。
+
+>![Underfitting and Overfitting](https://wp.wwu.edu/machinelearning/files/2017/01/mlconcepts_image5-rnehsa.png)
+*Underfitting and Overfitting（引用:[^8-1]）*
+
+[^8-1]:[Generalization and Overfitting](https://wp.wwu.edu/machinelearning/2017/01/22/generalization-and-overfitting/)
+[^8-2]:[The Limitations of AI: Why Generalization is a Challenge](https://medium.com/kocdigital/the-limitations-of-ai-why-generalization-is-a-challenge-59c41e78a655)
+
+# 3. AI技術関連史　　
+本章では、AI技術がどのように発展したかを追う。中でも前章のAI技術分類と同様に、大きな潮流であるSymbolic AIとConnectionist AIを中心に述べる。
 ![AI技術関連史](/images/ai_history/ai-hisotry.png)
 *AI技術関連史*
 
-##  ~ 1957年ごろ：「AI」誕生
+## 3.1. ~ 1957年ごろ：「AI」誕生
 17世紀に活躍したドイツの学者[Gottfried Wilhelm Leibniz](https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz)は、安全・時間浪費の観点から計算は人間ではなく機械がするべきであるという考え方を持っており、[Pascalの計算機](https://en.wikipedia.org/wiki/Pascal%27s_calculator)をもとにして、長さの異なる歯をもつシリンダーと移動式の歯車を組み合わせて計算（基本的には自然数の四則演算）を可能にしたStepped reckonerまたはLeibniz Wheel（ライプニッツの車輪）と呼ばれる手動機械式の計算機を、1694年に完成させた[^10-4] [^10-5]。これをきっかけにLeibnizは、数学的記述（mathmatical statement、詳細は以下の**note**を参照）の真理値を決定できる機械を作ることができるのではないかと考えるようになった。それが実現できると、機械が論理を扱うことができるようになるため、どういう場合には何をするといった**場合分け処理**や、明確な理由がある**推論**といった[^10-8]、より知的な処理が可能になる。機械が論理を扱うためには、人間が自然に行っているコミュニケーションのような、曖昧さが残る表現やその時によって用法・意味が変わるような**自然言語**（natual langage）ではなく、文法・意味が形式的に与えられて明確に論理が展開できる**形式言語**（formal language）が必要であると考え、Leibnizの研究は形式言語を用いた**形式理論**（formal theory）にも重きが置かれるようになっていった。さらに、Leibnizは活動の中で、現代のコンピュータの基礎となっている2進数演算（binary arithmetics）や[^10-9]、2進数コンピュータ（binary computer）についても功績を残している[^10-10]。
 
 > **note**
@@ -178,7 +249,7 @@ https://sitn.hms.harvard.edu/flash/2017/history-artificial-intelligence/)
 [^10-56]: [Turing test in *Wikipedia*](https://en.wikipedia.org/wiki/Turing_test)
 [^10-57]:[Universal Turing Machine](https://web.mit.edu/manoli/turing/www/turing.html)
 
-## 1957~1980年ごろ: Logic-based AI
+## 3.2. 1957~1980年ごろ: Logic-based AI
 本節以降では、AIのアルゴリズムや技術の変遷に注目するため発明者や関係者は割愛する場合がある。
 ### 1st AI boom
 1958年、Connectionist AIの分野では、RosenblattによりPerceptronと呼ばれる単層のニューラルネットワークが発明された。Perceptronは、MPニューロンが0または1の2つの値（ブール値）のみを扱うのに対して、ニューロンの入力に小数点以下を含んだ値を扱うようになり[^20-47]、加えてHebb理論のように前節のSNARC同様に機械が学習する方法も考案された[^20-4] [^20-5] [^20-39]。具体的には、ニューラルネットワークの予測出力と正解の出力（教師データ、Training Data）の差を、**損失関数**（Loss function、Cost function）で**損失**（Loss、Cost、Error）として表し、損失を最小化するようにニューラルネットワークのパラメータを最適化する（**Optimization**）という流れで学習を行った。Rosenblattが用いた学習則（Learning Rule）は、Perceptron Learning Ruleなどと呼ばれる[^20-42] [^20-43] [^20-44]。このように教師データを用いる学習方法は**教師あり学習**（Supervised Learning）と呼ばれ、これに対して教師データを用いないこの頃主流だった学習方法は**教師なし学習**（Unsupervised Learning）と呼ばれるようになっていく。
@@ -212,7 +283,7 @@ AIの研究としてではないが、下記の2つも後に重要となる。
 
 ### 1st AI Winter
 前節のような盛り上がりを見せたAI研究も、1960年代後半ごろから冬の時代が訪れた。
-Rosenblattに発明されたPerceptronは2種類かつ比較的単純な分類タスク（厳密には、線形分離可能なタスク）にしか対応できないことがわかり[^20-3]、1969年に出版された*Perceptrons: an introduction to computational geometry*という書籍で単純な論理XOR関数を学習できないことを示されるなど[^20-6]、非常に厳しい目を向けられることとなった。またこの頃の多くの研究者が、1965年頃から使われだした**強化学習**（try and errorで学習していく方法）に取り組んでいるつもりが、教師あり学習になってしまうケースが多発するなどの混乱もあり、学習アルゴリズムにフォーカスした研究が多くなかった[^20-38]。John AndreaeがSTeLLA（Standard Telecommunication Laboratories[^20-37]）という環境からtrial and errorで学習を行う（後の強化学習）システムを発明しても注目度が上がらない[^20-36]、**次元の呪い**の提唱など[^20-55]、Connectionist AIや機械学習の分野は下火になっていた。
+Rosenblattに発明されたPerceptronは2種類かつ比較的単純な分類タスク（厳密には、線形分離可能なタスク）にしか対応できないことがわかり[^20-3]、1969年に出版された*Perceptrons: an introduction to computational geometry*という書籍で単純な論理XOR関数を学習できないことを示されるなど[^20-6]、非常に厳しい目を向けられることとなった。またこの頃の多くの研究者が、1965年頃から使われだした**強化学習**（Try and Errorで学習していく方法）に取り組んでいるつもりが、教師あり学習になってしまうケースが多発するなどの混乱もあり、学習アルゴリズムにフォーカスした研究が多くなかった[^20-38]。John AndreaeがSTeLLA（Standard Telecommunication Laboratories[^20-37]）という環境からtrial and errorで学習を行う（後の強化学習）システムを発明しても注目度が上がらない[^20-36]、**次元の呪い**の提唱など[^20-55]、Connectionist AIや機械学習の分野は下火になっていた。
 そして、1969年のマンスフィールド修正案により、ARPAの後身となるDARPA（Defense Advanced Research Projects Agency）の投資対象を、基礎研究ではなく具体的な目的をもった研究を重視するように大きく変更された[^20-35]。
 それに加え、1973年にScience Research Council（イギリスの科学研究評議会）に向けてAI研究の評価を行ったLighthill reportで、航空機の自動着陸システムがAIよりも従来手法の方が優れていること、AIプログラムの作りこみが難しいこと、組み合わせ爆発問題が起こること等に注目し、AI研究に対して悲観的な見解を示した[^20-32] [^20-33] [^20-34]。
 このような流れもあって資金の確保が難しくなり、AI研究の勢いは次第に失速した。AIへの期待は、人間の脳のような柔軟性や汎用性をもってほしいという究極の知性よりも、特定の分野であってもより現実的な問題の解決へと移っていった。
@@ -275,7 +346,7 @@ Rosenblattに発明されたPerceptronは2種類かつ比較的単純な分類�
 [^20-57]:[Fifty Years of Classification and Regression Trees](https://pages.stat.wisc.edu/~loh/treeprogs/guide/LohISI14.pdf)
 [^20-58]:[Deep Learning Neural Network Algorithm for Computation of SPICE Transient Simulation of Nonlinear Time Dependent Circuits](https://www.mdpi.com/2079-9292/11/1/15)
 
-## 1980~1993ごろ：Knowledge-based AI
+## 3.3. 1980~1993ごろ：Knowledge-based AI
 ### 2nd AI boom
 前述したDENDRALの研究は、対象とする化学構造の拡大を目指すDendral Project、化学的知識活用の向上を目指すMetaDendral Project、さらなる一般化を目指す[Mycin](https://en.wikipedia.org/wiki/Mycin) Projectに分化するなどして継続されていた[^30-6]。開発当初の検索ベースのアルゴリズム（* Boolean logic and logical reasoning, deterministic model*[^30-10]）で専門家レベルの能力をもったAIとはいかなかったが、「プログラムが問題解決を行うためには（従来重視されていた推論方法よりも）知識が重要である[^30-7]」という考え方に基づいており、これはKnowledge-is-power仮説（後のKnowledge principle）と呼ばれる[^30-5]。専門知識を持つ人間がExpertと称されたことから[^30-8]、このような知識と問題解決方法が分けられた構造を持ちそれぞれ別の開発者（専門知識を持つ人、プログラムを作成する人）が担当できるプログラムを**Expert System**（または**Knowledge based System**）[^30-9]、知識を体系化する取り組みはKnowledge Engineeringと呼ばれるようになった[^30-5]。このような構造をとることにより、プログラマーが必ずしも専門知識を習得したり、専門知識を持つ人がプログラミングを習得する必要がなくなったことが大きな功績の一つといえる[^30-10]。
 一方、この頃ICも着々と集積化を進める。1960年代前半にSSI（Small-Scale Integration）レベル、1960年代後半にMSI（Medium-Scale Integration）レベル、1970年代中盤にはLSI（Large-Scale Integration）レベルへ、そして1971年に初のマイクロプロセッサ（Central Processing Unit: CPUとも呼ばれる）Intel 4004が発明されるなど、ムーアの法則通り集積度を上げ、コンピュータの小型化と計算能力向上が順調に進んだ[^30-1] [^30-2]（各レベル詳細は割愛）。それによりMinicomputer（MC）と呼ばれる中規模のコンピュータ（現在の「サーバー」規模のコンピュータ）が市場に出始めることとなった[^30-3]。Minicomputerは企業で大量に購入され、それによりドキュメントが増加、それらを整理・参照するツールの需要が高まった[^30-4]。
@@ -362,7 +433,7 @@ Perceptronを持ちいた階層型のニューラルネットワーク構造を�
 [^30-58]:[Decision Tree History](https://holypython.com/dt/decision-tree-history/)
 [^30-59]:[Expert Systems in Artificial Intelligence](https://www.javatpoint.com/expert-systems-in-artificial-intelligence)
 
-## 1993~2012年ごろ：Machine Learning
+## 3.4. 1993~2012年ごろ：Machine Learning
 前述したExpert Systemが困難だった非構造化データ、非線形データを取り扱うため、機械学習技術（特にキーとなったのが決定木、BP法である[^40-76]）がより注目され始める。ただし機械学習研究が盛り上がった初期は、信頼性のあるデータが少なくハードウェアリソースの限界もあり研究の再現性がとれないこと、出力の説明性が乏しいことなどから、比較的教師データが少なくても性能を発揮し、理論保障が可能な数学・統計的なアプローチが主流だった[^40-1] [^40-2] [^40-3]。
 例えば自然言語処理（NLP: Natural Language Processing）のタスクに対しては、1990年代に**N-gram言語モデル**と呼ばれる、文章内で次にどの単語がくるかの確率を表したようなモデルの使用が、機械翻訳システムで一般的になり、その後NLPの他の分野にも拡張されたことと合わせて[^40-4]、系列データを扱うのに長けている**隠れマルコフモデル**（**HMMs: Hidden Markov Models**）が広く利用された[^40-5]。例
 そして、パターン認識・分類・回帰のタスクに対しては、非線形データ解析の手法であるカーネル法をベースとして1992年に**サポートベクトルマシン**（**SVM: Support Vector Machine**）が提案された[^40-6]。SVMはデータを（基本的には2つの）クラスに分類するとき、可能な限り各クラスが大きく分離されるような平面（MMSH: Maximum Margin Separating Hyperplane）を見つけるアルゴリズムであり[^40-7]、比較的メモリ効率が良く小さなデータセットに向いていたため、手書き文字画像の認識等に用いられた[^40-8] [^40-9]。
@@ -484,7 +555,7 @@ LSTMの元論文にはメモリーセルが情報をforgetするとは書かれ�
 [^40-79]:[Difference between AlexNet, VGGNet, ResNet, and Inception](https://towardsdatascience.com/the-w3h-of-alexnet-vggnet-resnet-and-inception-7baaaecccc96)
 [^49-80]:[The main challenges and issues of big data management](https://www.researchgate.net/publication/272696610_The_main_challenges_and_issues_of_big_data_management?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6Il9kaXJlY3QiLCJwYWdlIjoiX2RpcmVjdCJ9fQ)
 
-## 2013年ごろ以降 ：Deep Learning
+## 3.5. 2013年ごろ以降 ：Deep Learning
 2013年頃に、メディア報道に「Big Tech」という技術系大企業（Big FourはGoogle、Amazon、Facebook、Apple、Big Fiveはそれらに加えてMicrosoft）を表す用語が現れはじめた[^50-1] [^50-2]。これらの企業は例えば、Appleが音声認識のデジタルアシスタントであるSiriをiPhone 4Sに実装（2011年）[^50-3]、FacebookがFAIR（Facebook Artificial Intelligence Research）を設立（2013年）[^50-6]、Googleが英国のAIスタートアップDeepMind社を買収（2014年）[^50-5]、AmazonがスマートスピーカーにバーチャルアシスタントAlexaを搭載（2014年）[^50-4]、MicrosoftがデジタルアシスタントCortanaをリリース（2014年）など[^50-7]、AIに対しても非常に積極的な動きを見せていた。
 この頃、CPU性能の一つであるクロック周波数は頭打ち状態となっていたが、マルチコア化、仮想化等により、コンピュータはさらに高性能になっていった[^50-13]。チップレベルでいえば、集積化が進んでも単位面積当たりの消費電力が変わらないというデナード則（Dennard's scaling）が崩壊し、パフォーマンスを上げつつ発熱等の問題に対応するためにはすべてのコアを同時に使用できないという問題（Dark Silicon）に対して[^50-86]、用途別のアクセラレータやヘテロジニアス構造で対応していくという時代に入り[^50-87]、Deep Learningもより高度化していく。
 2013年に、入力を示すベクトル空間を生成する**Embedding**と呼ばれる処理により、単語の意味を表現したWord Embeddingを生成するWord2vecと呼ばれるモデルがGoogleの技術者により発表された[^50-11] [^50-12]。そして2014年に発表されたSeq2seq（Sequence-to-Sequence）モデルでは[^50-18]、RNNでWord Embeddingを行い、さらにRNNで別の言語に変換するという機械翻訳モデルが提案された。このようなEmbeddingを行うEncoderと、それをもとに出力を行うDecoderからなる構造を、[**Encoder-Decoder**](https://lethediana.sakura.ne.jp/tech/archives/summary-ja/2173/)と呼び[^50-19]、自然言語処理（翻訳）でいうと複雑な文構造や慣用的な表現などニュアンスを考慮した処理を可能とした[^50-20]（構造・機能の定性的なまとめは[こちら](https://lethediana.sakura.ne.jp/tech/archives/summary-ja/2173/)もどうぞ）。
@@ -618,9 +689,9 @@ Transformerはそのパフォーマンスの高さから他の分野にも用は
 [^50-89]:[The Full Story of Large Language Models and RLHF](https://www.assemblyai.com/blog/the-full-story-of-large-language-models-and-rlhf/)
 [^50-90]:[The Transformer Model](https://machinelearningmastery.com/the-transformer-model/)
 
-# 今後注目すべきAI技術関連動向
+# 4. 今後注目すべきAI技術関連動向
 社会実装に向けた課題が増えている
-## AI倫理（AI Ethics）
+## 4.1. AI倫理（AI Ethics）
 AI倫理は、AIが責任を持って開発および使用されることを保証するために、関係者 (エンジニアから政府関係者まで) が使用する一連の指針で、AIに対して安心・安全なアプローチをとるための研究分野である[^60-1]。近年急激に注目度を増してきており[^60-2]、AI倫理の課題として下記の4点が挙げられている[^60-3]。
 1. Explainability（説明可能性）
 AIの推測理由を説明できる必要があるという課題。意思決定がAIによってどのように行われるかを理解する必要性が高まっており[^60-6]、金融やヘルスケアなどの分野で注目を集めている[^60-7]。DARPAはDeep Learningをはじめとする高パフォーマンスなAI技術が不透明であることを懸念し、AIを適切に信頼・効果的に管理するため、人間のユーザーに理論的根拠を説明できるAIシステムである**XAI**（eXplainable AI、説明可能AI）のプログラムを2017年に開始[^60-5]、EC（European Commision）がEthics guidelines for trustworthy AIを2019年に発表するなど[^60-8]、国家レベルでも重要な課題として認識されている。
@@ -692,7 +763,7 @@ AIが作成目的以外の（危険な）利用のされ方をしてしまうと
 [^60-35]:[What Are Deepfakes and How Are They Created?](https://spectrum.ieee.org/what-is-deepfake)
 [^60-36]:[Deepfakes: The new face of fraud](https://withpersona.com/blog/what-are-deepfakes)
 
-## マルチモーダル化
+## 4.2. マルチモーダル化
 さまざまなタスクに対する機械学習のデータセットのサイズは増え続けており、言語系では1兆点を超えるデータが利用されるようになってきている[^70-1]。そんな中、複数種類のデータを用いた**マルチモーダル**AIの注目度が高まっている。特に、**VLM**（Vision-Language Model）と呼ばれる、大規模な画像-テキストペアのデータセットを学習データとして用いる機械学習モデルに関する研究が盛んで[^70-2]、OpenAI社の[CLIP](https://openai.com/research/clip)（Contrastive Language–Image Pre-training）などが有名である。
 その他にも、音声-動画のデータセットからの音声認識や感情認識のタスクに取り組むAIの研究もおこなわれている[^70-2]。
 さらに、IoTデバイスで収集されたデータや[^70-3]、メタバースで収集されたデータが利用されるなど（[DAO・メタバースに関する私見](https://medium.com/@ttnt.1013/the-potential-effect-of-daos-on-the-future-7d56b665da73)）、新しいタスクへの展開も考えられる。
@@ -701,7 +772,7 @@ AIが作成目的以外の（危険な）利用のされ方をしてしまうと
 [^70-2]:[Multimodal Machine Learning:A Survey and Taxonomy](https://arxiv.org/pdf/1705.09406.pdf)
 [^70-3]:[Unsupervised Deep Learning for IoT Time Series](https://arxiv.org/pdf/2302.03284.pdf)
 
-## ハードウェアの進化
+## 4.3. ハードウェアの進化
 AIを実行するプロセッサとしてGPUが主流であったが、ニューラルネットワークの複雑化や、ネットワーク規模が増大することによる消費電力の問題が懸念される[^80-1]。さらに、自動運転車に搭載する画像処理などには、より高速な処理が必要とされる[^80-2]。そこで、ニューラルネットワーク等のAIアルゴリズムの実行に特化したプロセッサとして**NPU**（Neural Processing Unit）の開発が進められている[^80-3]。NPUは多くの場合AIアルゴリズムのアクセラレータとして働き[^80-4]、Google社のTPU（Tensor Processing Unit）、Apple社のNE（Neural Engine）等が有名である。また、メモリアクセス速度と計算量を確保するため、従来のGPUの50倍以上の大きさのチップを作成する（Cerebras社）[^80-5] [^80-6]、アナログ・インメモリコンピューティング技術を用いる（IBM社）[^80-7]など、様々なアプローチでAI専用Chipへの取り組みが行われている。
 また、**量子コンピューティング**もAI技術への応用が期待されている[^80-8]。実用的な量子コンピュータの実現にはまだまだ課題が多いが[^80-9]、最適化問題に特化した量子アニーリング技術を現行のコンピュータで実行可能にした**疑似量子アニーリング**技術により、実用問題の解決事例がすでに発表されている[^80-10] [^80-11]。
 
@@ -717,7 +788,7 @@ AIを実行するプロセッサとしてGPUが主流であったが、ニュー
 [^80-10]:[NEC　ベクトルアニーリング活用で業務効率化の効果を実証「CEATEC AWARD 2022」トータルソリューション部門 準グランプリ受賞](https://exp.ceatec.com/related/ceatecnews_vol44/)
 [^80-11]:[CMOSアニーリングによる信号機制御で渋滞解消など、日立がデモ展示](https://xtech.nikkei.com/atcl/nxt/column/18/01537/00602/)
 
-## AI開発の自動化・自律化
+## 4.4. AI開発の自動化・自律化
 学習率、ニューラル ネットワークの隠れ層の数、正則化の強度など、モデルの動作を制御する**ハイパーパラメータ**の設定は、かなりの専門知識と経験を必要とするため、ハイパーパラメーターの最適な組み合わせを自動的に検索し、自動的に機械学習モデルを生成するシステム[^90-3]が注目されている。AIが生成したAIをChild AIと呼ぶこともあり、例えばGoogle社のAutoML、オープンソースのPythonライブラリであるAuto-SklearnやAutoKerasなどが有名である。
 またIndustrie 4.0では、物理世界とサイバー世界が相互作用するコンセプトであるCPS（Cyber Physical System）が提唱されている。このCPSを制御し、自律的に動作させるAI技術が考えられている[^90-1] [^90-2]。そして継続的にデータを収集し、自律的に改善を行っていくCPSにAIが組み込まれた場合、AIの改善が自動化されることは容易に想像できる。
 
@@ -739,12 +810,12 @@ AIを実行するプロセッサとしてGPUが主流であったが、ニュー
 [^90-3]:[AutoML](https://www.run.ai/guides/automl)
 [^90-4]:[Can an AI Create Another AI?](https://techevaluate.com/can-an-ai-create-another-ai/)
 
-# おわりに
+# 5. おわりに
 AI技術の進展はとどまるところを知らないどころか、どんどん加速している。
 そのため、現時点の最新技術が何かを拾うだけではなく、技術的な背景を頭に入れたうえで動向をキャッチアップし、現状を整理していくことでより適切にAI技術をとらえやすくなる。
 また、技術的にAIを見る際には、本来は数学的な視点からも発明の変遷を辿るのがベストだが、本記事で記したような状況や背景の全体感を把握をしておけば詳細に入りやすいのではないかと思う。
 
-## もうちょっと調べたい（追記する可能性あり）
+## 補足：もうちょっと調べたい項目（追記する可能性あり）
 調査しきれていない部分もあるので、割愛した部分を加えて電子書籍化に挑戦してみてもよいかも
 - 動向
     - 初期のニューラルネットワーク
@@ -791,6 +862,8 @@ AI技術の進展はとどまるところを知らないどころか、どんど
     - EntscheidungsproblemとHilbertの23の問題のうち第2問題にも関連している？（Church-turing thesis）
     - Research and Development (RAND) Corporationの詳細
     - AstrocyteとTransformerの関係
+    - 進化的計算
+        - [進化的計算](https://www.ai-gakkai.or.jp/resource/my-bookmark/my-bookmark_vol19-no3/)
 
 # 参考
 https://en.wikipedia.org/wiki/History_of_artificial_intelligence
