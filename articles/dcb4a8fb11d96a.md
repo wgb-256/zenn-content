@@ -299,8 +299,9 @@ AIの技術進展はどんどん加速している。
 そのため、現時点の最新技術が何かを拾うだけではなく、技術的および社会的な背景を頭に入れたうえで動向をキャッチアップし、現状を整理していくことでより適切にAI技術をとらえやすくなる。
 また、技術的にAIを見る際には、本来は数学的な視点からも発明の変遷を辿るのがベストだが、本記事で記したような状況や背景の全体感を把握をしておけば詳細に入りやすいのではないかと思う。
 
-## 補足：もうちょっと調べたい項目（追記する可能性あり）
+## 補足
 割愛した部分を加えて電子書籍化に挑戦するかも
+:::details もうちょっと調べたい項目（追記する可能性あり） 
 - 動向
     - 初期のニューラルネットワーク
         - [History: The 1940's to the 1970's](https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/History/history1.html)
@@ -348,6 +349,7 @@ AIの技術進展はどんどん加速している。
     - AstrocyteとTransformerの関係
     - 進化的計算
         - [進化的計算](https://www.ai-gakkai.or.jp/resource/my-bookmark/my-bookmark_vol19-no3/)
+:::
 
 # 参考
 https://en.wikipedia.org/wiki/History_of_artificial_intelligence
